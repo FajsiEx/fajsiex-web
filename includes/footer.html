@@ -1,0 +1,45 @@
+
+<!-- <div class="footer" style="bottom:0; height:40px;width:100%;background: #555;position:absolute;width: calc(100% - 16px);padding:8px">
+  <span style="position: absolute; margin-top: 10px;"><?php
+    $_SERVER['SITE_VER'] = 'Build 201810040';
+    echo $_SERVER['SITE_VER'] || "N/A";
+  ?></span>
+</div> -->
+
+<!-- Particles.js lib -->
+<script src="https://fajsiex.ml/js/libs/particles.min.js"></script>
+
+<!-- I NEED JQUERY OK? -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+  particlesJS.load('bubble-wrap', 'https://fajsiex.ml/particlesjs-config.json', function() {
+    console.log('callback - particles.js config loaded');
+  });
+
+  let fadeoutTimeoutId = 0;
+
+  $('.dropdown').on('mouseover', ()=>{
+    $('#header-title').css('opacity', '0');
+    $('#header-title').css('display', 'none');
+
+    $('.bubble-wrap-cover').css('opacity', '0.5');
+
+    //$('.header-dash').css('display', 'block');
+    //$('.header-dash').css('opacity', '1');
+    clearTimeout(fadeoutTimeoutId);
+  });
+  $('.dropdown').on('mouseout', ()=>{
+    fadeoutTimeoutId = setTimeout(()=>{
+      $('#header-title').css('display', 'block');
+      $('#header-title').css('opacity', '1');
+
+      $('.bubble-wrap-cover').css('opacity', '0');
+
+      $('.header-dash').css('opacity', '0');
+      setTimeout(()=>{
+        $('.header-dash').css('display', 'none');
+      }, 500);
+    }, 100);
+  });
+</script>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Wanilla - Request monitor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/style.css?v=1.1">
+
+  <style>
+    .bubble-wrap {
+      background-image: linear-gradient(-240deg, #ba1, #1ab);
+    }
+  </style>
+
+  <!-- GFonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+  <!-- FA font -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+</head>
+
+<body>
+  <?php
+    include("../includes/header.php");
+  ?>
+
+  <div id="header-title" style="position:absolute;top:20vh;width:100%;">
+    <h1 class="maintitle">
+      Request monitor
+    </h1>
+    <h3 class="subtitle">
+      <b><span id="rpm">0</span></b> requests in the last 1 minute
+    </h3>
+  </div>
+
+  <div class="wave-divider">
+    &nbsp;
+  </div>
+
+  <div class="content">
+    <h1 style="font-family: 'Montserrat', Arial; text-align: center; color: var(--content-text-color);">
+      Server requests
+    </h1>
+    
+    <h3 style="font-family: 'Montserrat', Arial; text-align: center; color: var(--content-text-color);">
+      updates every minute
+    </h3>
+    
+    <div style="width: 80vw; margin-left: 10vw; height: 35vh">
+      <canvas id="req-graph" width="100" height="35"></canvas>
+    </div>
+  </div>
+
+  <?php
+    include("../includes/footer.php");
+  ?>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+  <script>
+    let requestGraph;
+    $.ajax({
+      url: "https://wanilla.eu-gb.mybluemix.net/api/wstats/v2/getRpmLog",
+      success: (reqLog)=>{
+        console.log(reqLog);
+        let ctx = document.getElementById("req-graph").getContext('2d');
+        
+        var gradient = ctx.createLinearGradient(500, 0, 100, 0);
+        gradient.addColorStop(0, "#2fe");
+        gradient.addColorStop(1, "#fe2");
+
+        var fillGradient = ctx.createLinearGradient(500, 0, 100, 0);
+        fillGradient.addColorStop(0, "rgba(42,225,200,0.7)");
+        fillGradient.addColorStop(1, "rgba(225,200,42,0.7)");
+
+        requestGraph = new Chart(ctx, {
+          type: 'line',
+          options: {
+            maintainAspectRatio: false,
+          },
+          data: {
+            labels: ["5min ago", "4min ago", "3min ago", "2min ago", "1min ago", "now"],
+            datasets: [
+              {
+                label: 'Total Requests',
+                data: reqLog.data, // data recieved from Wanilla (reqLog)
+                borderColor: gradient,
+                backgroundColor: fillGradient,
+                borderWidth: 4,
+                pointRadius: 0,
+                cubicInterpolationMode: 'monotone'
+              }
+            ]
+          },
+          options: {
+            tooltips: {
+		    			mode: 'index',
+		    			intersect: false,
+		    		},
+		    		hover: {
+		    			mode: 'nearest',
+		    			intersect: true
+		    		},
+            scales: {
+              yAxes: [{
+                ticks: {
+                  suggestedMax: 10,
+                  beginAtZero: true,
+                  min: 0,
+                  callback: (data)=> {
+                    if (Math.floor(data) == data) {
+                      return data;
+                    }
+                  }
+                }
+              }]
+            }
+          }
+        });
+
+        $("#rpm").html(reqLog.data[4]);
+
+        mins = 5;
+        setInterval(()=>{
+          mins++;
+          $.ajax({
+            url: "https://wanilla.eu-gb.mybluemix.net/api/wstats/v2/getActiveSessions",
+            success: (rpm)=>{
+              $("#rpm").html(rpm.data);
+              requestGraph.data.datasets[0].data.push(rpm.data);
+              requestGraph.data.labels.unshift(mins + "m ago")
+              requestGraph.update();
+              console.log("[REQM] Added data: " + rpm.data);
+            }
+          });
+        }, 60000)
+      }
+    });
+  </script>
+
+</body>
+</html>
