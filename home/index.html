@@ -18,12 +18,22 @@
 
   <!-- FA font -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.js"
+    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous">
+  </script>
+  <script> 
+    $(function(){
+      $("#head-content").load("../includes/header.html"); 
+      $("#foot-content").load("../includes/footer.html"); 
+    });
+  </script>
 </head>
 
 <body>
-  <?php
-    include("../includes/header.php");
-  ?>
+  <div id="head-content"></div>
 
   <div id="header-title" style="position:absolute;top:20vh;width:100%;">
     <h1 class="maintitle">
@@ -43,9 +53,8 @@
     <h1 id="countdown" style="text-align: center">Loading...</h1>
   </div>
 
-  <?php
-    include("../includes/footer.php");
-  ?>
+  <div id="foot-content"></div>
+  
   <script>
     nyStamp = new Date("Sun Jan 01 2019 00:00:01 GMT+0100").getTime();
     setInterval(()=>{
