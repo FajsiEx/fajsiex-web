@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <title>Wanilla - Request monitor</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Styles -->
-  <link rel="stylesheet" href="../css/style.css?v=1.1">
 
   <style>
     .bubble-wrap {
@@ -14,17 +11,19 @@
     }
   </style>
 
-  <!-- GFonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
-  <!-- FA font -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <!-- Include header and footer -->
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous">
+  </script>
+  <script src="../includes/load.js"></script>
 </head>
 
 <body>
-  <?php
-    include("../includes/header.php");
-  ?>
+  <div id="preloader" style="position: fixed; background: #000; width: 100vw; height: 100vh; z-index: 42069; transition: all 0.25 ease; left:0;top:0">&nbsp;</div>
+
+  <div id="head-content"></div>
 
   <div id="header-title" style="position:absolute;top:20vh;width:100%;">
     <h1 class="maintitle">
@@ -53,9 +52,7 @@
     </div>
   </div>
 
-  <?php
-    include("../includes/footer.php");
-  ?>
+  <div id="foot-content"></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
   <script>
