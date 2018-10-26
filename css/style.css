@@ -70,6 +70,8 @@ header {
 .logo:hover {
   transition: all 0.5s ease;
   text-shadow: -1px -1px 0px #f00, 2px 2px 0px #08f;
+  color: #ccc;
+  text-decoration: none;
 }
 
 .links {
