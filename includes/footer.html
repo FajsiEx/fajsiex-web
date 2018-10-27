@@ -7,32 +7,57 @@
 </div> -->
 
 <!-- Particles.js lib -->
-<script src="https://fajsiex.ml/js/libs/particles.min.js"></script>
+<script src="/js/libs/particles.min.js"></script>
 
 <!-- I NEED JQUERY OK? -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-  particlesJS.load('bubble-wrap', 'https://fajsiex.ml/particlesjs-config.json', function() {
+  particlesJS.load('bubble-wrap', '/particlesjs-config.json', function() {
     console.log('callback - particles.js config loaded');
   });
+
+  dashDown = false;
+
+  onscroll = ()=>{
+    console.log(dashDown);
+    if (dashDown) {
+      $("header").css("background", "rgba(23, 23, 23, 0.975)");
+      return;
+    }
+
+    if (($(document).scrollTop() - 64) > (document.getElementsByClassName("wave-divider")[0].offsetTop)) {
+      $("header").css("background", "rgba(23, 23, 23, 0.975)");
+    }else{
+      $("header").css("background", "transparent");
+    }
+  };
 
   let fadeoutTimeoutId = 0;
 
   $('.dropdown').on('mouseover', ()=>{
+    dashDown = true;
+
     $('#header-title').css('opacity', '0');
     $('#header-title').css('display', 'none');
 
     $('.bubble-wrap-cover').css('opacity', '0.5');
 
+    $("header").css("background", "rgba(23, 23, 23, 0.975)");
+    $("header").css("height", "calc(56px + 40vh)");
     //$('.header-dash').css('display', 'block');
     //$('.header-dash').css('opacity', '1');
     clearTimeout(fadeoutTimeoutId);
   });
   $('.dropdown').on('mouseout', ()=>{
     fadeoutTimeoutId = setTimeout(()=>{
+      dashDown = false;
+
       $('#header-title').css('display', 'block');
       $('#header-title').css('opacity', '1');
+      
+      window.onscroll();
+      $("header").css("height", "90px");
 
       $('.bubble-wrap-cover').css('opacity', '0');
 

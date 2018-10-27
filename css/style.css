@@ -48,9 +48,11 @@ header {
   margin: 0;
   padding:12px;
   width: 100%;
-  height: 56px;
+  background: transparent;
+  height: 90px;
   position: fixed;
   z-index: 125;
+  transition: all 0.5s ease;
 }
 
 .logo {
@@ -327,7 +329,18 @@ header {
   padding-top: 4px; 
 }
 
+.section-select-button {
+  background: transparent;
+  color: var(--content-text-color);
+  border: 0;
+  border-bottom: 3px solid #555;
+  cursor: pointer;
+}
 
+.section {
+  margin-top:86px;
+  margin-bottom:128px;
+}
 
 
 

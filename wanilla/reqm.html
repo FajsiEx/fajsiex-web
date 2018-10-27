@@ -29,10 +29,10 @@
 
   <div id="header-title" style="position:absolute;top:20vh;width:100%;">
     <h1 class="maintitle">
-      Request monitor
+      Wanilla status
     </h1>
     <h3 class="subtitle">
-      <b><span id="rpm">0</span></b> requests in the last 1 minute
+      Wanilla is online and healthy
     </h3>
   </div>
 
@@ -41,101 +41,250 @@
   </div>
 
   <div class="content">
-    <h1 style="font-family: 'Montserrat', Arial; text-align: center; color: var(--content-text-color);">
-      Server requests
-    </h1>
-    
-    <h3 style="font-family: 'Montserrat', Arial; text-align: center; color: var(--content-text-color);">
-      updates every minute
-    </h3>
-    
-    <div style="width: 80vw; margin-left: 10vw; height: 35vh">
-      <canvas id="req-graph" width="100" height="35"></canvas>
+    <div class="container">
+      <div class="row">
+        <button id="status-section-select-resources" class="col section-select-button" style="border-bottom: 3px solid #2af;" onclick="switchSection('resources')">
+          Resources
+        </button>
+        <button id="status-section-select-responses" class="col section-select-button" onclick="switchSection('responses')">
+          Responses
+        </button>
+        <button id="status-section-select-errors" class="col section-select-button" onclick="switchSection('errors')">
+          Errors / Outages
+        </button>
+      </div>
     </div>
-  </div>
+
+    <div class="section" id="status-section-resources">
+      <h1 style="font-family: 'Montserrat', Arial; text-align: center; color: var (--content-text-color);">
+        Server resources
+      </h1>
+      <div style="width: 80vw; margin-left: 10vw; height: 50vh;">
+        <canvas id="resources-graph" width="100" height="50"></canvas>
+      </div>
+      <br><br>
+      <p>CPU usage: <span id="status-resources-cpu">0%</span></p>
+      <p>Memory usage: <span id="status-resources-memory">0MB / 256MB [0%]</span></p>
+    </div>
+
+    <div class="section" id="status-section-responses" style="display:none;">
+      <h1 style="font-family: 'Montserrat', Arial; text-align: center; color: var (--content-text-color);">
+        Responses
+      </h1>
+      <div style="width: 80vw; margin-left: 10vw; height: 50vh;">
+        <canvas id="responses-graph" width="100" height="50"></canvas>
+      </div>
+    </div>
+
+    <div class="section" id="status-section-errors" style="display:none;">
+      <h1 style="font-family: 'Montserrat', Arial; text-align: center; color: var (--content-text-color);">
+        Errors & outages
+      </h1>
+      <h3 style="font-family: 'Montserrat', Arial; text-align: center; color: var (--content-text-color); margin-top: 20vh">
+        Not done yet :(
+      </h3>
+      
+    </div>
 
   <div id="foot-content"></div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
   <script>
-    let requestGraph;
-    $.ajax({
-      url: "https://wanilla.eu-gb.mybluemix.net/api/wstats/v2/getRpmLog",
-      success: (reqLog)=>{
-        console.log(reqLog);
-        let ctx = document.getElementById("req-graph").getContext('2d');
-        
-        var gradient = ctx.createLinearGradient(500, 0, 100, 0);
-        gradient.addColorStop(0, "#2fe");
-        gradient.addColorStop(1, "#fe2");
+    let switchSection = (sectionName)=> {
+      $("#status-section-resources").css("display", "none");
+      $("#status-section-responses").css("display", "none");
+      $("#status-section-errors").css("display", "none");
 
-        var fillGradient = ctx.createLinearGradient(500, 0, 100, 0);
-        fillGradient.addColorStop(0, "rgba(42,225,200,0.7)");
-        fillGradient.addColorStop(1, "rgba(225,200,42,0.7)");
+      $("#status-section-select-resources").css("border-bottom", "3px solid #555");
+      $("#status-section-select-responses").css("border-bottom", "3px solid #555");
+      $("#status-section-select-errors").css("border-bottom", "3px solid #555");
+      switch (sectionName) {
+        case "resources":
+          console.log("[SWITCHSECTION] to resources");
+          $("#status-section-resources").css("display", "block");
+          $("#status-section-select-resources").css("border-bottom", "3px solid #2af");
+          break;
+        case "responses":
+          console.log("[SWITCHSECTION] to responses");
+          $("#status-section-responses").css("display", "block");
+          $("#status-section-select-responses").css("border-bottom", "3px solid #2af");
+          break;
+        case "errors":
+          console.log("[SWITCHSECTION] to errors");
+          $("#status-section-errors").css("display", "block");
+          $("#status-section-select-errors").css("border-bottom", "3px solid #2af");
+          break;
+      }
+    }
 
-        requestGraph = new Chart(ctx, {
-          type: 'line',
-          options: {
-            maintainAspectRatio: false,
-          },
-          data: {
-            labels: ["5min ago", "4min ago", "3min ago", "2min ago", "1min ago", "now"],
-            datasets: [
-              {
-                label: 'Total Requests',
-                data: reqLog.data, // data recieved from Wanilla (reqLog)
-                borderColor: gradient,
-                backgroundColor: fillGradient,
-                borderWidth: 4,
-                pointRadius: 0,
-                cubicInterpolationMode: 'monotone'
-              }
-            ]
-          },
-          options: {
-            tooltips: {
-		    			mode: 'index',
-		    			intersect: false,
-		    		},
-		    		hover: {
-		    			mode: 'nearest',
-		    			intersect: true
-		    		},
-            scales: {
-              yAxes: [{
-                ticks: {
-                  suggestedMax: 10,
-                  beginAtZero: true,
-                  min: 0,
-                  callback: (data)=> {
-                    if (Math.floor(data) == data) {
-                      return data;
-                    }
-                  }
-                }
-              }]
-            }
+
+    var socket = io('https://wanilla.eu-gb.mybluemix.net');
+    
+    let roundToTwoDecimalPlaces = (num)=> {
+      return (Math.round(num * 100)) / 100;
+    }
+
+    let ctxs = {
+      resources: document.getElementById("resources-graph").getContext('2d'),
+      responses: document.getElementById("responses-graph").getContext('2d')
+    }
+
+    let defaultGraphConfig = {
+      type: 'line',
+      options: { maintainAspectRatio: false },
+      data: {
+        labels: [],
+        datasets: [
+          {
+            label: 'Default',
+            data: [],
+            borderColor: 'rgb(42,225,200,0.7)',
+            backgroundColor: 'rgba(42,225,200,0.7)',
+            borderWidth: 4,
+            pointRadius: 0,
+            cubicInterpolationMode: 'monotone'
           }
+        ]
+      },
+      options: {
+        tooltips: {
+					mode: 'index',
+					intersect: false,
+				},
+        hover: {
+          animationDuration: 0,
+        },
+				hover: {
+					mode: 'nearest',
+					intersect: true
+				},
+        scales: {
+          yAxes: [{
+            ticks: {
+              suggestedMax: 100,
+              beginAtZero: true,
+            }
+          }]
+        }
+      }
+    }
+
+    let graphConfigs = {
+      resources: JSON.parse(JSON.stringify(defaultGraphConfig)),
+      responses: JSON.parse(JSON.stringify(defaultGraphConfig))
+    }
+
+    graphConfigs.resources.data.datasets[0].label = "CPU usage";
+    graphConfigs.resources.data.datasets[0].borderColor = 'rgb(42,225,200)';
+    graphConfigs.resources.data.datasets[0].backgroundColor = 'rgba(42,225,200,0.7)';
+
+    graphConfigs.resources.data.datasets.push({
+      label: 'Memory usage',
+      data: [],
+      borderColor: 'rgb(128,16,255)',
+      backgroundColor: 'rgba(128,16,255,0.7)',
+      borderWidth: 4,
+      pointRadius: 0,
+      cubicInterpolationMode: 'monotone'
+    })
+
+    // responses
+    graphConfigs.responses.data.datasets = [
+      {
+        label: 'Sucessful',
+        data: [],
+        borderColor: 'rgb(24,255,0)',
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderWidth: 4,
+        pointRadius: 0,
+        cubicInterpolationMode: 'monotone'
+      },
+      {
+        label: 'Redirection',
+        data: [],
+        borderColor: 'rgb(0,128,255)',
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderWidth: 4,
+        pointRadius: 0,
+        cubicInterpolationMode: 'monotone'
+      },
+      {
+        label: 'Client Errors',
+        data: [],
+        borderColor: 'rgb(255,128,0)',
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderWidth: 4,
+        pointRadius: 0,
+        cubicInterpolationMode: 'monotone'
+      },
+      {
+        label: 'Server Errors',
+        data: [],
+        borderColor: 'rgb(218,0,0)',
+        backgroundColor: 'rgba(0,0,0,0)',
+        borderWidth: 4,
+        pointRadius: 0,
+        cubicInterpolationMode: 'monotone'
+      }
+    ];
+
+    console.log(graphConfigs.resources);
+    resourcesGraph = new Chart(ctxs.resources, graphConfigs.resources);
+    responsesGraph = new Chart(ctxs.responses, graphConfigs.responses);
+    
+    socket.on('esm_start', (data)=> {
+      console.log(data);
+      setTimeout(()=>{
+        console.log(data);
+
+        data[0].os.forEach((e)=> {
+          //console.log(resourcesGraph.data.datasets[0].data);
+
+          resourcesGraph.data.labels.push(new Date(e.timestamp).toLocaleTimeString());
+
+          resourcesGraph.data.datasets[0].data.push(roundToTwoDecimalPlaces(e.cpu));
+          resourcesGraph.data.datasets[1].data.push(roundToTwoDecimalPlaces(e.memory / 256 * 100));
+        });
+        data[0].responses.forEach((e)=> {
+          //console.log(resourcesGraph.data.datasets[0].data);
+
+          responsesGraph.data.labels.push(new Date(e.timestamp).toLocaleTimeString());
+
+          responsesGraph.data.datasets[0].data.push(e[2]);
+          responsesGraph.data.datasets[1].data.push(e[3]);
+          responsesGraph.data.datasets[2].data.push(e[4]);
+          responsesGraph.data.datasets[3].data.push(e[5]);
         });
 
-        $("#rpm").html(reqLog.data[4]);
-
-        mins = 5;
-        setInterval(()=>{
-          mins++;
-          $.ajax({
-            url: "https://wanilla.eu-gb.mybluemix.net/api/wstats/v2/getActiveSessions",
-            success: (rpm)=>{
-              $("#rpm").html(rpm.data);
-              requestGraph.data.datasets[0].data.push(rpm.data);
-              requestGraph.data.labels.unshift(mins + "m ago")
-              requestGraph.update();
-              console.log("[REQM] Added data: " + rpm.data);
-            }
-          });
-        }, 60000)
-      }
+        resourcesGraph.update();
+        responsesGraph.update();
+      },1000)
     });
+
+    socket.on('esm_stats', (data)=> {
+      console.log(data);
+      
+      $("#status-resources-cpu").html(roundToTwoDecimalPlaces(data.os.cpu) + "%");
+      $("#status-resources-memory").html(roundToTwoDecimalPlaces(data.os.memory) + "MB / 256MB [" + roundToTwoDecimalPlaces(data.os.memory / 256 * 100) + "%]");
+
+      time = new Date(data.os.timestamp).toLocaleTimeString();
+
+      resourcesGraph.data.datasets[0].data.push(roundToTwoDecimalPlaces(data.os.cpu));
+      resourcesGraph.data.datasets[1].data.push(roundToTwoDecimalPlaces(data.os.memory / 256 * 100));
+
+      responsesGraph.data.datasets[0].data.push(data.responses[2]);
+      responsesGraph.data.datasets[1].data.push(data.responses[3]);
+      responsesGraph.data.datasets[2].data.push(data.responses[4]);
+      responsesGraph.data.datasets[3].data.push(data.responses[5]);
+
+      resourcesGraph.data.labels.push(time)
+      responsesGraph.data.labels.push(time)
+
+      resourcesGraph.update();
+      responsesGraph.update();
+    });
+      
   </script>
 
 </body>
