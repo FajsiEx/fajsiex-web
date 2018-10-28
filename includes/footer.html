@@ -38,10 +38,10 @@
   $('.dropdown').on('mouseover', ()=>{
     dashDown = true;
 
-    $('#header-title').css('opacity', '0');
-    $('#header-title').css('display', 'none');
+    //$('#header-title').css('opacity', '0');
+    //$('#header-title').css('display', 'none');
 
-    $('.bubble-wrap-cover').css('opacity', '0.5');
+    //$('.bubble-wrap-cover').css('opacity', '0.5');
 
     $("header").css("background", "rgba(23, 23, 23, 0.975)");
     $("header").css("height", "calc(56px + 40vh)");
@@ -53,13 +53,13 @@
     fadeoutTimeoutId = setTimeout(()=>{
       dashDown = false;
 
-      $('#header-title').css('display', 'block');
-      $('#header-title').css('opacity', '1');
+      //$('#header-title').css('display', 'block');
+      //$('#header-title').css('opacity', '1');
       
       window.onscroll();
       $("header").css("height", "90px");
 
-      $('.bubble-wrap-cover').css('opacity', '0');
+      //$('.bubble-wrap-cover').css('opacity', '0');
 
       $('.header-dash').css('opacity', '0');
       setTimeout(()=>{
