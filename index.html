@@ -1,14 +1,59 @@
-<body style="background: #000">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<p style="text-align: center; margin-top:45vh; font-family: Arial, Helvetica, sans-serif">
-    Redirecting you.
-    <br>
-    Or just click <a href="/home/">here</a>
-</p>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<body style="background: #000; color: #eee">
+
+<style>
+    button {
+        background: #08f;
+        border-radius: 6px;
+        text-transform: capitalize;
+        padding: 9px 16px;
+        border: 0;
+        font-size: 18px;
+        margin: 16px;
+    }
+
+    .modal-content {
+        background: #121212;
+    }
+</style>
+
+<div class="modal fade" id="betaWarnModal" tabindex="-1" role="dialog" aria-hidden="true" style="z-index: 42070">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Be~be~BETAAAAA~~~~~~~~~</h5>
+            </div>
+            <div class="modal-body">
+                You are currently on the <code>beta</code> branch of fajsiex-web!
+                <br>
+                This version has some new features that will be most likely broken or not work at all right now.
+                <br><br>
+                If you don't know where you came, you should go back to the <code>stable</code> version.
+                <br>
+                If you know what you're doing, then go right ahead :)
+                <br>
+                <span style="color: #999">Please, DO NOT report any bugs that you encounter in this beta version. Feel free to report any bugs in the <code>stable</code> version however.</span>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" onclick="location='https://fajsiex.ml/'">Go to <code>stable</code></button>
+                <button type="button" class="btn btn-primary" onclick="sessionStorage['beta_accepted'] = 'beetde'; location='/home/'">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    if (location.href.startsWith("https://beta." || "http://beta.")) {
+    if ((location.href.startsWith("http://beta.") || location.href.startsWith("https://beta.")) && !sessionStorage['beta_accepted']) {
         console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugs ahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
+        $("#betaWarnModal").modal();
+        $('#betaWarnModal').modal('show')
     }else{
         location = "./home/";
     }
