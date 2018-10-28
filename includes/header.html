@@ -3,12 +3,52 @@
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
 <!-- Styles -->
 <link rel="stylesheet" href="../css/style.css?v=1.1">
 
 
+<script>
+  if (location.href.startsWith("http://beta.") || location.href.startsWith("https://beta.")) {
+    console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugsahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
+    $(()=>{
+      $("title").html('⚠️ ' + $("title").html());
+    });
+  }
+  
+
+  let prevKey = "";
+  let keyPressCount = 0;
+  let kpsPerSecond = 0;
+
+  setInterval(()=>{
+    if (kpsPerSecond > 7) {
+      console.log("Spare your alternating for streams in osu! ;D\nKPS: " + kpsPerSecond);
+    }
+    kpsPerSecond = 0;
+  }, 1000);
+
+  onkeypress = (k)=>{
+    if (k.key == prevKey) {
+      keyPressCount++;
+      if (keyPressCount > 2) { // If the key was pressed 4 times
+        console.log(k.key);
+
+        // TODO: Add key handlers.
+
+        keyPressCount = 0;
+        prevKey = "";
+      }
+    }else{
+      keyPressCount = 0;
+      prevKey = k.key;
+      kpsPerSecond++;
+    }
+  }
+</script>
 
 <div class="bubble-wrap" id="bubble-wrap"></div>
 <div class="bubble-wrap-cover"></div>
@@ -79,7 +119,6 @@
     </div>
   </header>
 </div>
-
 <div class="header-dash" style="position: fixed; height: 60vh;width:100%; top: 10vh; z-index: 169; transition: all 0.5s ease; opacity: 0; display:none">
   LOL
 </div>
