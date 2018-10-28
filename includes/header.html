@@ -12,12 +12,42 @@
 
 
 <script>
-  if ((location.href.startsWith("http://beta.") || location.href.startsWith("https://beta.")) & !sessionStorage['beta_accepted']) {
+  if (location.href.startsWith("http://beta.") || location.href.startsWith("https://beta.")) {
     console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugsahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
+    $(()=>{
+      $("title").html('⚠️ ' + $("title").html());
+    });
   }
-  $(()=>{
-    $("title").html('⚠️ ' + $("title").html());
-  });
+  
+
+  let prevKey = "";
+  let keyPressCount = 0;
+  let kpsPerSecond = 0;
+
+  setInterval(()=>{
+    if (kpsPerSecond > 7) {
+      console.log("Spare your alternating for streams in osu! ;D\nKPS: " + kpsPerSecond);
+    }
+    kpsPerSecond = 0;
+  }, 1000);
+
+  onkeypress = (k)=>{
+    if (k.key == prevKey) {
+      keyPressCount++;
+      if (keyPressCount > 2) { // If the key was pressed 4 times
+        console.log(k.key);
+
+        // TODO: Add key handlers.
+
+        keyPressCount = 0;
+        prevKey = "";
+      }
+    }else{
+      keyPressCount = 0;
+      prevKey = k.key;
+      kpsPerSecond++;
+    }
+  }
 </script>
 
 <div class="bubble-wrap" id="bubble-wrap"></div>
