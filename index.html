@@ -1,5 +1,7 @@
 <head>
 
+<title>FajsiEx</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -59,7 +61,8 @@
     if ((location.href.startsWith("http://beta.") || location.href.startsWith("https://beta.")) && !sessionStorage['beta_accepted']) {
         console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugs ahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
         $("#betaWarnModal").modal();
-        $('#betaWarnModal').modal('show')
+        $('#betaWarnModal').modal('show');
+        $("title").html('⚠️ >_< ⚠️');
     }else{
         location = "./home/";
     }
