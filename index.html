@@ -51,7 +51,14 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" onclick="location='https://fajsiex.ml/'">Go to <code>stable</code></button>
-                <button type="button" class="btn btn-primary" onclick="sessionStorage['beta_accepted'] = 'beetde'; location='/home/'">Continue</button>
+                <button type="button" class="btn btn-primary" onclick="
+                    sessionStorage['beta_accepted'] = 'beetde';
+                    if (location.search.length > 0) {
+                        location=location.search.substr(4);
+                    }else{
+                        location='/home/';
+                    }
+                ">Continue</button>
             </div>
         </div>
     </div>

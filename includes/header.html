@@ -16,7 +16,7 @@
   let isBetaAccepted = sessionStorage['beta_accepted'];
 
   if (isBeta && !isBetaAccepted) {
-    location = "/";
+    location = "/?go=" + location.pathname;
   }
 
   if (isBeta) {
