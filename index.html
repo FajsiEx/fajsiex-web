@@ -58,7 +58,10 @@
 </div>
 
 <script>
-    if ((location.href.startsWith("http://beta.") || location.href.startsWith("https://beta.")) && !sessionStorage['beta_accepted']) {
+    let isBeta = (location.href.startsWith("http://beta.") || location.href.startsWith("https://beta."));
+    let isBetaAccepted = sessionStorage['beta_accepted'];
+
+    if (isBeta && !isBetaAccepted) {
         console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugs ahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
         $("#betaWarnModal").modal();
         $('#betaWarnModal').modal('show');
