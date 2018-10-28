@@ -1,3 +1,5 @@
+<body style="background: #000">
+
 <p style="text-align: center; margin-top:45vh; font-family: Arial, Helvetica, sans-serif">
     Redirecting you.
     <br>
@@ -5,5 +7,10 @@
 </p>
 
 <script>
-    location = "./home/"
+    if (location.href.startsWith("https://beta." || "http://beta.")) {
+        console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugs ahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
+    }else{
+        location = "./home/";
+    }
 </script>
+</body>
