@@ -342,6 +342,9 @@ header {
   margin-bottom:128px;
 }
 
+.progressbar-text {
+  transform: translate(-50%, -50px) !important;
+}
 
 
 

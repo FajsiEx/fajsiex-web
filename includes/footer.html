@@ -12,7 +12,6 @@
   dashDown = false;
 
   onscroll = ()=>{
-    console.log(dashDown);
     if (dashDown) {
       $("header").css("background", "rgba(23, 23, 23, 0.975)");
       return;
@@ -26,37 +25,52 @@
   };
 
   let fadeoutTimeoutId = 0;
+  let dashShown = false;
 
-  $('.dropdown').on('mouseover', ()=>{
+  let dashShow = ()=>{
     dashDown = true;
-
-    //$('#header-title').css('opacity', '0');
-    //$('#header-title').css('display', 'none');
-
-    //$('.bubble-wrap-cover').css('opacity', '0.5');
-
     $("header").css("background", "rgba(23, 23, 23, 0.975)");
     $("header").css("height", "calc(75vh - 100px)");
-    //$('.header-dash').css('display', 'block');
-    //$('.header-dash').css('opacity', '1');
-    clearTimeout(fadeoutTimeoutId);
-  });
-  $('.dropdown').on('mouseout', ()=>{
-    fadeoutTimeoutId = setTimeout(()=>{
-      dashDown = false;
 
-      //$('#header-title').css('display', 'block');
-      //$('#header-title').css('opacity', '1');
-      
-      window.onscroll();
-      $("header").css("height", "90px");
+    $('.header-dash').css('display', 'block');
+    $('.header-dash').css('opacity', '1');
+  };
 
-      //$('.bubble-wrap-cover').css('opacity', '0');
+  let dashHide = ()=>{
+    dashDown = false;
+    window.onscroll();
+    $("header").css("height", "90px");
 
-      $('.header-dash').css('opacity', '0');
-      setTimeout(()=>{
-        $('.header-dash').css('display', 'none');
-      }, 500);
-    }, 100);
-  });
+    $('.header-dash').css('opacity', '0');
+    $('.header-dash').css('display', 'none');
+  };
+
+  let prevHeaderSection = "";
+  let dashToggle = (section)=>{
+    if (dashShown && prevHeaderSection == section) {
+      dashHide();
+      dashShown=false;
+    }else{
+      if (prevHeaderSection != "") {
+        $("#header-dash-" + prevHeaderSection).css("opacity", "0");
+        $("#header-dash-" + prevHeaderSection).css("display", "none");
+        console.log("[HIDE_SECTION] #header-dash-" + prevHeaderSection);
+      }
+
+      $("#header-dash-" + section).css("display", "block");
+      $("#header-dash-" + section).css("opacity", "1");
+
+      console.log("[SHOW_SECTION] #header-dash-" + section);
+
+      prevHeaderSection = section;
+      dashShow();
+      dashShown=true;
+    }
+  };
+
+  $('#home-link').on('click', ()=>{dashToggle("home")});
+  $('#jekio-link').on('click', ()=>{dashToggle("jekio")});
+  $('#wanilla-link').on('click', ()=>{dashToggle("wanilla")});
+  $('#blog-link').on('click', ()=>{dashToggle("blog")});
+  $('#about-link').on('click', ()=>{dashToggle("about")});
 </script>

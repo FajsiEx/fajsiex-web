@@ -69,52 +69,20 @@
       <a href="/" class="logo">FajsiEx</a>
     </div>
     <div class="links">
-      <div class="dropdown">
-        <a href="/home/">Home</a>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Contact</a>
-        </div>
+      <div id="home-link" class="dropdown">
+        <a href="#">Home</a>
       </div>
-      <div class="dropdown">
-        <a href="/jekio/">Jekio</a>
-        <div class="dropdown-content">
-          <a href="#">Download</a>
-          <a href="#">About</a>
-          <a href="#">AP Leaderboard</a>
-          <a href="#">Moderation</a>
-          
-        </div>
+      <div id="jekio-link" class="dropdown">
+        <a href="#">Jekio</a>
       </div>
-      <div class="dropdown">
-        <a class="wanilla-link" href="#">Wanilla</a>
-
-        <div class="dropdown-content">
-          <a href="https://wanilla.eu-gb.mybluemix.net/">Home</a>
-          <a href="/wanilla/status">Status</a>
-          <a href="#">Info</a>
-        </div>
+      <div id="wanilla-link" class="dropdown">
+        <a href="#">Wanilla</a>
       </div>
-      <div class="dropdown">
-        <a href="/blog/">Blog</a>
-        <div class="dropdown-content">
-          <a href="#">News</a>
-          <a href="#">Other</a>
-        </div>
+      <div id="blog-link" class="dropdown">
+        <a href="#">Blog</a>
       </div>
-      <div class="dropdown">
+      <div id="about-link" class="dropdown">
         <a href="#">About</a>
-        <div class="dropdown-content">
-          <a href="#">Open-source licenses</a>
-          <span style="text-align: left; display: none">
-            <a href="#" style="font-size:24px; display: inline-block; font-weight: 100"><i class="fab fa-twitter"></i></a>
-            <a href="#" style="font-size:24px; display: inline-block; font-weight: 100"><i class="fab fa-youtube"></i></a>
-            <a href="#" style="font-size:24px; display: inline-block; font-weight: 100"><i class="fab fa-twitch"></i></a>
-            <a href="#" style="font-size:24px; display: inline-block; font-weight: 100"><i class="fab fa-github"></i></a>
-          </span>
-          <a href="/about/links">Links</a>
-        </div>
       </div>
     </div>
     <div class="ua-links">
@@ -126,6 +94,26 @@
     </div>
   </header>
 </div>
+
 <div class="header-dash" style="position: fixed; height: 60vh;width:100%; top: 10vh; z-index: 169; transition: all 0.5s ease; opacity: 0; display:none">
-  LOL
+
+  <div id="header-dash-jekio" class="container" style="display: none; opacity:0; transition: all 0.5s ease;">
+    <div class="row">
+      <div class="col-lg button">
+        <i class="fas fa-chart-line"></i>
+        Go to Jekio
+        <p>Go ahead!</p>
+      </div>
+    </div>
+  </div>
+  
+  <div id="header-dash-wanilla" class="container" style="display: none; opacity:0; transition: all 0.5s ease;">
+    <div class="row">
+      <div class="col-lg button" onclick="location='/wanilla/status'">
+        <i class="fas fa-chart-line"></i>
+        Wanilla status
+        <p>Status and statisics</p>
+      </div>
+    </div>
+  </div>
 </div>
