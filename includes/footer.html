@@ -13,12 +13,12 @@
 
   onscroll = ()=>{
     if (dashDown) {
-      $("header").css("background", "rgba(23, 23, 23, 0.975)");
+      $("header").css("background", "linear-gradient(to bottom, rgb(23, 23, 23), transparent)");
       return;
     }
 
     if (($(document).scrollTop() - 64) > (document.getElementsByClassName("wave-divider")[0].offsetTop)) {
-      $("header").css("background", "rgba(23, 23, 23, 0.975)");
+      $("header").css("background", "linear-gradient(to bottom, rgb(23, 23, 23), transparent)");
     }else{
       $("header").css("background", "transparent");
     }
@@ -29,7 +29,7 @@
 
   let dashShow = ()=>{
     dashDown = true;
-    $("header").css("background", "rgba(23, 23, 23, 0.975)");
+    $("header").css("background", "linear-gradient(to bottom, rgb(23, 23, 23), transparent)");
     $("header").css("height", "calc(75vh - 100px)");
 
     $('.header-dash').css('display', 'block');
@@ -38,11 +38,13 @@
 
   let dashHide = ()=>{
     dashDown = false;
-    window.onscroll();
+    
     $("header").css("height", "90px");
 
     $('.header-dash').css('opacity', '0');
     $('.header-dash').css('display', 'none');
+
+    window.onscroll();
   };
 
   let prevHeaderSection = "";

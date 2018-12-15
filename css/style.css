@@ -52,7 +52,9 @@ header {
   height: 90px;
   position: fixed;
   z-index: 125;
-  transition: all 0.5s ease;
+  transition: height 0.5s ease,
+              background 0.5s ease,
+              opacity 0.5s ease;
 }
 
 .logo {
