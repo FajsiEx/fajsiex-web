@@ -1,0 +1,95 @@
+/*
+
+    Custom css lib for my custom flow design elements
+
+*/
+
+:root {
+    --flow-color-blue: #05b;
+    --flow-color-blue-light: #06e;
+
+    --flow-color-cyan: #088;
+    --flow-color-cyan-light: #0bb;
+
+    --flow-color-gray: #252525;
+    --flow-color-gray-light: #323232;
+}
+
+.flow-block {
+    background: #121212;
+    color: #eee;
+    border-radius: 4px;
+    transition: all 0.15s linear;
+    padding: 10px;
+    margin: 8px;
+}
+.flow-block:hover {
+    box-shadow: 2px 2px 11px 1px rgba(0,0,0,0.85);
+    transform: scale(1.025);
+}
+
+.flow-block .flow-button {
+    background: #333;
+    color: #eee;
+    border-radius: 4px;
+    transition: all 0.15s linear;
+    width: 100%;
+    padding: 10px;
+    display: block;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.flow-block .flow-button:hover {
+    box-shadow: 2px 2px 11px 1px rgba(0,0,0,0.85);
+    transform: scale(1.025);
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.flow-tag {
+    display: inline-block;
+    font-size: .8rem;
+    margin: 6px;
+    padding: 6px;
+    background: #333;
+    border: 1px solid #555;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+/* COLORS */
+
+/* COLORS-BUTTONS*/
+.flow-button.flow-color-blue {
+    background: var(--flow-color-blue);
+}
+.flow-button.flow-color-blue:hover {
+    background: var(--flow-color-blue-light);
+}
+
+.flow-button.flow-color-cyan {
+    background: var(--flow-color-cyan);
+}
+.flow-button.flow-color-cyan:hover {
+    background: var(--flow-color-cyan-light);
+}
+
+.flow-button.flow-color-gray {
+    background: var(--flow-color-gray);
+}
+.flow-button.flow-color-gray:hover {
+    background: var(--flow-color-gray-light);
+}
+
+.flow-tag.flow-color-blue {
+    background: var(--flow-color-blue);
+    border: 1px solid var(--flow-color-blue-light);
+}
+.flow-tag.flow-color-cyan {
+    background: var(--flow-color-cyan);
+    border: 1px solid var(--flow-color-cyan-light);
+}
+.flow-tag.flow-color-gray {
+    background: var(--flow-color-gray);
+    border: 1px solid var(--flow-color-gray-light);
+}
