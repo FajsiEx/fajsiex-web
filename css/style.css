@@ -295,7 +295,6 @@ header {
   position: absolute;
   width: 100%;
   background-size: cover;
-  filter: brightness(9%);
 }
 
 .wave-footer {
@@ -311,7 +310,8 @@ header {
 
 .content {
   color: #fff;
-  background: #121212;
+  background: url("../imgs/back.png");
+  /* background: #121212; */
   position: absolute;
   top:75vh;
   width: calc(100% - 16px);
