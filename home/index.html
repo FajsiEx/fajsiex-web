@@ -31,10 +31,10 @@
 
   <div id="header-title" style="position:absolute;top:20vh;width:100%;">
     <h1 class="maintitle">
-      Work In Progress....
+      Hi, I'm FajsiEx...
     </h1>
     <h3 class="subtitle">
-      Should be done by the end of the year! Hopefully...
+      ...I make stuff...
     </h3>
   </div>
 
@@ -42,32 +42,78 @@
     &nbsp;
   </div>
 
-  <div class="content" style="padding: 86px;">
-    <h2 style="text-align: center">Countdown to 2019</h2>
-    <h1 id="countdown" style="text-align: center">Loading...</h1>
+  <div class="content" style="padding: calc(0.05 * 100vw);">
+    <div class="container">
+      <div class="row">
+		    <div class="col-lg">
+          <h2 style="background: linear-gradient(to bottom right, #59c, #c5c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Who am I</h2>
+          <p>I'm a student at a secondary school of electrical engineering, a programmer, web developer and designer and that sort of stuff...</p>
+        </div>
+		    <div class="col-lg">
+          <h2 style="background: linear-gradient(to bottom right, #59c, #c5c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">What do I do</h2>
+          <p>Currently just projects that I personally enjoy doing. There are many abandoned projects that I made, which will never see the light of day, but projects that I'm working on / are finished will be here.</p>
+        </div>
+		    <div class="col-lg">
+          <h2 style="background: linear-gradient(to bottom right, #59c, #c5c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Why do I do what I do?</h2>
+          <p>Well...first of all just for the fun of it. Making something is so much fun and when it works, it gives me so much satisfaction. Next, I do it so I learn something new since I'm fairly new to programming...</p>
+        </div>
+      </div>
+    </div>
+
+    <br><br><br>
+
+    <h3 class="subtitle">
+      anyways...
+    </h3>
+    <h1 class="maintitle" style="background: linear-gradient(to bottom right, #59c, #c5c); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+      Here are my projects
+    </h1>
+    <hr>
+
+    <div class="container">
+      <div class="row">
+		    <div class="col-lg flow-block">
+          <h2>This website <div class="flow-tag flow-color-blue">In-dev</div></h2>
+          <p>I guess this site can be classified as a project. I am trying to make the design of this site as close to my vision as possible. Uses my custom design elements called Flow design, which are easy to read while adding a sense of depth and interactivity.</p>
+          <a class="flow-button flow-color-gray" href="https://github.com/FajsiEx/fajsiex-web">GitHub</a>
+        </div>
+        
+		    <div class="col-lg flow-block">
+          <h2>Jekio <div class="flow-tag flow-color-gray">Abandoned</div></h2>
+          <p>Free social media platform prototype...as of now discontinued due to focus on other projects</p>
+        </div>
+
+        <div class="col-lg flow-block">
+          <h2>Wanilla <div class="flow-tag flow-color-blue">In-dev</div></h2>
+          <p>The backend of all projects that require it. Made with NodeJS, has socket and APIs for my projects.</p>
+          <a class="flow-button flow-color-blue" title="Not working ATM">Website</a>
+          <a class="flow-button flow-color-gray" href="https://github.com/FajsiEx/wanilla">GitHub</a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg flow-block">
+          <h2>Caj-ministrator <div class="flow-tag flow-color-blue">In-dev</div></h2>
+          <p>Simple bot I made for a discord server in my free time.</p>
+          <a class="flow-button flow-color-lblue" href="../docs/caj-bot.html">Documentation</a>
+          <a class="flow-button flow-color-gray" href="https://github.com/FajsiEx/caj-ministrator">GitHub</a>
+        </div>
+
+		    <div class="col-lg flow-block">
+          <h2>PewR <div class="flow-tag flow-color-blue">In-dev</div></h2>
+          <p>Multiplayer game with some social features. Currently in development so I don't know how it will turn out</p>
+        </div>
+
+		    <div class="col-lg flow-block">
+          <h2>The Line <div class="flow-tag flow-color-cyan">Finished</div></h2>
+          <p>My first game I made using the Phaser.js game engine. Nothing too big just a simple 2D platformer.</p>
+          <a class="flow-button flow-color-cyan" href="http://slideme.org/application/line-2">SlideMe store</a>
+        </div>
+      </div>
+
+
   </div>
 
   <div id="foot-content"></div>
-  
-  <script>
-    nyStamp = new Date("Sun Jan 01 2019 00:00:01 GMT+0100").getTime();
-    setInterval(()=>{
-      nowStamp = new Date().getTime();
-      deltaStamp = nyStamp - nowStamp;
-      
-      days = Math.floor(deltaStamp / 86400000);
-      deltaStamp -= days * 86400000;
-      
-      hours = Math.floor(deltaStamp / 3600000);
-      deltaStamp -= hours * 3600000;
-
-      minutes = Math.floor(deltaStamp / 60000);
-      deltaStamp -= minutes * 60000;
-
-      seconds = Math.floor(deltaStamp / 1000);
-
-      $("#countdown").html(days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s");
-    },1000);
-  </script>
 </body>
 </html>

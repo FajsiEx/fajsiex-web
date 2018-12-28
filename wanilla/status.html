@@ -18,6 +18,8 @@
   crossorigin="anonymous">
   </script>
   <script src="../includes/load.js"></script>
+
+  <script src="../js/libs/progressbar.min.js"></script>
 </head>
 
 <body style="overflow-x: hidden">
@@ -59,12 +61,22 @@
       <h1 style="font-family: 'Montserrat', Arial; text-align: center; color: var (--content-text-color);">
         Server resources
       </h1>
-      <div style="width: 80vw; margin-left: 10vw; height: 50vh;">
+
+
+      <div class="container">
+        <div class="row">
+          <div style="padding:64px;" id="cpupbar" class="col-sm"></div>
+          <div style="padding:64px;" id="memorypbar" class="col-sm"></div>
+        </div>
+      </div>
+
+      <br><br>
+
+      <div style="width: calc(100vw - 32px); height: 30vw; max-width: 860px; margin-left: calc((100vw - 32px - 860px) / 2)">
         <canvas id="resources-graph" width="100" height="50"></canvas>
       </div>
-      <br><br><br><br>
-      <p>CPU usage: <span id="status-resources-cpu">0%</span></p>
-      <p>Memory usage: <span id="status-resources-memory">0MB / 256MB [0%]</span></p>
+
+      <br><br>
     </div>
 
     <div class="section" id="status-section-responses" style="display:none;">
@@ -99,6 +111,7 @@
       $("#status-section-select-resources").css("border-bottom", "3px solid #555");
       $("#status-section-select-responses").css("border-bottom", "3px solid #555");
       $("#status-section-select-errors").css("border-bottom", "3px solid #555");
+
       switch (sectionName) {
         case "resources":
           console.log("[SWITCHSECTION] to resources");
@@ -132,7 +145,7 @@
 
     let defaultGraphConfig = {
       type: 'line',
-      options: { maintainAspectRatio: false },
+      options: { responsive: true, maintainAspectRatio: false },
       data: {
         labels: [],
         datasets: [
@@ -146,6 +159,9 @@
             cubicInterpolationMode: 'monotone'
           }
         ]
+      },
+      onResize: function(myChart, size) {
+        myChart.options.scales.xAxes[0].ticks.display = (size.width >= 640);
       },
       options: {
         tooltips: {
@@ -265,8 +281,10 @@
     socket.on('esm_stats', (data)=> {
       console.log(data);
       
-      $("#status-resources-cpu").html(roundToTwoDecimalPlaces(data.os.cpu) + "%");
-      $("#status-resources-memory").html(roundToTwoDecimalPlaces(data.os.memory) + "MB / 256MB [" + roundToTwoDecimalPlaces(data.os.memory / 256 * 100) + "%]");
+      cpupbar.animate(roundToTwoDecimalPlaces(data.os.cpu) / 100);
+      memorypbar.animate(roundToTwoDecimalPlaces(data.os.memory / 256 * 100) / 100);
+      cpupbar.setText(roundToTwoDecimalPlaces(data.os.cpu) + "%");
+      memorypbar.setText(roundToTwoDecimalPlaces(data.os.memory / 256 * 100) + "%");
 
       time = new Date(data.os.timestamp).toLocaleTimeString();
 
@@ -284,7 +302,50 @@
       resourcesGraph.update();
       responsesGraph.update();
     });
-      
+    
+    let defaultPbarConfig = {
+      strokeWidth: 10,
+      color: '#1ab',
+      trailColor: '#555',
+      trailWidth: 10,
+      easing: 'easeInOut',
+      duration: 1500,
+      svgStyle: null,
+      text: {
+        value: '',
+        alignToBottom: true
+      },
+      from: {color: '#1ab'},
+      to: {color: '#f45'},
+      // Set default step function for all animate calls
+      step: (state, bar) => {
+        bar.path.setAttribute('stroke', state.color);
+        bar.setText("lel");
+        console.log(bar);
+        bar.text.style.color = state.color;
+      }
+    }
+
+    let cpupbarConfig = JSON.parse(JSON.stringify(defaultPbarConfig));
+    let memorypbarConfig = JSON.parse(JSON.stringify(defaultPbarConfig));
+
+    cpupbarConfig.text.value = 'CPU';
+
+    memorypbarConfig.text.value = 'RAM';
+    memorypbarConfig.color = '#8010ff';
+    memorypbarConfig.from.color = '#8010ff';
+    
+    console.log(memorypbarConfig);
+
+    let cpupbar = new ProgressBar.SemiCircle("#cpupbar", cpupbarConfig);
+    let memorypbar = new ProgressBar.SemiCircle("#memorypbar", memorypbarConfig);
+    
+    console.log(cpupbar);
+
+    cpupbar.text.style.fontFamily = 'Arial';
+    cpupbar.text.style.fontSize = '2rem';
+    memorypbar.text.style.fontFamily = 'Arial';
+    memorypbar.text.style.fontSize = '2rem';
   </script>
 
 </body>

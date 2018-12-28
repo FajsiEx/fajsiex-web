@@ -3,25 +3,27 @@
 
 <!-- I NEED JQUERY OK? -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../js/libs/tilt.jquery.js"></script>
+<script src="../js/libs/flow.js"></script>
 
 <script>
-  particlesJS.load('bubble-wrap', '/particlesjs-config.json', function() {
+  particlesJS.load('bubble-wrap', '/particlesjs-config-winter.json', function() {
     console.log('callback - particles.js config loaded');
   });
 
   dashDown = false;
-
   onscroll = ()=>{
     console.log(dashDown);
     if (dashDown) {
-      $("header").css("background", "rgba(23, 23, 23, 0.975)");
+      $("header").css("background-size", "auto auto");
       return;
     }
-
-    if (($(document).scrollTop() - 64) > (document.getElementsByClassName("wave-divider")[0].offsetTop)) {
-      $("header").css("background", "rgba(23, 23, 23, 0.975)");
+    if (($(document).scrollTop() - 64) > 0) { //(document.getElementsByClassName("wave-divider")[0].offsetTop)
+      $(".header-background").css("height", "90px");
+      $(".header-background").css("opacity", ($(document).scrollTop() - 64) / (document.getElementsByClassName("wave-divider")[0].offsetTop));
     }else{
-      $("header").css("background", "transparent");
+      $(".header-background").css("height", "0px");
+      $(".header-background").css("opacity", "0");
     }
   };
 
@@ -29,34 +31,98 @@
 
   $('.dropdown').on('mouseover', ()=>{
     dashDown = true;
+    $('#header-title').css('opacity', '0');
+    $('#header-title').css('display', 'none');
 
-    //$('#header-title').css('opacity', '0');
-    //$('#header-title').css('display', 'none');
+    $(".header-background").css("height", "calc(75vh - 100px)");
+    $(".header-background").css("opacity", "1");
 
-    //$('.bubble-wrap-cover').css('opacity', '0.5');
-
-    $("header").css("background", "rgba(23, 23, 23, 0.975)");
-    $("header").css("height", "calc(75vh - 100px)");
-    //$('.header-dash').css('display', 'block');
-    //$('.header-dash').css('opacity', '1');
     clearTimeout(fadeoutTimeoutId);
   });
+
   $('.dropdown').on('mouseout', ()=>{
     fadeoutTimeoutId = setTimeout(()=>{
       dashDown = false;
 
-      //$('#header-title').css('display', 'block');
-      //$('#header-title').css('opacity', '1');
+      $('#header-title').css('display', 'block');
+      $('#header-title').css('opacity', '1');
       
       window.onscroll();
-      $("header").css("height", "90px");
 
-      //$('.bubble-wrap-cover').css('opacity', '0');
-
-      $('.header-dash').css('opacity', '0');
       setTimeout(()=>{
         $('.header-dash').css('display', 'none');
-      }, 500);
+      }, 5000);
+
     }, 100);
   });
+
+
+  /*
+  dashDown = false;
+
+  onscroll = ()=>{
+    if (dashDown) {
+      $("header").css("background", "linear-gradient(to bottom, rgb(23, 23, 23), transparent)");
+      return;
+    }
+
+    if (($(document).scrollTop() - 64) > (document.getElementsByClassName("wave-divider")[0].offsetTop)) {
+      $("header").css("background", "linear-gradient(to bottom, rgb(23, 23, 23), transparent)");
+    }else{
+      $("header").css("background", "transparent");
+    }
+  };
+
+  let fadeoutTimeoutId = 0;
+  let dashShown = false;
+
+  let dashShow = ()=>{
+    dashDown = true;
+    $("header").css("background", "linear-gradient(to bottom, rgb(23, 23, 23), transparent)");
+    $("header").css("height", "calc(75vh - 100px)");
+
+    $('.header-dash').css('display', 'block');
+    $('.header-dash').css('opacity', '1');
+  };
+
+  let dashHide = ()=>{
+    dashDown = false;
+    
+    $("header").css("height", "90px");
+
+    $('.header-dash').css('opacity', '0');
+    $('.header-dash').css('display', 'none');
+
+    window.onscroll();
+  };
+
+  let prevHeaderSection = "";
+  let dashToggle = (section)=>{
+    if (dashShown && prevHeaderSection == section) {
+      dashHide();
+      dashShown=false;
+    }else{
+      if (prevHeaderSection != "") {
+        $("#header-dash-" + prevHeaderSection).css("opacity", "0");
+        $("#header-dash-" + prevHeaderSection).css("display", "none");
+        console.log("[HIDE_SECTION] #header-dash-" + prevHeaderSection);
+      }
+
+      $("#header-dash-" + section).css("display", "block");
+      $("#header-dash-" + section).css("opacity", "1");
+
+      console.log("[SHOW_SECTION] #header-dash-" + section);
+
+      prevHeaderSection = section;
+      dashShow();
+      dashShown=true;
+    }
+  };
+
+  $('#home-link').on('click', ()=>{dashToggle("home")});
+  $('#jekio-link').on('click', ()=>{dashToggle("jekio")});
+  $('#wanilla-link').on('click', ()=>{dashToggle("wanilla")});
+  $('#blog-link').on('click', ()=>{dashToggle("blog")});
+  $('#about-link').on('click', ()=>{dashToggle("about")});
+  */
 </script>
