@@ -14,8 +14,23 @@
     --flow-color-cyan: #088;
     --flow-color-cyan-light: #0bb;
 
+    --flow-color-red: #811;
+    --flow-color-red-light: #c22;
+
     --flow-color-gray: #252525;
     --flow-color-gray-light: #323232;
+}
+
+@keyframes flow-toggle-bumpon {
+    0% {width: 42px; transform: translateX(4px) rotate(3deg);}
+    100% {width: 38px; transform: translateX(0px) rotate(0deg);}
+}
+
+hr {
+    border-top: 2px solid #ddd;
+    border-bottom: 2px solid #ddd;
+    opacity: 0.75;
+    border-radius: 2px;
 }
 
 .flow-block {
@@ -36,12 +51,13 @@
     transform: scale(1.01);
 }
 
-.flow-block .flow-button {
+.flow-button {
     background: #333;
+    border: 0px solid transparent;
     color: #eee;
     border-radius: 4px;
     transition: all 0.15s linear;
-    width: 100%;
+    
     padding: 10px;
     display: block;
     margin-top: 4px;
@@ -49,18 +65,68 @@
     transform-style: preserve-3d;
     transform: translateZ(80px)
 }
-.flow-block .flow-button:hover {
+.flow-button:hover {
     box-shadow: 2px 2px 11px 1px rgba(0,0,0,0.85);
     transform: scale(1.025);
     cursor: pointer;
     text-decoration: none;
 }
-.flow-block .flow-button:active {
+.flow-button:active {
     box-shadow: 1px 2px 1px 1px rgba(0,0,0,0.85);
     transform: scale(1.01);
     cursor: pointer;
     text-decoration: none;
 }
+.flow-block .flow-button, .flow-button.full {
+    width: 100%;
+}
+
+.flow-toggle {
+    width: 32px;
+    height: 12px;
+    background: transparent;
+    border: 3px solid #555;
+    border-radius: 12px;
+    transition: all 0.15s ease;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+.flow-toggle:hover {
+    width: 38px;
+    box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.85);
+}
+.flow-toggle input {
+    width: 40px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0;
+    margin: 0;
+    padding: 4px;
+    position: absolute;
+    margin-left: -4px;
+    margin-top: -4px;
+}
+.flow-toggle .flow-toggle-label {
+    margin-left: 48px;
+    margin-top: -5px;
+    width: 320px;
+}
+.flow-toggle.flow-toggle-on {
+    background: var(--flow-color-blue-light);
+    border: 3px solid var(--flow-color-blue-light);
+    width: 38px;
+    animation: 0.5s flow-toggle-bumpon ease;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.85);
+}
+
+.flow-toggle-one {
+    border-left: 4px solid #555;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 4px;
+}
+
+
 
 .flow-tag {
     display: inline-block;
@@ -97,6 +163,13 @@
     background: var(--flow-color-cyan-light);
 }
 
+.flow-button.flow-color-red {
+    background: var(--flow-color-red);
+}
+.flow-button.flow-color-red:hover {
+    background: var(--flow-color-red-light);
+}
+
 .flow-button.flow-color-gray {
     background: var(--flow-color-gray);
 }
@@ -119,7 +192,33 @@
     background: var(--flow-color-cyan);
     border: 1px solid var(--flow-color-cyan-light);
 }
+.flow-tag.flow-color-red {
+    background: var(--flow-color-red);
+    border: 1px solid var(--flow-color-red-light);
+}
 .flow-tag.flow-color-gray {
     background: var(--flow-color-gray);
     border: 1px solid var(--flow-color-gray-light);
+}
+
+
+.flow-toggle.flow-toggle-on.flow-color-blue {
+    background: var(--flow-color-blue-light);
+    border: 3px solid var(--flow-color-blue-light);
+}
+.flow-toggle.flow-toggle-on.flow-color-lblue {
+    background: var(--flow-color-lblue-light);
+    border: 3px solid var(--flow-color-lblue-light);
+}
+.flow-toggle.flow-toggle-on.flow-color-cyan {
+    background: var(--flow-color-cyan-light);
+    border: 3px solid var(--flow-color-cyan-light);
+}
+.flow-toggle.flow-toggle-on.flow-color-red {
+    background: var(--flow-color-red-light);
+    border: 3px solid var(--flow-color-red-light);
+}
+.flow-toggle.flow-toggle-on.flow-color-gray {
+    background: var(--flow-color-gray-light);
+    border: 3px solid var(--flow-color-gray-light);
 }
