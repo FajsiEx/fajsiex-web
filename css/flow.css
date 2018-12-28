@@ -127,6 +127,15 @@ hr {
 }
 
 
+.flow-img {
+
+}
+.flow-block .flow-img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
 
 .flow-tag {
     display: inline-block;
