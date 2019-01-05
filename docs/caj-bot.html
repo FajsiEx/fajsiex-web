@@ -71,7 +71,7 @@
 
 		    <div class="col-lg flow-block">
 					<h2>!events</h2>
-					<p><b>Alias: </b>!eventy</p>
+					<p><b>Alias: </b>!eventy !ev</p>
 					<p>Vypíše eventy na najbližších 14 dní/dnes/zajtra.</p>
 					<b>Použitie:</b><br>
 					!events<br>
@@ -85,7 +85,7 @@
 				</div>
 		    <div class="col-lg flow-block">
 					<h2>!holidays</h2>
-					<p><b>Alias: </b>!prazdniny</p>
+					<p><b>Alias: </b>!prazdniny !ho</p>
 					<p>Zobrazí odpočet do prázdnin.</p>
 				</div>
 
@@ -191,10 +191,10 @@
 					<p>Odpovie náhodným vtipom z kolekcie Dana Valníčka</p>
 				</div>
 				<div class="col-lg flow-block">
-						<h2>!kill</h2>
-						<p><b>Alias: </b>!zabi</p>
-						<p>Self-explanatory</p>
-					</div>
+					<h2>!kill</h2>
+					<p><b>Alias: </b>!zabi</p>
+					<p>Self-explanatory</p>
+				</div>
 	
 			</div>
 	
@@ -203,6 +203,11 @@
 				<div class="col-lg flow-block">
 					<h2>!alecau</h2>
 					<p>Ale čau...(neni to už dead meme?)</p>
+				</div>
+				<div class="col-lg flow-block">
+					<h2>!kawaii</h2>
+					<p><b>Alias: </b>!kw</p>
+					<p>Pošle nejaky čudný emoji</p>
 				</div>
 				<div class="col-lg flow-block">
 					<h2>!nick</h2>
@@ -226,6 +231,28 @@
 				<div class="col-lg flow-block">
 					<h2>!tf</h2>
 					<p>Odpovie 50/50 áno alebo nie.</p>
+				</div>
+				<div class="col-lg flow-block">
+					<h2>!faq</h2>
+					<p>Shortcut pre vysvetlovanie problémov</p>
+					<b>Použitie:</b><br>
+					!faq mute<br>
+				</div>
+	
+			</div>
+
+			<div class="row">
+	
+				<div class="col-lg flow-block">
+					<h2>!pvt</h2>
+					<p>Zobrazí info o boji medzi PewDiePie a T-series.</p>
+				</div>
+				<div class="col-lg flow-block">
+					<h2>!weather</h2>
+					<p><b>Alias: </b>!pocasie</p>
+					<p>Zobrazí počasie pre miesto</p>
+					<b>Použitie:</b><br>
+					!weather Bratislava<br>
 				</div>
 	
 			</div>
@@ -379,7 +406,8 @@
       	<div class="row">
 
 			<div class="col-lg flow-block">
-        	  	<h2>!ping</h2>
+				<h2>!ping</h2>
+				<p><b>Alias: </b>!dp</p>
         	  	<p>Odošle ping v milisekundách</p>
         	</div>
 			<div class="col-lg flow-block">
@@ -387,7 +415,8 @@
         	  	<p>Urobí diagnostiku a odošle výsledky</p>
         	</div>
 			<div class="col-lg flow-block">
-        	  	<h2>!testread</h2>
+				<h2>!testread</h2>
+				<p><b>Alias: </b>!dtr</p>
         	  	<p>
 					Vypíše požadovanú premennú do JSON súboru.<br>
 					<br>
@@ -399,10 +428,37 @@
 
 		</div>
 
+      	<div class="row">
+
+			<div class="col-lg flow-block">
+				<h2>!forceload <div class="flow-tag flow-color-blue">Dev</div></h2>
+				<p><b>Alias: </b>!fl</p>
+        	  	<p>Vynúti load z db bez ohľadu na varovania</p>
+        	</div>
+			<div class="col-lg flow-block">
+				<h2>!forcesave <div class="flow-tag flow-color-blue">Dev</div></h2>
+				<p><b>Alias: </b>!fs</p>
+        	  	<p>Vynúti save z db bez ohľadu na varovania</p>
+        	</div>
+			<div class="col-lg flow-block">
+				<h2>!forceinit <div class="flow-tag flow-color-blue">Dev</div></h2>
+				<p><b>Alias: </b>!meifirl</p>
+        	  	<p>Vynúti init globalVariables modulu.</p>
+			</div>
+
+		</div>
+
 		<div class="row">
 
 			<div class="col-lg flow-block">
-        	  	<h2>!testpp</h2>
+        	  	<h2>!sd <div class="flow-tag flow-color-blue">Dev</div></h2>
+				<p>Naplánuje vypnutie bota</p>
+				<b>Použitie:</b><br>
+				!sd 2 (vypne ho za 2 minúty)<br>
+        	</div>
+			<div class="col-lg flow-block">
+				<h2>!testpp</h2>
+				<p><b>Alias: </b>!dtp</p>
 				<p>Urobí PrettyPrint premennej</p>
 				<b>Použitie:</b><br>
 				!testpp users (pre usersObj)<br>
