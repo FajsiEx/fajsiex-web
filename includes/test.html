@@ -1,0 +1,78 @@
+<!-- Tabulka 101 -->
+<table border="2" bgcolor="blue" bordercolor="red" align="center">
+    <caption>Nadpis tabulky</caption>
+
+    <th>Hlava</th>
+    <th>Hlava 2</th>
+    <th>Hlava 3</th>
+
+    <tr>
+        <td>Riadok 1 Data 1</td>
+        <td>Riadok 1 Data 2</td>
+        <td rowspan="3">Riadok 1 Data 3</td>
+    </tr>
+    <tr>
+        <td colspan="2">Riadok 2 Data 1</td>
+    </tr>
+    <tr>
+        <td>Riadok 3 Data 1</td>
+        <td>Riadok 3 Data 2</td>
+    </tr>
+</table>
+
+<h1>Nadpis 1. urovne</h1> <!-- Čím väčšia úroveň, tým menšia veľkosť -->
+<h2 align="center">Nadpis 2. urovne</h2> <!-- zarovnany na stred -->
+<h3 align="right">Nadpis 3. urovne</h3> <!-- zarovnany na pravo -->
+<h4 title="Bublinka ktora sa objavi ked nad toto date mys">Nadpis 4. urovne</h4>
+<h5>Nadpis 5. urovne</h5>
+<h6>Nadpis 6. urovne</h6>
+<p>Odstavec</p>
+<hr> <!-- Rozdelovacia ciara -->
+<pre>
+    Predformatovany
+    text
+    ktory
+    neignoruje
+    nove riadky
+    a       viac ako jednu medzeru medzi slovami
+</pre>
+<strong>Tucny</strong>
+<em>Sikmy</em>
+<mark>Oznaceny</mark>
+<sub>Dolny index</sub>
+<sup>Horny index</sup>
+
+<!-- Necislovany zoznam (odrazky) -->
+<ul>
+    <li>kruhy</li>
+    <li>kruhy</li>
+</ul>
+<ul style="list-style-type: circle">
+    <li>kruznica</li>
+    <li>kruznica</li>
+</ul>
+<ul style="list-style-type: square">
+    <li>stvorec</li>
+    <li>stvorec</li>
+</ul>
+<ul style="list-style-type: none">
+    <li>bez odrazky</li>
+    <li>bez odrazky</li>
+</ul>
+
+<!-- Cislovany zoznam -->
+<ol start="7"> <!-- <ol style="list-style-type: decimal/upper-alpha/lower-alpha/upper-roman/lower-roman"> start="od ktoreho cisla zacina list" -->
+    <li>vec</li>
+    <li>vec</li>
+    <li value="69">vec</li> <!-- hodnota pre toto bude 69 a bude to pokracovat od 69 -->
+    <li>vec</li>
+</ol>
+
+<u>podcia</u>
+
+<!-- Formulare -->
+<form action="str.html"> <!-- action="na ktoru stanku vas hodi ked urobite" -->
+    <input type="text" placeholder="Username">
+    <input type="password" placeholder="Password">
+    <input type="checkbox" name="whatever">
+</form>
