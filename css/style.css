@@ -2,6 +2,7 @@
   font-family: paintypaint;
   src: url("../fonts/paintypaint.ttf");
 }
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
 :root {
   --content-bg-color: #121212;
@@ -83,7 +84,7 @@ header {
 }
 
 .logo {
-  font-family: paintypaint;
+  font-family: "Fredoka One";
   color: #fff;
   font-size: 32px;
   margin:0;
@@ -94,6 +95,7 @@ header {
   z-index: 3;
   transition: all 0.5s ease;
   text-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  transform: skewX(-11deg);
 }
 
 .logo:hover {
