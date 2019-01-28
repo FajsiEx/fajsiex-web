@@ -54,15 +54,35 @@
 
 	<div class="content">
 
-	<p style="text-align: center">
-		Autori:
-		<a href="https://github.com/FajsiEx" style="border-bottom: 3px solid var(--changelog-author-color-fajsiex)">FajsiEx</a>
-		 & 
-		<a href="https://github.com/CodyM4V3R1CK" style="border-bottom: 3px solid var(--changelog-author-color-cody)">CodyM4V3R1CK</a>
-		<br>
+	<div class="container" id="intro">
+		<div class="row">
+			<div class="col-lg flow-block author-fajsiex">
+				<h2>Tea-bot project</h2>
+				&copy; 2018-2019 FajsiEx<br>
+				Licensed under MIT license.<br>
+				For more information about licensing refer to LICENSE.md in the <a href="https://github.com/FajsiEx/tea-bot">GitHub repo</a><br>
+				<b>Contributors:</b><br>
+				<a href="https://github.com/FajsiEx" style="color: var(--changelog-author-color-fajsiex); text-decoration: none">FajsiEx</a><br>
+				<a href="https://github.com/CodyM4V3R1CK" style="color: var(--changelog-author-color-cody); text-decoration: none">CodyM4V3R1CK</a>
+				<br>
+			
+				<a href="https://github.com/FajsiEx/tea-bot/commits/master">Changelog</a>
+			</div>
+			<div class="col-lg flow-block author-fajsiex">
+					<h2>Príkazy</h2>
+					<a href="#comm-events">Eventy</a><br>
+					<a href="#comm-admin">Admin príkazy</a><br>
+					<a href="#comm-music">Music</a><br>
+					<a href="#comm-random">Random príkazy</a><br>
+					<a href="#comm-lyrics">Lyrics</a><br>
+					<a href="#comm-meme">Memes</a><br>
+					<a href="#comm-nsfw">NSFW príkazy</a><br>
+					<a href="#comm-dev">Dev príkazy</a>
+			</div>
+		</div>
+	</div>
 
-		<a href="https://github.com/FajsiEx/tea-bot/commits/master">Changelog</a>
-	</p>
+	
 
 	<!-- <div class="container">
 		<h1 class="maintitle">
@@ -147,10 +167,10 @@
 		</div>
 	</div> -->
 
-	<hr>
+	<br><br>
 
 	<!-- Events commands -->
-    <div class="container">
+    <div class="container" id="comm-events">
 		<h1 class="maintitle">
 			Eventy
 		</h1>
@@ -199,9 +219,9 @@
 
 	</div>
 
-	<hr>
+	<br><br>
 	<!-- Mod commands -->
-    <div class="container">
+    <div class="container" id="comm-admin">
 		<h1 class="maintitle">
 			Admin príkazy
 		</h1>
@@ -216,37 +236,35 @@
 					!silence 60 @Niekto-iný (mutne Niekoho-iného na 60 minút)<br>
 				</div>
 		    <div class="col-lg flow-block author-fajsiex">
-					<h2>!unmute <div class="flow-tag flow-color-red">Admin</div></h2>
-					<p><b>Alias: </b>!unsilence</p>
-					<p>Zruší mute pre niekoho.</p>
-					<b>Použitie:</b><br>
-					!unmute @Niekto (un-mutne Niekoho)<br>
-				</div>
-
-			</div>
-
-			<div class="row">
-
-		    	<div class="col-lg flow-block author-fajsiex">
-					<h2>!nuke <div class="flow-tag flow-color-red">Admin</div></h2>
-					<p>Vymaže posledných x správ (max 99 - limit Discordu) za y sekúnd (max 60).</p>
-					<b>Použitie:</b><br>
-					!nuke 5 10 (Vymaže posledných 5 správ za 10 sekúnd)<br>
-					!nuke 99 60 (Vymaže posledných 99 správ za 60 sekúnd)<br>
-				</div>
-		    	<div class="col-lg flow-block author-fajsiex">
-					<h2>!mod <div class="flow-tag flow-color-red">Admin</div></h2>
-					<p>Zapne/vypne príkazy bota (keby niekto moc spamoval)</p>
-				</div>
-				
+				<h2>!unmute <div class="flow-tag flow-color-red">Admin</div></h2>
+				<p><b>Alias: </b>!unsilence</p>
+				<p>Zruší mute pre niekoho.</p>
+				<b>Použitie:</b><br>
+				!unmute @Niekto (un-mutne Niekoho)<br>
 			</div>
 
 		</div>
 
-	<hr>
+		<div class="row">
 
+		 	<div class="col-lg flow-block author-fajsiex">
+				<h2>!nuke <div class="flow-tag flow-color-red">Admin</div></h2>
+				<p>Vymaže posledných x správ (max 99 - limit Discordu) za y sekúnd (max 60).</p>
+				<b>Použitie:</b><br>
+				!nuke 5 10 (Vymaže posledných 5 správ za 10 sekúnd)<br>
+				!nuke 99 60 (Vymaže posledných 99 správ za 60 sekúnd)<br>
+			</div>
+		 	<div class="col-lg flow-block author-fajsiex">
+				<h2>!mod <div class="flow-tag flow-color-red">Admin</div></h2>
+				<p>Zapne/vypne príkazy bota (keby niekto moc spamoval)</p>
+			</div>
+			
+		</div>
+	</div>
+
+	<br><br>
 	<!-- Random commands -->
-    <div class="container">
+    <div class="container" id="comm-music">
 		<h1 class="maintitle">
 			Music
 		</h1>
@@ -279,9 +297,9 @@
 		</div>
 	</div>
 
-	<hr>
+	<br><br>
 	<!-- Random commands -->
-    <div class="container">
+    <div class="container" id="comm-random">
 		<h1 class="maintitle">
 			Random príkazy
 		</h1>
@@ -448,11 +466,11 @@
 	
 	</div>
 	
-	<hr>
+	<br><br>
 	<!-- Lyrics commands -->
-	<div class="container">
+	<div class="container" id="comm-lyrics">
 		<h1 class="maintitle">
-			Copy-pasta
+			Lyrics
 		</h1>
 		<div class="row">
 	
@@ -479,9 +497,9 @@
 		</div>
 	</div>
 
-	<hr>
+	<br><br>
 	<!-- Meme commands -->
-	<div class="container">
+	<div class="container" id="comm-meme">
 		<h1 class="maintitle">
 			Memes
 		</h1>
@@ -687,9 +705,9 @@
 		
 	</div>
 	
-	<hr>
+	<br><br>
 	<!-- NSFW commands -->
-	<div class="container">
+	<div class="container" id="comm-nsfw">
 		<h1 class="maintitle">
 			NSFW
 		</h1>
@@ -709,10 +727,9 @@
 		</div>
 	</div>
 
-	<hr>
+	<br><br>
 	<!-- Dev commands -->
-
-    <div class="container">
+    <div class="container" id="comm-dev">
 		<h1 class="maintitle">
 			Dev príkazy
 		</h1>
