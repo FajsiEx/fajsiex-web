@@ -1,4 +1,4 @@
-$('.flow-block').tilt({
+/*$('.flow-block').tilt({
     maxTilt: 10,
     perspective: 1000,
 })
@@ -7,7 +7,7 @@ $('.flow-button').tilt({
     perspective: 1500,
     glare: true,
     maxGlare: .25
-});
+});*/
 
 $(".flow-toggle input").on("click", (e)=>{
     console.log(e);
