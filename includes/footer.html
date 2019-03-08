@@ -3,8 +3,8 @@
 
 <!-- I NEED JQUERY OK? -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="../js/libs/tilt.jquery.js"></script>
-<script src="../js/libs/flow.js"></script>
+<script src="/js/libs/tilt.jquery.js"></script>
+<script src="/js/libs/flow.js"></script>
 
 <script>
   particlesJS.load('bubble-wrap', '/particlesjs-config-winter.json', function() {
@@ -29,7 +29,7 @@
 
   let fadeoutTimeoutId = 0;
 
-  $('.dropdown').on('mouseover', ()=>{
+  $('.dropshadeonhover').on('mouseover', ()=>{
     dashDown = true;
     $('#header-title').css('opacity', '0');
     $('#header-title').css('display', 'none');
@@ -40,7 +40,7 @@
     clearTimeout(fadeoutTimeoutId);
   });
 
-  $('.dropdown').on('mouseout', ()=>{
+  $('.dropshadeonhover').on('mouseout', ()=>{
     fadeoutTimeoutId = setTimeout(()=>{
       dashDown = false;
 
