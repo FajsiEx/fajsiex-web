@@ -1,3 +1,7 @@
+<footer class="warning-footer">
+    ⚠️ Local Debug State ⚠️
+</footer>
+
 <!-- Particles.js lib -->
 <script src="/js/libs/particles.min.js"></script>
 
@@ -7,8 +11,16 @@
 <script src="/js/libs/flow.js"></script>
 
 <script>
-  particlesJS.load('bubble-wrap', '/particlesjs-config-winter.json', function() {
+  /*particlesJS.load('bubble-wrap', '/particlesjs-config-winter.json', function() {
     console.log('callback - particles.js config loaded');
+  });*/
+
+  $(function () {
+    jQuery(document).ready(function($) {
+      setTimeout(()=>{
+        $('[data-toggle="tooltip"]').tooltip();
+      }, 2500);
+    });
   });
 
   dashDown = false;
@@ -20,7 +32,7 @@
     }
     if (($(document).scrollTop() - 64) > 0) { //(document.getElementsByClassName("wave-divider")[0].offsetTop)
       $(".header-background").css("height", "90px");
-      $(".header-background").css("opacity", ($(document).scrollTop() - 64) / (document.getElementsByClassName("wave-divider")[0].offsetTop));
+      $(".header-background").css("opacity", ($(document).scrollTop() - 64) / 400);
     }else{
       $(".header-background").css("height", "0px");
       $(".header-background").css("opacity", "0");

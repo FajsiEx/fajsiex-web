@@ -38,19 +38,7 @@ hr {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 75vh;
-}
-.bubble-wrap-cover {
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 75vh;
-  background: #000;
-  transition: all 0.25s ease;
-  top: 0;
-  left:0;
-  opacity: 0;
+  height: 50vh;
 }
 
 canvas {
@@ -300,15 +288,6 @@ header {
   color:#eee;
 }
 
-.wave-divider {
-  background: url("../imgs/wave.png");
-  height: 198px;
-  top: calc(75vh - 198px);
-  position: absolute;
-  width: 100%;
-  background-size: cover;
-}
-
 .wave-footer {
   background: url("../imgs/wave.png");
   height: 198px;
@@ -322,10 +301,10 @@ header {
 
 .content {
   color: #fff;
-  background: url("../imgs/back.png");
+  /*background: url("../imgs/back.png");*/
   /* background: #121212; */
   position: absolute;
-  top:75vh;
+  top:50vh;
   width: 100%;
   padding-bottom: 48px;
   padding:8px;
@@ -406,6 +385,19 @@ header {
 .footer-right a {
   text-decoration: none;
   color: #eee;
+}
+
+.warning-footer {
+  position: fixed;
+  width: 100vw;
+  height: 64px;
+  padding: 16px;
+  padding-top: 24px;
+  left:0;
+  bottom:0;
+  background: linear-gradient(to top, #550, transparent);
+  text-align: center;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 965px) {

@@ -1,21 +1,24 @@
 <!-- GFonts -->
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
 <!-- Styles -->
 <link rel="stylesheet" href="/css/style.css?v=1.1">
 <link rel="stylesheet" href="/css/flow.css">
+<link rel="stylesheet" href="/css/waves.css">
 
 
 <script>
+  let isLocal = (location.href.indexOf("localhost")>-1 || location.href.indexOf("127.")>-1);
   let isBeta = (location.href.startsWith("http://beta.") || location.href.startsWith("https://beta."));
+
   let isBetaAccepted = sessionStorage['beta_accepted'];
 
   if (isBeta && !isBetaAccepted) {
@@ -23,10 +26,14 @@
   }
 
   if (isBeta) {
-    console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugsahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
+    console.warn("[ BETA ] This branch of fajsiex-web is in the development! There may be bugs ahead.\nbtw...want to help out? Here you go: https://github.com/FajsiEx/fajsiex-web");
     $(()=>{
       $("title").html('⚠️ ' + $("title").html());
     });
+  }
+
+  if (isLocal) {
+    $(()=>{$(".warning-footer").css("visibility", "visible");});
   }
   
 
@@ -60,8 +67,30 @@
   }
 </script>
 
-<div class="bubble-wrap" id="bubble-wrap"></div>
-<div class="bubble-wrap-cover"></div>
+<!--
+Copyright (c) 2019 by Jelena Jovanovic (https://codepen.io/plavookac/pen/QMwObb)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
+
+<div class="bubble-wrap" id="bubble-wrap">
+  <div class="waveWrapper waveAnimation">
+    <div class="waveWrapperInner bgTop">
+      <div class="wave waveTop" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
+    </div>
+    <div class="waveWrapperInner bgMiddle">
+      <div class="wave waveMiddle" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
+    </div>
+    <div class="waveWrapperInner bgBottom">
+      <div class="wave waveBottom" style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
+    </div>
+  </div>
+</div>
+
 <!-- And this the actual content -->
 <div class="header-content">
   <div class="header-background">
@@ -102,9 +131,17 @@
 
 
     <div class="ua-links">
-      <a class="search-icon dropshadeonhover" href="mailto:fajsiexofficial@gmail.com"><i class="far fa-envelope"></i></a>
-      <a class="search-icon dropshadeonhover" target="_blank" rel="noopener noreferrer" href="https://twitter.com/fajsiexofficial"data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter"></i></a>
-      <a class="search-icon dropshadeonhover" target="_blank" rel="noopener noreferrer" href="https://github.com/FajsiEx"><i class="fab fa-github"></i></a>
+      <a class="search-icon dropshadeonhover" href="mailto:fajsiexofficial@gmail.com" data-toggle="tooltip" data-placement="bottom" title="E-mail (fajsiexofficial@gmail.com)">
+        <i class="far fa-envelope"></i>
+      </a>
+
+      <a class="search-icon dropshadeonhover" target="_blank" rel="noopener noreferrer" href="https://twitter.com/fajsiexofficial" data-toggle="tooltip" data-placement="bottom" title="Twitter (@fajsiexofficial)">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a class="search-icon dropshadeonhover" target="_blank" rel="noopener noreferrer" href="https://github.com/FajsiEx" data-toggle="tooltip" data-placement="bottom" title="GitHub (@FajsiEx)">
+        <i class="fab fa-github"></i>
+      </a>
+
       <!-- <span class="search-icon" style="color: #fff;"><i class="fas fa-search"></i></span>
       <span class="search-full">
         <span style="color: #aaa;font-family: 'Montserrat', Arial;font-weight:800">&nbsp;//&nbsp;</span>
