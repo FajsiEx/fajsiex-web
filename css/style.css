@@ -2,6 +2,7 @@
   font-family: paintypaint;
   src: url("../fonts/paintypaint.ttf");
 }
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One');
 
 :root {
   --content-bg-color: #121212;
@@ -37,19 +38,7 @@ hr {
   position: absolute;
   z-index: -1;
   width: 100%;
-  height: 75vh;
-}
-.bubble-wrap-cover {
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-  width: 100%;
-  height: 75vh;
-  background: #000;
-  transition: all 0.25s ease;
-  top: 0;
-  left:0;
-  opacity: 0;
+  height: 50vh;
 }
 
 canvas {
@@ -69,7 +58,7 @@ header {
   z-index: 125;
 }
 .header-background {
-  background: linear-gradient(to bottom, rgb(23, 23, 23), transparent);
+  background: linear-gradient(to bottom, rgb(0, 0, 0), transparent);
   transition: height 0.5s ease,
     background 0.5s ease,
     opacity 0.5s ease,
@@ -83,7 +72,7 @@ header {
 }
 
 .logo {
-  font-family: paintypaint;
+  font-family: "Fredoka One";
   color: #fff;
   font-size: 32px;
   margin:0;
@@ -92,14 +81,25 @@ header {
   display: inline-block;
   text-decoration: none;
   z-index: 3;
-  transition: all 0.5s ease;
+  transition: all .25s ease;
   text-shadow: 0px 0px 0px transparent, 0px 0px 0px transparent;
+  transform: skewX(-11deg);
+  opacity: 1;
 }
 
+.logo-back {
+  background: linear-gradient(to top right, #08f, #f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.logo-front {
+  position: absolute;
+  left: 12px;
+}
+.logo-front:hover {
+  opacity: 0;
+}
 .logo:hover {
-  transition: all 0.5s ease;
-  text-shadow: -1px -1px 0px #f00, 2px 2px 0px #08f;
-  color: #ccc;
   text-decoration: none;
 }
 
@@ -288,15 +288,6 @@ header {
   color:#eee;
 }
 
-.wave-divider {
-  background: url("../imgs/wave.png");
-  height: 198px;
-  top: calc(75vh - 198px);
-  position: absolute;
-  width: 100%;
-  background-size: cover;
-}
-
 .wave-footer {
   background: url("../imgs/wave.png");
   height: 198px;
@@ -310,10 +301,10 @@ header {
 
 .content {
   color: #fff;
-  background: url("../imgs/back.png");
+  /*background: url("../imgs/back.png");*/
   /* background: #121212; */
   position: absolute;
-  top:75vh;
+  top:50vh;
   width: 100%;
   padding-bottom: 48px;
   padding:8px;
@@ -394,6 +385,19 @@ header {
 .footer-right a {
   text-decoration: none;
   color: #eee;
+}
+
+.warning-footer {
+  position: fixed;
+  width: 100vw;
+  height: 64px;
+  padding: 16px;
+  padding-top: 24px;
+  left:0;
+  bottom:0;
+  background: linear-gradient(to top, #550, transparent);
+  text-align: center;
+  visibility: hidden;
 }
 
 @media screen and (max-width: 965px) {
