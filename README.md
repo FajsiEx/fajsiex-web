@@ -1,3 +1,4 @@
-# [FajsiEx-Web](https://fajsiex.ml)
-### Official website of FajsiEx
-Work in progress...planned to be finished by the end of 2018...hopefully...
+# [FajsiEx webpage](https://fajsiex.ml)
+A simple portfolio and home to my projects.
+
+*Redesign work in progress*

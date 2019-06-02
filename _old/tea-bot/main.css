@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo|Varela+Round');
+
+body {
+    background: #080808;
+    color: #fff;
+    font-family: 'Heebo', sans-serif;
+}
+h1,h2,h3,h4,h5,h6,.title {
+    font-family: 'Varela Round', sans-serif;
+}
