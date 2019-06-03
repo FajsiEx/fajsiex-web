@@ -1,0 +1,57 @@
+
+body {
+    background: #223;
+    color: #ddd;
+    padding:0;
+    margin:0;
+}
+
+.background {
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+#particles-back {
+    height:100%;
+}
+
+.navbar {
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+}
+
+.section {
+    height:100vh;
+}
+.section:nth-child(even) {
+    background: rgba(255,255,255,0.25);
+}
+.section:nth-child(odd) {
+    background: rgba(0,0,0,0.25);
+}
+
+.nav-link-svg {
+
+}
+
+.nav-link-svg.twitter:hover #path-twitter {
+    stroke: #1DA1F2;
+}
+
+.nav-link-svg.github:hover .path-github {
+    stroke: #888;
+}
+
+.nav-link-svg.osu:hover .path-osu {
+    stroke: #ff66aa;
+}
+
+
+
+#head {
+    padding-top: 35vh;
+}

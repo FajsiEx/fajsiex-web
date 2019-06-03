@@ -1,0 +1,74 @@
+#path-f {
+    fill: transparent;
+    stroke: #fff;
+    stroke-dasharray: 25535;
+    stroke-width: 328px;
+    animation: 2s path-f ease;
+}
+
+#path-twitter {
+    fill: transparent;
+    stroke: #fff;
+    stroke-dasharray: 14477;
+    stroke-width: 212px;
+    animation: 2s path-twitter ease;
+    transition: all 0.5s ease;
+}
+
+.path-github {
+    fill: transparent;
+    stroke: #fff;
+    stroke-dasharray: 6778;
+    stroke-width: 56px;
+    animation: 2s path-github ease;
+    transition: all 0.5s ease;
+}
+
+.path-osu {
+    fill: transparent;
+    stroke: #fff;
+    stroke-dasharray: 2160;
+    stroke-width: 48px;
+    animation: 2s path-osu ease;
+    transition: all 0.5s ease;
+}
+
+@keyframes path-f {
+    from {
+        stroke-dashoffset: 25535;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes path-twitter {
+    from {
+        stroke-dashoffset: 14477;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes path-github {
+    from {
+        stroke-dashoffset: 6778;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes path-osu {
+    from {
+        stroke-dashoffset: 2160;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
