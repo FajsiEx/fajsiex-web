@@ -4,13 +4,13 @@ onload = () => {
     });
 };
 
-$(document).mousemove((event)=> {
-    let xMult = event.clientX / innerWidth;
-    let yMult = event.clientY / innerHeight;
+// $(document).mousemove((event)=> {
+//     let xMult = event.clientX / innerWidth;
+//     let yMult = event.clientY / innerHeight;
 
-    let left = - (xMult*10) / 4;
-    let top =  - (yMult*10) / 4;
+//     let left = (xMult*10) / 4;
+//     let top =  (yMult*10) / 4;
 
-    $(".background").css("left", `${left}%`);
-    $(".background").css("top", `${top}%`);
-});
+//     $(".background").css("left", `${left}%`);
+//     $(".background").css("top", `${top}%`);
+// });
