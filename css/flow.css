@@ -23,6 +23,16 @@ body {
     padding: 16px;
 }
 
+.release-title .release-build.build-alpha {
+    color: #f80;
+}
+.release-title .release-build.build-beta {
+    color: #cc0;
+}
+.release-title .release-build {
+    color: #08f;
+}
+
 .release-title .release-tag {
     text-align: center;
     display: inline-block;
@@ -78,6 +88,10 @@ body {
     color: #000;
 }
 
+.release-title .release-tag.tag-alpha {
+    background: #f80;
+    color: #000;
+}
 .release-title .release-tag.tag-beta {
     background: #cc0;
     color: #000;

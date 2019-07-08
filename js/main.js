@@ -21,7 +21,7 @@ function generateChangelogChangesHtml(changes) {
 }
 
 function generateReleaseTagsHtml(tags) {
-    if (!tags) {return "";}
+    if (!tags) { return ""; }
     let outputHtml = "";
     for (let tag of tags) {
         outputHtml += /*html*/`<div class="release-tag tag-${tag}">${tag.toUpperCase()}</div>`;
@@ -57,7 +57,8 @@ function generateReleaseTagsHtml(tags) {
 const timelineData = [
     {
         type: "release",
-        title: "Website 19.7.8",
+        project: "Website",
+        build: "19.7.8",
         description: "Finally removed the placeholders and added a changelog",
         changes: {
             added: [
@@ -78,7 +79,20 @@ const timelineData = [
     },
     {
         type: "release",
-        title: "Tea-bot 19.7.7",
+        project: "Noter",
+        build: "19.7.8",
+        tags: ["alpha"],
+        description: "",
+        changes: {
+            added: [
+                "Local storage to remember last theme used and to display that theme on next launch"
+            ]
+        }
+    },
+    {
+        type: "release",
+        project: "Tea-bot Re:Write",
+        build: "19.7.7",
         tags: ["beta"],
         description: "",
         changes: {
@@ -99,9 +113,20 @@ let timelineHtml = "";
 for (let event of timelineData) {
     let outputHtml = "";
     if (event.type == "release") {
+        let buildColor = "";
+
+        if (Array.isArray(event.tags)) {
+            if (event.tags.includes("alpha")) {
+                buildColor = "build-alpha";
+            }
+            if (event.tags.includes("beta")) {
+                buildColor = "build-beta";
+            }
+        }
+
         outputHtml = /*html*/`
             <div class="flow-changelog-release">
-                <h1 class="release-title">${event.title} ${generateReleaseTagsHtml(event.tags)}</h1>
+                <h1 class="release-title">${event.project} <span class="release-build ${buildColor}">${event.build}</span> ${generateReleaseTagsHtml(event.tags)}</h1>
                 <p class="release-notes">${event.description}</p>
                 <div class="release-changes">${generateChangelogChangesHtml(event.changes)}</div>
             </div>
