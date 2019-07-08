@@ -81,6 +81,9 @@ const timelineData = [
                 "Tooltips to change tags on hover",
                 "F logo has purple hover color"
             ],
+            removed: [
+                "Sample changelog entry"
+            ],
             code: [
                 "Use variables for colors instead of hard-coding them",
                 "Changed 'modified' to 'updated'"
@@ -134,35 +137,6 @@ const timelineData = [
                 "Discord onready event to display random splash string in the console",
                 "!info:about to use the random splash string"
             ],
-        }
-    },
-    {
-        type: "release",
-        project: "Non-existent project",
-        build: "02.9.9",
-        tags: ["alpha"],
-        description: "Sample changelog entry for testing changelog features. Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description ",
-        changes: {
-            added: [
-                "Nothing important",
-                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
-            ],
-            updated: [
-                "Nothing important",
-                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
-            ],
-            fixed: [
-                "Nothing important",
-                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
-            ],
-            removed: [
-                "Nothing important",
-                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
-            ],
-            code: [
-                "Nothing important",
-                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
-            ]
         }
     }
 ];
