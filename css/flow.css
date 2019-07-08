@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+.flow-card {
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 3px 3px 14px -1px rgba(0,0,0,0.75);
+    padding: 16px;
+    font-family: 'Ubuntu', Arial;
+}
+
+.flow-card .card-subtitle {
+    color: #aaa;
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.8rem
+}
+
+.flow-changelog-release {
+    padding: 16px;
+    font-family: 'Ubuntu', Arial;
+}
+
+.release-changes .release-change {
+    margin: 4px 0;
+    display: block;
+}
+
+.release-changes .release-change .change-tag {
+    font-weight: 600;
+}
+
+.release-changes .release-change .change-tag {
+    text-align: center;
+    display: inline-block;
+    
+    width: 128px;
+    height: 24px;
+    border-radius: 12px;
+    padding: 0px 12px;
+
+    vertical-align: top;
+}
+
+.release-changes .release-change .change-tag.tag-added {
+    background: #2c0;
+    color: #000000;
+}
+.release-changes .release-change .change-tag.tag-modified {
+    background: #08f;
+    color: #fff;
+}
+.release-changes .release-change .change-tag.tag-fixed {
+    background: #f80;
+    color: #000;
+}
+.release-changes .release-change .change-tag.tag-removed {
+    background: #f22;
+    color: #000;
+}
+
+.release-changes .release-change .change-text {
+    display: inline-block;
+    margin-left: 8px;
+    width: calc(100% - 136px);
+}
