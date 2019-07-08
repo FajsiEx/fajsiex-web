@@ -31,6 +31,20 @@ function generateChangelogChangesHtml(changes) {
 //     $(".background").css("top", `${top}%`);
 // });
 
+/*
+{
+    type: "release",
+    title: "",
+    description: "",
+    changes: {
+        added: [],
+        modified: [],
+        fixed: [],
+        removed: []
+    }
+}
+*/
+
 const timelineData = [
     {
         type: "release",
@@ -45,33 +59,6 @@ const timelineData = [
                 "Discord onready event to display random splash string in the console",
                 "!info:about to use the random splash string"
             ],
-        }
-    },
-    {
-        type: "release",
-        title: "Test release of non-existing thing alpha 19.7.8",
-        description: "Just a test release for testing the changelog.",
-        changes: {
-            added: [
-                "Something",
-                "Something else",
-                "Another thing"
-            ],
-            modified: [
-                "Something",
-                "Something else",
-                "Another thing"
-            ],
-            fixed: [
-                "Something",
-                "Something else",
-                "Another thing"
-            ],
-            removed: [
-                "Something",
-                "Something else",
-                "Another thing"
-            ]
         }
     }
 ];
