@@ -77,10 +77,12 @@ const timelineData = [
         changes: {
             added: [
                 "Dark gradient background to navbar",
+                "Finally added the footer",
                 "Tooltips to change tags on hover",
                 "F logo has purple hover color"
             ],
             code: [
+                "Use variables for colors instead of hard-coding them",
                 "Changed 'modified' to 'updated'"
             ]
         }
