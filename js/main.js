@@ -175,3 +175,47 @@ $("#js-timeline").html(timelineHtml);
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
 });
+
+const tailColors = [
+    "#F3C860",
+    "#F4CC6D",
+    "#F5D17B",
+    "#F5D588",
+    "#F6DA95",
+    "#F7DEA2",
+    "#F8E3B0",
+    "#F9E7BD",
+    "#FAECCA",
+    "#FAF0D7",
+    "#FBF5E5",
+    "#FCF9F2",
+    "#FCF9F2",
+    "#FBF4E3",
+    "#FAEFD5",
+    "#F9EAC6",
+    "#F8E5B8",
+    "#F8E1A9",
+    "#F7DC9A",
+    "#F6D78C",
+    "#F5D27D",
+    "#F4CD6F",
+    "#F3C860"
+];
+
+const tailText = "senko best fox girl";
+
+function tailCycle() {
+    tailColors.push(tailColors.shift());
+
+    let finalHtml = "";
+
+    let i=0;
+    for (let letter of tailText) {
+        finalHtml += `<span style="color:${tailColors[i]}">${letter}</span>`
+        i++;
+    }
+
+    $("#tail-text").html(finalHtml);
+}
+
+setInterval(tailCycle, 50);
