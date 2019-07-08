@@ -81,7 +81,7 @@ const timelineData = [
                 "F logo has purple hover color"
             ],
             code: [
-                "Changed 'updated' to 'updated'"
+                "Changed 'modified' to 'updated'"
             ]
         }
     },
