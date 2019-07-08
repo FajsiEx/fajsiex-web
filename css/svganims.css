@@ -4,6 +4,7 @@
     stroke-dasharray: 25535;
     stroke-width: 328px;
     animation: 2s path-f ease;
+    transition: all 0.5s ease;
 }
 
 #path-twitter {

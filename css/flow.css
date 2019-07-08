@@ -57,13 +57,13 @@ body {
     text-align: center;
     display: inline-block;
     
-    width: 128px;
+    width: 48px;
     height: 24px;
     border-radius: 12px;
     padding: 0px 12px;
-
+    
     vertical-align: top;
-
+    
     font-weight: 600;
 }
 
@@ -101,4 +101,10 @@ body {
     display: inline-block;
     margin-left: 8px;
     width: calc(100% - 136px);
+}
+
+@media screen and (max-width: 768px) {
+    .release-title .release-tag {
+        display:none;
+    }
 }

@@ -4,6 +4,14 @@ onload = () => {
     });
 };
 
+const changeTagsDict = {
+    added: "+",
+    modified: "*",
+    fixed: "/",
+    removed: "-",
+    code: ">"
+};
+
 function generateChangelogChangesHtml(changes) {
     let outputHtml = "";
 
@@ -11,7 +19,7 @@ function generateChangelogChangesHtml(changes) {
         for (let change of changes[changeType]) {
             outputHtml += /*html*/`
                 <div class="release-change">
-                    <div class="change-tag tag-${changeType}">${changeType.toUpperCase()}</div><div class="change-text">${change}</div>
+                    <div class="change-tag tag-${changeType}">${changeTagsDict[changeType]}</div><div class="change-text">${change}</div>
                 </div>
             `;
         }
@@ -105,6 +113,35 @@ const timelineData = [
                 "!info:about to use the random splash string"
             ],
         }
+    },
+    {
+        type: "release",
+        project: "Non-existent project",
+        build: "02.9.9",
+        tags: ["alpha"],
+        description: "Sample changelog entry for testing changelog features. Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description Description ",
+        changes: {
+            added: [
+                "Nothing important",
+                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
+            ],
+            modified: [
+                "Nothing important",
+                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
+            ],
+            fixed: [
+                "Nothing important",
+                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
+            ],
+            removed: [
+                "Nothing important",
+                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
+            ],
+            code: [
+                "Nothing important",
+                "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
+            ]
+        }
     }
 ];
 
@@ -126,7 +163,7 @@ for (let event of timelineData) {
 
         outputHtml = /*html*/`
             <div class="flow-changelog-release">
-                <h1 class="release-title">${event.project} <span class="release-build ${buildColor}">${event.build}</span> ${generateReleaseTagsHtml(event.tags)}</h1>
+                <h3 class="release-title">${event.project} <span class="release-build ${buildColor}">${event.build}</span> ${generateReleaseTagsHtml(event.tags)}</h3>
                 <p class="release-notes">${event.description}</p>
                 <div class="release-changes">${generateChangelogChangesHtml(event.changes)}</div>
             </div>
