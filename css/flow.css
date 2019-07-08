@@ -69,7 +69,7 @@ body {
     background: #2c0;
     color: #000000;
 }
-.release-changes .release-change .change-tag.tag-modified {
+.release-changes .release-change .change-tag.tag-updated {
     background: #08f;
     color: #000;
 }

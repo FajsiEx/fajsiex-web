@@ -6,10 +6,17 @@ onload = () => {
 
 const changeTagsDict = {
     added: "+",
-    modified: "*",
+    updated: "*",
     fixed: "/",
     removed: "-",
     code: ">"
+};
+const changeTagsTooltipDict = {
+    added: "Added",
+    updated: "Updated",
+    fixed: "Fixed",
+    removed: "Removed",
+    code: "Code change"
 };
 
 function generateChangelogChangesHtml(changes) {
@@ -19,7 +26,7 @@ function generateChangelogChangesHtml(changes) {
         for (let change of changes[changeType]) {
             outputHtml += /*html*/`
                 <div class="release-change">
-                    <div class="change-tag tag-${changeType}">${changeTagsDict[changeType]}</div><div class="change-text">${change}</div>
+                    <div class="change-tag tag-${changeType}" data-toggle="tooltip" data-placement="left" title="${changeTagsTooltipDict[changeType]}">${changeTagsDict[changeType]}</div><div class="change-text">${change}</div>
                 </div>
             `;
         }
@@ -55,7 +62,7 @@ function generateReleaseTagsHtml(tags) {
     description: "",
     changes: {
         added: [],
-        modified: [],
+        updated: [],
         fixed: [],
         removed: []
     }
@@ -66,13 +73,28 @@ const timelineData = [
     {
         type: "release",
         project: "Website",
+        build: "19.7.9",
+        changes: {
+            added: [
+                "Dark gradient background to navbar",
+                "Tooltips to change tags on hover",
+                "F logo has purple hover color"
+            ],
+            code: [
+                "Changed 'updated' to 'updated'"
+            ]
+        }
+    },
+    {
+        type: "release",
+        project: "Website",
         build: "19.7.8",
         description: "Finally removed the placeholders and added a changelog",
         changes: {
             added: [
                 "This changelog"
             ],
-            modified: [
+            updated: [
                 "Navbar icons to stay on the right on all devices"
             ],
             fixed: [],
@@ -90,7 +112,6 @@ const timelineData = [
         project: "Noter",
         build: "19.7.8",
         tags: ["alpha"],
-        description: "",
         changes: {
             added: [
                 "Local storage to remember last theme used and to display that theme on next launch"
@@ -102,13 +123,12 @@ const timelineData = [
         project: "Tea-bot Re:Write",
         build: "19.7.7",
         tags: ["beta"],
-        description: "",
         changes: {
             added: [
                 "Splash strings to config and their picker",
                 "Color subspecial",
             ],
-            modified: [
+            updated: [
                 "Discord onready event to display random splash string in the console",
                 "!info:about to use the random splash string"
             ],
@@ -125,7 +145,7 @@ const timelineData = [
                 "Nothing important",
                 "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
             ],
-            modified: [
+            updated: [
                 "Nothing important",
                 "Something very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very very important",
             ],
@@ -152,6 +172,8 @@ for (let event of timelineData) {
     if (event.type == "release") {
         let buildColor = "";
 
+        if (!event.description) { event.description = ""; }
+
         if (Array.isArray(event.tags)) {
             if (event.tags.includes("alpha")) {
                 buildColor = "build-alpha";
@@ -173,3 +195,7 @@ for (let event of timelineData) {
 }
 
 $("#js-timeline").html(timelineHtml);
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+});
