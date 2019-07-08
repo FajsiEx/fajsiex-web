@@ -58,3 +58,7 @@ body {
 #head {
     padding-top: 25vh;
 }
+
+#tail-text {
+    opacity: .25;
+}
