@@ -219,3 +219,10 @@ function tailCycle() {
 }
 
 setInterval(tailCycle, 50);
+
+console.log(`
+Sakuya Sakuya Saku,
+Yakuza Yakuza Yaku,
+Zayaku Zayaku Zaya,
+Ah ba-ba-ba-ba~~\n
+`);
