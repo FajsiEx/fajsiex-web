@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
+body {
+    font-family: 'Ubuntu', Arial;
+}
+
 .flow-card {
     background: #222;
     border-radius: 8px;
@@ -17,16 +21,26 @@
 
 .flow-changelog-release {
     padding: 16px;
-    font-family: 'Ubuntu', Arial;
+}
+
+.release-title .release-tag {
+    text-align: center;
+    display: inline-block;
+
+    height: 22px;
+    border-radius: 12px;
+    padding: 0px 12px;
+
+    font-size:18px;
+
+    vertical-align: middle;
+
+    font-weight: 600;
 }
 
 .release-changes .release-change {
     margin: 4px 0;
     display: block;
-}
-
-.release-changes .release-change .change-tag {
-    font-weight: 600;
 }
 
 .release-changes .release-change .change-tag {
@@ -39,6 +53,8 @@
     padding: 0px 12px;
 
     vertical-align: top;
+
+    font-weight: 600;
 }
 
 .release-changes .release-change .change-tag.tag-added {
@@ -47,7 +63,7 @@
 }
 .release-changes .release-change .change-tag.tag-modified {
     background: #08f;
-    color: #fff;
+    color: #000;
 }
 .release-changes .release-change .change-tag.tag-fixed {
     background: #f80;
@@ -55,6 +71,15 @@
 }
 .release-changes .release-change .change-tag.tag-removed {
     background: #f22;
+    color: #000;
+}
+.release-changes .release-change .change-tag.tag-code {
+    background: #0cf;
+    color: #000;
+}
+
+.release-title .release-tag.tag-beta {
+    background: #cc0;
     color: #000;
 }
 

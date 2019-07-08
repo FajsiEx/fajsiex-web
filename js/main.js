@@ -20,6 +20,15 @@ function generateChangelogChangesHtml(changes) {
     return outputHtml;
 }
 
+function generateReleaseTagsHtml(tags) {
+    if (!tags) {return "";}
+    let outputHtml = "";
+    for (let tag of tags) {
+        outputHtml += /*html*/`<div class="release-tag tag-${tag}">${tag.toUpperCase()}</div>`;
+    }
+    return outputHtml;
+}
+
 // $(document).mousemove((event)=> {
 //     let xMult = event.clientX / innerWidth;
 //     let yMult = event.clientY / innerHeight;
@@ -42,13 +51,35 @@ function generateChangelogChangesHtml(changes) {
         fixed: [],
         removed: []
     }
-}
+},
 */
 
 const timelineData = [
     {
         type: "release",
-        title: "Tea-bot beta 19.7.7",
+        title: "Website 19.7.8",
+        description: "Finally removed the placeholders and added a changelog",
+        changes: {
+            added: [
+                "This changelog"
+            ],
+            modified: [
+                "Navbar icons to stay on the right on all devices"
+            ],
+            fixed: [],
+            removed: [
+                "Placeholders",
+                "Mouse parallax effect"
+            ],
+            code: [
+                "Added basic HTML generation and dummy data in preparations for API calls"
+            ]
+        }
+    },
+    {
+        type: "release",
+        title: "Tea-bot 19.7.7",
+        tags: ["beta"],
         description: "",
         changes: {
             added: [
@@ -70,7 +101,7 @@ for (let event of timelineData) {
     if (event.type == "release") {
         outputHtml = /*html*/`
             <div class="flow-changelog-release">
-                <h1 class="release-title">${event.title}</h1>
+                <h1 class="release-title">${event.title} ${generateReleaseTagsHtml(event.tags)}</h1>
                 <p class="release-notes">${event.description}</p>
                 <div class="release-changes">${generateChangelogChangesHtml(event.changes)}</div>
             </div>
