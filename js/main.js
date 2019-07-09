@@ -157,3 +157,10 @@ Yakuza Yakuza Yaku,
 Zayaku Zayaku Zaya,
 Ah ba-ba-ba-ba~~\n
 `);
+
+$(".bottom-bar").on('mouseover', function(){
+    $(".bottom-bar-background").css('opacity', 1);
+});
+$(".bottom-bar").on('mouseout', function(){
+    $(".bottom-bar-background").css('opacity', 0);
+});

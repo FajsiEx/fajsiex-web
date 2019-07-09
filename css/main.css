@@ -1,7 +1,7 @@
 
 body {
     background: #223;
-    color: #ddd;
+    color: #bbb;
     padding:0;
     margin:0;
 }
@@ -27,10 +27,6 @@ body {
     width: 100%;
     background: linear-gradient(to bottom, #000, transparent);
     z-index: 69;
-}
-
-.section {
-    height:100vh;
 }
 
 .nav-link-svg {
@@ -59,6 +55,41 @@ body {
     padding-top: 25vh;
 }
 
+.content {
+    margin-bottom: 96px;
+}
+
 #tail-text {
     opacity: .25;
+}
+
+
+.bottom-bar-background {
+    position: fixed;
+    padding: 32px 0;
+    bottom:0;
+    background: linear-gradient(to top, #000, rgba(0,0,0,0.5));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.bottom-bar-background:hover {
+    opacity: 1;
+}
+
+.bottom-bar {
+    position: fixed;
+    padding: 32px 0;
+    bottom:0;
+    background: linear-gradient(to top, #000, transparent);
+    text-align: center;
+}
+.bottom-bar a {
+    padding: 0 6px;
+    color: #fff;
+    transition: all 0.35s ease;
+}
+.bottom-bar a:hover {
+    padding: 0 10px;
+    color: #ccc;
+    text-decoration: none;
 }

@@ -8,7 +8,12 @@
 }
 
 body {
-    font-family: 'Ubuntu', Arial;
+    font-family: 'Montserrat', Arial;
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
 }
 
 .flow-card {
@@ -16,7 +21,6 @@ body {
     border-radius: 8px;
     box-shadow: 3px 3px 14px -1px rgba(0,0,0,0.75);
     padding: 16px;
-    font-family: 'Ubuntu', Arial;
 }
 
 .flow-card .card-subtitle {
@@ -30,6 +34,9 @@ body {
     padding: 16px;
 }
 
+.release-title .release-build {
+    font-weight: bold;
+}
 .release-title .release-build.build-alpha {
     color: var(--color-orange)
 }
@@ -49,6 +56,8 @@ body {
 .release-changes .release-change .change-tag {
     text-align: center;
     display: inline-block;
+
+    font-family: 'Ubuntu', 'Montserrat', Arial;
     
     width: 48px;
     height: 24px;
