@@ -97,13 +97,13 @@ function renderTimeline(timelineData) {
 }
 
 $(function () {
-    $('[data-toggle="tooltip"]').tooltip();
     fetch('https://wanilla.eu-gb.mybluemix.net/api/timeline')
         .then(function (response) {
             return response.json();
         })
         .then(function (timelineData) {
             renderTimeline(timelineData);
+            $('[data-toggle="tooltip"]').tooltip();
         });
 });
 
