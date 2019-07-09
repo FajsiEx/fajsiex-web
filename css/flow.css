@@ -40,24 +40,10 @@ body {
     color: var(--color-blue)
 }
 
-.release-title .release-tag {
-    text-align: center;
-    display: inline-block;
-
-    height: 22px;
-    border-radius: 12px;
-    padding: 0px 12px;
-
-    font-size:18px;
-
-    vertical-align: middle;
-
-    font-weight: 600;
-}
-
 .release-changes .release-change {
     margin: 4px 0;
     display: block;
+    word-wrap: break-word;
 }
 
 .release-changes .release-change .change-tag {
@@ -95,19 +81,11 @@ body {
     color: #000;
 }
 
-.release-title .release-tag.tag-alpha {
-    background: var(--color-orange);
-    color: #000;
-}
-.release-title .release-tag.tag-beta {
-    background: var(--color-yellow);
-    color: #000;
-}
-
 .release-changes .release-change .change-text {
     display: inline-block;
     margin-left: 8px;
-    width: calc(100% - 136px);
+    width: calc(100% - 48px - 8px);
+    line-height: 1rem;
 }
 
 @media screen and (max-width: 768px) {
