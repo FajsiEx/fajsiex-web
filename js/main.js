@@ -98,12 +98,12 @@ function renderTimeline(timelineData) {
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
-    fetch('http://localhost:3211/api/timeline')
+    fetch('https://wanilla.eu-gb.mybluemix.net/api/timeline')
         .then(function (response) {
             return response.json();
         })
         .then(function (timelineData) {
-            renderTimeline(timelineData)
+            renderTimeline(timelineData);
         });
 });
 
