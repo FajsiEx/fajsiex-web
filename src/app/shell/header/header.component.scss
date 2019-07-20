@@ -1,0 +1,80 @@
+@keyframes links-enter {
+    from {
+        opacity: 0;
+        margin-top: -18px;
+    }
+
+    to {
+        opacity: 1;
+        margin-top: 0px;
+    }
+}
+
+nav {
+    background: linear-gradient(to bottom, #000, transparent);
+
+    width: 100%;
+
+    padding: 18px 0;
+
+    font-family: 'Montserrat', Arial;
+    font-weight: bold;
+
+    display: flex;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left:0;
+
+    a {
+        text-decoration: none;
+        color: white;
+        transition: filter 0.35s ease;
+        filter: brightness(0.75);
+    }
+
+    a:hover {
+        filter: brightness(0.85);
+    }
+}
+
+.logo {
+    display: inline-block;
+    margin-left: 18px;
+    font-size: 32px;
+    font-style: italic;
+    font-family: 'Fredoka One', Arial;
+    font-weight: 100;
+}
+
+.nav-links {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    
+    justify-content: middle;
+    align-items: center;
+
+    margin-right: 12px;
+
+    animation: 0.5s links-enter ease;
+
+    a {
+        display: inline-block;
+        padding: 10px 15px;
+        transition: padding 0.35s ease;
+    }
+
+    a:hover {
+        padding: 10px 20px;
+    }
+
+    a.active {
+        filter: brightness(1);
+        padding: 10px 20px;
+    }
+}

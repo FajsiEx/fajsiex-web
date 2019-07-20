@@ -97,7 +97,8 @@ function renderTimeline(timelineData) {
 }
 
 $(function () {
-    fetch('https://wanilla.eu-gb.mybluemix.net/api/timeline')
+    //fetch('https://wanilla.eu-gb.mybluemix.net/api/timeline')
+    fetch('http://localhost:3211/api/timeline')
         .then(function (response) {
             return response.json();
         })

@@ -1,0 +1,26 @@
+@keyframes path-f {
+    0% {
+        stroke-dashoffset: 25535;
+        stroke: #f00;
+        fill: transparent;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+        stroke: #08f;
+    }
+
+    100% {
+        stroke: transparent;
+        fill: #fff;
+        stroke-dasharray: 25535;
+    }
+}
+
+#path-f {
+    fill: #fff;
+    stroke-dasharray: 25535;
+    stroke-width: 328px;
+    animation: 2s path-f ease;
+    transition: all 0.5s ease;
+}

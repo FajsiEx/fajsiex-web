@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Ubuntu&display=swap');
+
+$background-color: #161622;
+$text-color: #eee;
+
+:root {
+    --color-green: #2c0;
+    --color-cyan: #0cf;
+    --color-blue: #08f;
+    --color-yellow: #cc0;
+    --color-orange: #f80;
+    --color-red: #f22;
+}
+
+body {
+  background: $background-color;
+  color: $text-color;
+  font-family: 'Montserrat', Arial;
+  margin:0;
+}
+
+.page-title {
+  margin-top: 25vh;
+  font-size: 48px;
+  text-align: center;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 730px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 950px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1150px;
+  }
+}
