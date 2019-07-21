@@ -1,6 +1,9 @@
 <h1 class="page-title">News & Changelog</h1>
 
 <div class="timeline">
+	<div class="loader" *ngIf="!events">
+		<img src="/assets/loader.svg">
+	</div>
 	<div class="event" *ngFor="let event of events">
 		<div class="release" *ngIf="event.type=='release'">
 			<h3 class="release-title">

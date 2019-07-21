@@ -108,6 +108,14 @@
   }
 }
 
+.loader {
+  text-align: center;
+  width:100%;
+  img {
+    width: 48px;
+  }
+}
+
 @media (max-width: 768px) {
   .changes-group {
     margin-left: 0 !important;
