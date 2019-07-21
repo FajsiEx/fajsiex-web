@@ -11,9 +11,12 @@
 				<span class="release-build"
 					[ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">{{event.build}}
 					{{event.tag}}</span>
-			</h3>
+			</h3>			
 
+			<p class="release-desc" *ngIf="event.description">{{event.description}}</p>
+			
 			<div class="release-changes" [ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">
+
 				<div class="changes-group added" *ngIf="event.changes.added && event.changes.added.length">
 					<h3 class="changes-group-title">Added</h3>
 

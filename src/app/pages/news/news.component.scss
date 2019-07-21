@@ -41,6 +41,10 @@
   }
 }
 
+.release-desc {
+  margin-left: 24px;
+}
+
 .release-changes {
   .changes-group {
     margin-left: 24px;
@@ -117,6 +121,9 @@
 }
 
 @media (max-width: 768px) {
+  .release-desc {
+    margin-left: 0 !important;
+  }
   .changes-group {
     margin-left: 0 !important;
   }
