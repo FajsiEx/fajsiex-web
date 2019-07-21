@@ -14,7 +14,7 @@
 			</h3>
 
 			<div class="release-changes" [ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">
-				<div class="changes-group added" *ngIf="event.changes.added">
+				<div class="changes-group added" *ngIf="event.changes.added && event.changes.added.length">
 					<h3 class="changes-group-title">Added</h3>
 
 					<div class="row">
@@ -29,7 +29,7 @@
 					</div>
 				</div>
 
-				<div class="changes-group updated" *ngIf="event.changes.updated">
+				<div class="changes-group updated" *ngIf="event.changes.updated && event.changes.updated.length">
 					<h3 class="changes-group-title">Updated</h3>
 
 					<div class="row">
@@ -44,7 +44,7 @@
 					</div>
 				</div>
 
-				<div class="changes-group fixed" *ngIf="event.changes.fixed && event.changes.length">
+				<div class="changes-group fixed" *ngIf="event.changes.fixed && event.changes.fixed.length">
 					<h3 class="changes-group-title">Fixed</h3>
 
 					<div class="row">
@@ -59,7 +59,7 @@
 					</div>
 				</div>
 
-				<div class="changes-group removed" *ngIf="event.changes.removed">
+				<div class="changes-group removed" *ngIf="event.changes.removed && event.changes.removed.length">
 					<h3 class="changes-group-title">Removed</h3>
 
 					<div class="row">
@@ -74,7 +74,7 @@
 					</div>
 				</div>
 
-				<div class="changes-group code" *ngIf="event.changes.code">
+				<div class="changes-group code" *ngIf="event.changes.code && event.changes.code.length">
 					<h3 class="changes-group-title">Code changes</h3>
 
 					<div class="row">
