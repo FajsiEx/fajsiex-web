@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WanillaService } from 'src/app/wanilla.service';
 
 @Component({
   selector: 'app-news',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsComponent implements OnInit {
 
-  events = JSON.parse(`[{"_id":"5d2f91b59bd622203c40d262","time":1563398265795,"type":"release","project":"Tea-bot Re:Write","build":"19.7.17","tag":"beta","changes":{"added":["Trigger token generation using '!triggers:create' command","'!triggers:delete' command for revoking the token in case something goes poo-poo"],"code":["Added createDoc and deleteDoc methods to trigger object in db bridge","Added a trigger token generation module","Fixed a security vulnerability by bumping lodash from 4.17.11 to 4.17.14 - thx dependabot :)"]}},{"_id":"5d28a282eb14dd0824e94687","time":1562943670975,"type":"release","project":"Tea-bot Re:Write","build":"19.7.12","tag":"beta","changes":{"added":["'!ali:ani', '!ali:anime' keywords for '!ali:a'","'!ali:user' keyword for '!ali:u'"],"fixed":["Settings commands rejecting in DMs - fixed by allowing them in guild text channels only","Settings commands that could be used during not-ready db","Unhandled rejects at startup","'!send' being allowed for everyone - now restricted to dev"],"code":["Moved 'invalid command' and 'invalid category' from their own commands to responses object in commandHandler","Added command template to commandData"]}},{"_id":"5d27a10a825d001040e6ab4b","time":1562877757466,"type":"release","project":"Tea-bot Re:Write","build":"19.7.11","tag":"beta","description":"Only adds framework for settings. Settings are coming in the near future.","changes":{"added":["Guild specific settings","!settings:get [setting name] (will list all settings without it)","!settings:set <setting name> <setting value>"],"code":["permChecker.admin requires only member object instead of the whole messageEventData"]}},{"_id":"5d24c0a5ad33f90f8ccdfc5c","time":1562689378514,"type":"release","project":"Website","build":"19.7.9:2","changes":{"added":["Navigation footer (not working atm)"],"updated":["Changed font globally","Adjusted font-weight","Slightly adjusted font colors"],"removed":["100vh limit on .section class"]}},{"_id":"5d249a48ad33f90f8ccdfc5b","time":1562679778902,"type":"release","project":"Wanilla","build":"19.7.9","tag":"alpha","description":"Initial version of Wanilla backend.","changes":{"added":["MongoDB interface","Timeline API"]}},{"_id":"5d249803ad33f90f8ccdfc5a","time":1562679287481,"type":"release","project":"Website","build":"19.7.9:1","changes":{"updated":["Replace tags with normal text"],"fixed":["Change text width - lines were cut way before the end of their container","Line spacing being too big","Tooltips not initing because they were not loaded yet"],"code":["Use API instead of dummy data"]}},{"_id":"5d249784ad33f90f8ccdfc59","time":1562679158713,"type":"release","project":"Website","build":"19.7.9","changes":{"added":["Dark gradient background to navbar","Finally added the footer","Tooltips to change tags on hover","F logo has purple hover color"],"removed":["Sample changelog entry"],"code":["Use variables for colors instead of hard-coding them","Changed 'modified' to 'updated'"]}},{"_id":"5d24970273c99324a8bbb130","time":1562678934496,"type":"release","project":"Website","build":"19.7.8","description":"Finally removed the placeholders and added a changelog","changes":{"added":["This changelog"],"updated":["Navbar icons to stay on the right on all devices"],"fixed":[],"removed":["Placeholders","Mouse parallax effect"],"code":["Added basic HTML generation and dummy data in preparations for API calls"]}},{"_id":"5d248bcc73c99324a8bbb12d","time":1562676136142,"type":"release","project":"Tea-bot Re:Write","build":"19.7.7","tag":"beta","changes":{"added":["Splash strings to config and their picker","Color subspecial"],"updated":["Discord onready event to display random splash string in the console","!info:about to use the random splash string"]}}]`);
+  events:any;
 
-  constructor() { }
+  constructor(public wanilla: WanillaService) { }
 
   ngOnInit() {
+    this.wanilla.getTimeline().then((timelineData)=>{
+      this.events = timelineData;
+    });
   }
 
 }
