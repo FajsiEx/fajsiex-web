@@ -8,14 +8,21 @@ import { WanillaService } from 'src/app/wanilla.service';
 })
 export class NewsComponent implements OnInit {
 
-  events:any;
+  events: any;
+  fetchError = false;
 
   constructor(public wanilla: WanillaService) { }
 
   ngOnInit() {
-    this.wanilla.getTimeline().then((timelineData)=>{
-      this.events = timelineData;
-    });
+    this.fetchTimeline();
   }
 
+  async fetchTimeline() {
+    try {
+      this.events = await this.wanilla.getTimeline()
+    } catch (e) {
+      this.fetchError = true;
+      console.error(e);
+    }
+  }
 }

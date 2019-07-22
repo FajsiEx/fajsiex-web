@@ -1,8 +1,12 @@
 <h1 class="page-title">News & Changelog</h1>
 
 <div class="timeline">
-	<div class="loader" *ngIf="!events">
+	<div class="loader" *ngIf="!events && !fetchError">
 		<img src="/assets/loader.svg">
+	</div>
+	<div class="errorMessage" *ngIf="fetchError">
+		<h4>An error occurred while fetching the timeline</h4>
+		<p>This could be due to outage of the API server or due to your browser blocking the requests. If you have an ad-blocker enabled, try to disable it and reload the page. Trust me, there are no ads or trackers here, only important API requests.</p>
 	</div>
 	<div class="event" *ngFor="let event of events">
 		<div class="release" *ngIf="event.type=='release'">
