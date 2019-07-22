@@ -11,7 +11,7 @@ export class NewsComponent implements OnInit {
   events: any;
   fetchError = false;
 
-  filter = "wanilla"; // Filter for the posts
+  filter:any = false; // Filter for the posts
 
   constructor(public wanilla: WanillaService) { }
 
@@ -20,6 +20,7 @@ export class NewsComponent implements OnInit {
   }
 
   async switchFilter(_filter) {
+    console.log(_filter);
     if (!this.events) {return false;}
 
     this.filter = _filter;
@@ -28,6 +29,7 @@ export class NewsComponent implements OnInit {
   }
 
   async fetchTimeline() {
+    console.log(this.filter);
     try {
       this.events = await this.wanilla.getTimeline(this.filter);
     } catch (e) {

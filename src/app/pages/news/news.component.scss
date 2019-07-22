@@ -122,18 +122,29 @@
 }
 
 .sorter {
+  display: flex;
+  justify-content: center;
   text-align: center;
 
-  div {
+  .project {
     display: inline-block;
-    padding: 6px 12px;
     margin: 0 4px;
+  }
+
+  .project .build {
+    color: #999;
+    text-align: center
+  }
+
+
+  .project .filter-button {
     border: 1px solid white;
     border-radius: 16.5px;
+    padding: 6px 12px;
     cursor: pointer;
   }
 
-  div.active {
+  .project .filter-button.active {
     color: #000;
     background: #fff;
   }

@@ -2,12 +2,39 @@
 
 <div class="timeline">
 	<div class="sorter">
-		<div [class.active]="!filter" (click)="switchFilter(false)"><a>All</a></div>
-		<div [class.active]="filter=='website'" (click)="switchFilter('website')"><a>Website</a></div>
-		<div [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')"><a>Wanilla</a></div>
+		<div class="project">
+			<div class="filter-button" [class.active]="!filter" (click)="switchFilter(false)"><a>All</a></div>
+		</div>
+		
+		<div class="project">
+			<div class="filter-button" [class.active]="filter=='website'" (click)="switchFilter('website')"><a>Website</a></div>
+			<span class="build">19.7.21</span>
+		</div>
+
+		<div class="project">
+			<div class="filter-button" [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')"><a>Wanilla</a></div>
+			<span class="build">19.7.21</span>
+		</div>
+
+		<div class="project">
+			<div class="filter-button" [class.active]="filter=='teabotre'" (click)="switchFilter('teabotre')"><a>Tea-bot Re:Write</a></div>
+			<span class="build">19.7.21</span>
+		</div>
+
+		<div class="project">
+			<div class="filter-button" [class.active]="filter=='teabot'" (click)="switchFilter('teabot')"><a>Tea-bot</a></div>
+			<span class="build">19.7.21</span>
+		</div>
+
+		<div class="project">
+			<div class="filter-button" [class.active]="filter=='noter'" (click)="switchFilter('noter')"><a>Noter</a></div>
+			<span class="build">19.7.21</span>
+		</div>
+
+		<!-- <div [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')"><a>Wanilla</a></div>
 		<div [class.active]="filter=='teabotre'" (click)="switchFilter('teabotre')"><a>Tea-bot Re:Write</a></div>
 		<div [class.active]="filter=='teabot'" (click)="switchFilter('teabot')"><a>Tea-bot</a></div>
-		<div [class.active]="filter=='noter'" (click)="switchFilter('noter')"><a>Noter</a></div>
+		<div [class.active]="filter=='noter'" (click)="switchFilter('noter')"><a>Noter</a></div> -->
 	</div>
 
 
@@ -29,7 +56,6 @@
 					<span class="release-build"
 						[ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">{{event.build}}
 						{{event.tag}}</span>
-					{{event.project_id}}
 				</h3>
 
 				<p class="release-desc" *ngIf="event.description">{{event.description}}</p>
