@@ -1,101 +1,117 @@
 <h1 class="page-title">News & Changelog</h1>
 
 <div class="timeline">
+	<div class="sorter">
+		<div [class.active]="!filter" (click)="switchFilter(false)"><a>All</a></div>
+		<div [class.active]="filter=='website'" (click)="switchFilter('website')"><a>Website</a></div>
+		<div [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')"><a>Wanilla</a></div>
+		<div [class.active]="filter=='teabotre'" (click)="switchFilter('teabotre')"><a>Tea-bot Re:Write</a></div>
+		<div [class.active]="filter=='teabot'" (click)="switchFilter('teabot')"><a>Tea-bot</a></div>
+		<div [class.active]="filter=='noter'" (click)="switchFilter('noter')"><a>Noter</a></div>
+	</div>
+
+
 	<div class="loader" *ngIf="!events && !fetchError">
 		<img src="/assets/loader.svg">
 	</div>
 	<div class="errorMessage" *ngIf="fetchError">
 		<h4>An error occurred while fetching the timeline</h4>
-		<p>This could be due to outage of the API server or due to your browser blocking the requests. If you have an ad-blocker enabled, try to disable it and reload the page. Trust me, there are no ads or trackers here, only important API requests.</p>
+		<p>This could be due to outage of the API server or due to your browser blocking the requests. If you have an
+			ad-blocker enabled, try to disable it and reload the page. Trust me, there are no ads or trackers here, only
+			important API requests.</p>
 	</div>
-	<div class="event" *ngFor="let event of events">
-		<div class="release" *ngIf="event.type=='release'">
-			<h3 class="release-title">
-				{{event.project}}
-				<span class="release-build"
-					[ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">{{event.build}}
-					{{event.tag}}</span>
-			</h3>			
 
-			<p class="release-desc" *ngIf="event.description">{{event.description}}</p>
-			
-			<div class="release-changes" [ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">
+	<div class="events" *ngIf="events">
+		<div class="event" *ngFor="let event of events">
+			<div class="release" *ngIf="event.type=='release'">
+				<h3 class="release-title">
+					{{event.project}}
+					<span class="release-build"
+						[ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">{{event.build}}
+						{{event.tag}}</span>
+					{{event.project_id}}
+				</h3>
 
-				<div class="changes-group added" *ngIf="event.changes.added && event.changes.added.length">
-					<h3 class="changes-group-title">Added</h3>
+				<p class="release-desc" *ngIf="event.description">{{event.description}}</p>
 
-					<div class="row">
-						<div class="border"></div>
-						<div>
-							<ul>
-								<li class="release-change" *ngFor="let change of event.changes.added">
-									{{change}}
-								</li>
-							</ul>
+				<div class="release-changes" [ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">
+
+					<div class="changes-group added" *ngIf="event.changes.added && event.changes.added.length">
+						<h3 class="changes-group-title">Added</h3>
+
+						<div class="row">
+							<div class="border"></div>
+							<div>
+								<ul>
+									<li class="release-change" *ngFor="let change of event.changes.added">
+										{{change}}
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="changes-group updated" *ngIf="event.changes.updated && event.changes.updated.length">
-					<h3 class="changes-group-title">Updated</h3>
+					<div class="changes-group updated" *ngIf="event.changes.updated && event.changes.updated.length">
+						<h3 class="changes-group-title">Updated</h3>
 
-					<div class="row">
-						<div class="border"></div>
-						<div>
-							<ul>
-								<li class="release-change" *ngFor="let change of event.changes.updated">
-									{{change}}
-								</li>
-							</ul>
+						<div class="row">
+							<div class="border"></div>
+							<div>
+								<ul>
+									<li class="release-change" *ngFor="let change of event.changes.updated">
+										{{change}}
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="changes-group fixed" *ngIf="event.changes.fixed && event.changes.fixed.length">
-					<h3 class="changes-group-title">Fixed</h3>
+					<div class="changes-group fixed" *ngIf="event.changes.fixed && event.changes.fixed.length">
+						<h3 class="changes-group-title">Fixed</h3>
 
-					<div class="row">
-						<div class="border"></div>
-						<div>
-							<ul>
-								<li class="release-change" *ngFor="let change of event.changes.fixed">
-									{{change}}
-								</li>
-							</ul>
+						<div class="row">
+							<div class="border"></div>
+							<div>
+								<ul>
+									<li class="release-change" *ngFor="let change of event.changes.fixed">
+										{{change}}
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="changes-group removed" *ngIf="event.changes.removed && event.changes.removed.length">
-					<h3 class="changes-group-title">Removed</h3>
+					<div class="changes-group removed" *ngIf="event.changes.removed && event.changes.removed.length">
+						<h3 class="changes-group-title">Removed</h3>
 
-					<div class="row">
-						<div class="border"></div>
-						<div>
-							<ul>
-								<li class="release-change" *ngFor="let change of event.changes.removed">
-									{{change}}
-								</li>
-							</ul>
+						<div class="row">
+							<div class="border"></div>
+							<div>
+								<ul>
+									<li class="release-change" *ngFor="let change of event.changes.removed">
+										{{change}}
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="changes-group code" *ngIf="event.changes.code && event.changes.code.length">
-					<h3 class="changes-group-title">Code changes</h3>
+					<div class="changes-group code" *ngIf="event.changes.code && event.changes.code.length">
+						<h3 class="changes-group-title">Code changes</h3>
 
-					<div class="row">
-						<div class="border"></div>
-						<div>
-							<ul>
-								<li class="release-change" *ngFor="let change of event.changes.code">
-									{{change}}
-								</li>
-							</ul>
+						<div class="row">
+							<div class="border"></div>
+							<div>
+								<ul>
+									<li class="release-change" *ngFor="let change of event.changes.code">
+										{{change}}
+									</li>
+								</ul>
+							</div>
 						</div>
 					</div>
-				</div>
 
+				</div>
 			</div>
 		</div>
 	</div>

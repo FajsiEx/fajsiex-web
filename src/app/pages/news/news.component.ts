@@ -11,15 +11,25 @@ export class NewsComponent implements OnInit {
   events: any;
   fetchError = false;
 
+  filter = "wanilla"; // Filter for the posts
+
   constructor(public wanilla: WanillaService) { }
 
   ngOnInit() {
     this.fetchTimeline();
   }
 
+  async switchFilter(_filter) {
+    if (!this.events) {return false;}
+
+    this.filter = _filter;
+    this.events = false;
+    await this.fetchTimeline();
+  }
+
   async fetchTimeline() {
     try {
-      this.events = await this.wanilla.getTimeline()
+      this.events = await this.wanilla.getTimeline(this.filter);
     } catch (e) {
       this.fetchError = true;
       console.error(e);

@@ -115,8 +115,27 @@
 .loader {
   text-align: center;
   width:100%;
+  margin-top: 24px;
   img {
     width: 48px;
+  }
+}
+
+.sorter {
+  text-align: center;
+
+  div {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 0 4px;
+    border: 1px solid white;
+    border-radius: 16.5px;
+    cursor: pointer;
+  }
+
+  div.active {
+    color: #000;
+    background: #fff;
   }
 }
 
