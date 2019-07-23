@@ -149,11 +149,13 @@
     border-radius: 16.5px;
     padding: 6px 12px;
     cursor: pointer;
+    transition: all 0.35s ease;
   }
 
   .project .filter-button.active {
     color: #000;
     background: #fff;
+    margin: 0 4px;
   }
 }
 

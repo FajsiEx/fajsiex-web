@@ -3,6 +3,11 @@
 $background-color: #161622;
 $text-color: #eee;
 
+::-webkit-scrollbar {
+  width: 5px !important;
+  display: none;
+}
+
 :root {
     --color-green: #2c0;
     --color-cyan: #0cf;
