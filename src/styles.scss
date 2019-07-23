@@ -3,6 +3,17 @@
 $background-color: #161622;
 $text-color: #eee;
 
+@keyframes float-up {
+  0% {
+    margin-top: 70px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 5px !important;
   display: none;
