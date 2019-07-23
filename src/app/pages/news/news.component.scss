@@ -1,6 +1,19 @@
+@keyframes float-up {
+  0% {
+    margin-top: 70px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0px;
+    opacity: 1;
+  }
+}
+
 .timeline {
   margin-top: 64px;
-
+  .events {
+    animation: 0.5s float-up ease-in-out
+  }
   .event {
     margin-top: 64px;
   }
