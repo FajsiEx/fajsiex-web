@@ -20,8 +20,8 @@ export class NewsComponent implements OnInit {
   }
 
   async switchFilter(_filter) {
-    console.log(_filter);
-    if (!this.events) {return false;}
+    if (this.filter == _filter) { return false; }
+    if (!this.events) { return false; }
 
     this.filter = _filter;
     this.events = false;
