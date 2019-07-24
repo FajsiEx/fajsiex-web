@@ -1,3 +1,4 @@
+<div class="header-background" [style.opacity]="headerBackOpacity"></div>
 <nav>
   <a [routerLink]="['/']" class="logo">
     <app-logo></app-logo>
@@ -9,5 +10,3 @@
     <li class="nav-item"><a [routerLink]="['about']" [class.active]="currentPage=='about'">About</a></li>
   </ul>
 </nav>
-
-<div style="margin-top: 76px;"></div>

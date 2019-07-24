@@ -35,8 +35,19 @@ body {
   margin:0;
 }
 
+.page-header {
+  background: linear-gradient(to bottom left, #07f, #05a);
+  padding-top: 25vh;
+
+  .edge {
+    background:#161622;
+    clip-path: polygon(0% 0%, 100% 100%, 100% 100%, 0% 100%);
+    margin-top: 12vh;
+    z-index: -50;
+  }
+}
+
 .page-title {
-  margin-top: 25vh;
   font-size: 48px;
   text-align: center;
 }
@@ -47,6 +58,8 @@ body {
   margin-right: auto;
   margin-left: auto;
 }
+
+
 
 @media (min-width: 768px) {
   .container {
