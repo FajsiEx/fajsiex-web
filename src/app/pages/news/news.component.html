@@ -5,19 +5,22 @@
 		<div class="project">
 			<div class="filter-button" [class.active]="!filter" (click)="switchFilter(false)"><a>All</a></div>
 		</div>
-		
+
 		<div class="project">
-			<div class="filter-button" [class.active]="filter=='website'" (click)="switchFilter('website')"><a>Website</a></div>
+			<div class="filter-button" [class.active]="filter=='website'" (click)="switchFilter('website')">
+				<a>Website</a></div>
 			<span class="build">19.7.21</span>
 		</div>
 
 		<div class="project">
-			<div class="filter-button" [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')"><a>Wanilla</a></div>
+			<div class="filter-button" [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')">
+				<a>Wanilla</a></div>
 			<span class="build">19.7.21</span>
 		</div>
 
 		<div class="project">
-			<div class="filter-button" [class.active]="filter=='teabotre'" (click)="switchFilter('teabotre')"><a>Tea-bot Re:Write</a></div>
+			<div class="filter-button" [class.active]="filter=='teabotre'" (click)="switchFilter('teabotre')"><a>Tea-bot
+					Re:Write</a></div>
 			<span class="build">19.7.21</span>
 		</div>
 
@@ -50,8 +53,27 @@
 
 	<div class="events" *ngIf="events">
 		<div class="event" *ngFor="let event of events">
+			<div class="issue" *ngIf="event.type=='issue'">
+				<h3 class="project-title">
+					{{event.project}}
+					<span class="color-issue after-project">{{event.title}}</span>
+				</h3>
+
+				<div class="event-body entries">
+					<div class="border border-red"></div>
+					<div>
+						<ul>
+							<li class="entry" *ngFor="let entry of event.entries">
+								{{entry.text}}
+								<span class="sub-text">{{entry.time}}</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
 			<div class="release" *ngIf="event.type=='release'">
-				<h3 class="release-title">
+				<h3 class="project-title">
 					{{event.project}}
 					<span class="release-build"
 						[ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">{{event.build}}
