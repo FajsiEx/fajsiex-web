@@ -1,5 +1,5 @@
 <div class="header-background" [style.opacity]="headerBackOpacity"></div>
-<nav>
+<nav (mouseover)="setNavBackOpacity(true)" (mouseout)="setNavBackOpacity(false)">
   <a [routerLink]="['/']" class="logo">
     <app-logo></app-logo>
   </a>

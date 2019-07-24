@@ -10,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   currentPage: string;
   headerBackOpacity = 0;
+  navHovering = false;
 
   constructor(private router: Router, private renderer: Renderer2) {
     this.router.events.subscribe(event => {
@@ -20,10 +21,12 @@ export class HeaderComponent implements OnInit {
       }
     });
 
-    this.renderer.listen('window', 'scroll', () => { this.scrollHandler() });
+    this.renderer.listen('window', 'scroll', () => { this.scrollHandler(); });
   }
 
   scrollHandler() {
+    if (this.navHovering) { this.setNavBackOpacity(true); return; }
+
     const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
 
     if (scrollHeight > 150) {
@@ -35,5 +38,16 @@ export class HeaderComponent implements OnInit {
     console.log(this.headerBackOpacity);
   }
 
-  ngOnInit() {}
+  setNavBackOpacity(opaque) {
+    if (opaque) {
+      this.headerBackOpacity = 1;
+      this.navHovering = true;
+    } else {
+      this.headerBackOpacity = 0;
+      this.navHovering = false;
+      this.scrollHandler();
+    }
+  }
+
+  ngOnInit() { }
 }
