@@ -56,11 +56,11 @@
 			<div class="issue" *ngIf="event.type=='issue'">
 				<h3 class="project-title">
 					{{event.project}}
-					<span class="color-issue after-project">{{event.title}}</span>
+					<span class="after-project" [ngClass]="{'color-red': !event.resolved, 'color-green': event.resolved}">{{event.title}}</span>
 				</h3>
 
 				<div class="event-body entries">
-					<div class="border border-red"></div>
+					<div class="border" [ngClass]="{'border-red': !event.resolved, 'border-green': event.resolved}"></div>
 					<div>
 						<ul>
 							<li class="entry" *ngFor="let entry of event.entries">
