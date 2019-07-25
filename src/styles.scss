@@ -36,20 +36,39 @@ body {
 }
 
 .page-header {
-  background: linear-gradient(to bottom left, #07f, #05a);
-  padding-top: 25vh;
+  background: linear-gradient(to bottom right, #222, #060606);
+  padding-top: calc(12vh + 76px);
 
   .edge {
     background:#161622;
-    clip-path: polygon(0% 0%, 100% 100%, 100% 100%, 0% 100%);
-    margin-top: 12vh;
+    clip-path: polygon(0% 0%, 100% calc(100% - 3px), 100% 100%, 0% 100%);
+    margin-top: 14vh;
     z-index: -50;
+    transform: translateY(2px);
   }
+}
+
+app-home .page-header {
+  background: linear-gradient(to bottom right, #215aed, #4b36ed, #692be5);
+}
+app-news .page-header {
+  background: linear-gradient(to bottom right, #07f, #05a);
+}
+app-projects .page-header {
+  background: linear-gradient(to bottom right, #1a0, #060);
+}
+app-about .page-header {
+  background: linear-gradient(to bottom right, #f80, #a60);
 }
 
 .page-title {
   font-size: 48px;
   text-align: center;
+}
+
+.wip-text {
+  text-align: center;
+  padding: 32px 10vw;
 }
 
 .container {
