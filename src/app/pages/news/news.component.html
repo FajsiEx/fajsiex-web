@@ -1,31 +1,61 @@
 <div class="page-header">
-	<h1 class="page-title">News & Changelog</h1><div class="edge">&nbsp;</div>
+	<h1 class="page-title">News & Changelog</h1>
+	<div class="edge">&nbsp;</div>
 </div>
 
 <div class="container">
 	<div class="timeline">
 		<div class="sorter">
-			<div class="project">
-				<div class="filter-button" [class.active]="!filter" (click)="switchFilter(false)"><a>All</a></div>
-			</div>
+			<!-- <div class="project" [class.active]="!filter" (click)="switchFilter(false)">
+				<div class="filter-name"><a>All</a></div>
+			</div> -->
 
-			<div class="project">
-				<div class="filter-button" [class.active]="filter=='website'" (click)="switchFilter('website')">
-					<a>Website</a></div>
-				<span class="build">19.7.21</span>
-			</div>
+			<a *ngIf="filter" (click)="switchFilter(false)" class="reset-filter-link">
+				<i class="fas fa-chevron-left"></i>
+				&nbsp;
+				Show news and changelogs for all projects
+			</a>
 
-			<div class="project">
-				<div class="filter-button" [class.active]="filter=='wanilla'" (click)="switchFilter('wanilla')">
-					<a>Wanilla</a></div>
-				<span class="build">19.7.21</span>
-			</div>
+			<br>
+			<br>
 
-			<div class="project">
-				<div class="filter-button" [class.active]="filter=='teabotre'" (click)="switchFilter('teabotre')">
-					<a>Tea-bot
-						Re:Write</a></div>
-				<span class="build">19.7.21</span>
+			<div class="project-row">
+
+				<div class="project" [ngClass]="{active: filter=='website', high: filter=='website' || !filter}"
+					(click)="switchFilter('website')" project-id="website">
+					<div class="border"></div>
+					<div>
+						<div class="filter-name">
+							<a>Website</a>
+						</div>
+						<span class="build">19.4.20</span><br>
+						<span class="build">19.7.26 beta</span>
+					</div>
+				</div>
+
+				<div class="project" [ngClass]="{active: filter=='wanilla', high: filter=='wanilla' || !filter}"
+					(click)="switchFilter('wanilla')" project-id="wanilla">
+					<div class="border"></div>
+					<div>
+						<div class="filter-name">
+							<a>Wanilla</a>
+						</div>
+						<span class="build">No stable version</span><br>
+						<span class="build">19.7.22 alpha</span>
+					</div>
+				</div>
+
+				<div class="project" [ngClass]="{active: filter=='teabotre', high: filter=='teabotre' || !filter}"
+					(click)="switchFilter('teabotre')" project-id="teabotre">
+					<div class="border"></div>
+					<div>
+						<div class="filter-name">
+							<a>Tea-bot Re:Write</a>
+						</div>
+						<span class="build">No stable version</span><br>
+						<span class="build">19.7.24 beta</span>
+					</div>
+				</div>
 			</div>
 
 			<!-- <div class="project">

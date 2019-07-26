@@ -1,5 +1,5 @@
 .timeline {
-  margin-top: 64px;
+  margin-top: 20px;
   .events {
     animation: 0.5s float-up ease-in-out;
   }
@@ -123,38 +123,93 @@
 .sorter {
   text-align: center;
   white-space: nowrap;
-  overflow-x: scroll;
+  
+  //padding: 8px 0;
 
   &::-webkit-scrollbar {
     width: 5px !important;
     display: none;
   }
 
+  .reset-filter-link {
+    cursor: pointer;
+  }
+
+  .project-row {
+    overflow-x: scroll;
+    @media (max-width: 576px) { 
+      overflow-x: auto;
+    }
+
+    padding: 8px 0px;
+  }
+
   .project {
-    display: inline-block;
+    display: -webkit-inline-box;
+
     margin: 0 4px;
+    padding: 6px 12px;
+
     vertical-align: top;
+
+    background: #223;
+    
+    border-radius: 6px;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+    box-shadow: 0;
+
+    text-align: left;
+
+    @media (max-width: 576px) { 
+      width: calc(100% - 32px);
+      display: flex;
+      margin: 4px 0;
+    }
+
+    &.high {
+      box-shadow: 2px 2px 6px 0px rgba(0,0,0,0.75);
+      filter: brightness(1.15);
+    }
+    &:hover {
+      box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
+      filter: brightness(1.05);
+    }
+
+    .border {
+      margin-left: 0;
+      margin-right: 8px;
+      transition: all 0.3s ease;
+      filter: grayscale(1);
+    }
+
+    &[project-id=website] .border {
+      background: var(--color-project-website);
+    }
+    &[project-id=wanilla] .border {
+      background: var(--color-project-wanilla);
+    }
+    &[project-id=teabotre] .border {
+      background: var(--color-project-teabotre);
+    }
+
+    &.high .border {
+      filter: none;
+    }
+
+    &:hover .border {
+      filter: grayscale(0.6);
+    }
   }
 
   .project .build {
     color: #999;
-    text-align: center;
   }
 
-  .project .filter-button {
-    border: 1px solid white;
-    border-radius: 16.5px;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: all 0.35s ease;
+  .project .filter-name {
     margin-bottom: 8px;
-  }
-
-  .project .filter-button.active {
-    color: #000;
-    background: #fff;
-    margin: 0 4px;
-    margin-bottom: 4px;
   }
 }
 
