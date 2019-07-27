@@ -20,8 +20,23 @@
 			<br>
 
 			<div class="project-row">
+				<div class="project-wrapper" *ngFor="let project of projects">
+					<div class="project"
+						[ngClass]="{active: filter==project.id, high: filter==project.id || !filter}"
+						(click)="switchFilter(project.id)" [attr.project-id]="project.id">
+						<div class="border"></div>
+						<div>
+							<div class="filter-name">
+								<a>{{project.name}}</a>
+							</div>
+							<span class="build">{{project.buildNumbers.stable}}</span><br>
+							<span class="build" *ngIf="project.buildNumbers.beta">{{project.buildNumbers.beta}}</span>
+							<span class="build" *ngIf="project.buildNumbers.alpha">{{project.buildNumbers.alpha}}</span>
+						</div>
+					</div>
+				</div>
 
-				<div class="project" [ngClass]="{active: filter=='website', high: filter=='website' || !filter}"
+				<!-- <div class="project" [ngClass]="{active: filter=='website', high: filter=='website' || !filter}"
 					(click)="switchFilter('website')" project-id="website">
 					<div class="border"></div>
 					<div>
@@ -55,7 +70,7 @@
 						<span class="build">No stable version</span><br>
 						<span class="build">19.7.24 beta</span>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 			<!-- <div class="project">

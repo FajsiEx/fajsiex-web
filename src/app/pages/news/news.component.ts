@@ -8,6 +8,24 @@ import { WanillaService } from 'src/app/wanilla.service';
 })
 export class NewsComponent implements OnInit {
 
+  projectNames = {
+    website: 'Website',
+    wanilla: 'Wanilla',
+    teabotre: 'Tea-bot Re:Write'
+  };
+
+  projects = [
+    /* {
+      id: 'website',
+      name: 'Website',
+      buildNumbers: {
+        alpha: false,
+        beta: '19.7.24 beta',
+        stable: 'No stable builds'
+      }
+    } */
+  ];
+
   events: any;
   fetchError = false;
 
@@ -15,8 +33,34 @@ export class NewsComponent implements OnInit {
 
   constructor(public wanilla: WanillaService) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.fetchProjects();
     this.fetchTimeline();
+  }
+
+  async fetchProjects() {
+    let projectBuildNumbers;
+
+    try {
+      projectBuildNumbers = await this.wanilla.getProjectBuildNumbers('all');
+    } catch (e) {
+      this.fetchError = true;
+      console.error(e);
+    }
+
+    for (const project of projectBuildNumbers) {
+      this.projects.push({
+        id: project.id,
+        name: this.projectNames[project.id],
+        buildNumbers: {
+          alpha: project.alpha,
+          beta: project.beta,
+          stable: (project.stable) ? project.stable : 'No stable version',
+        }
+      });
+    }
+
+    console.log(projectBuildNumbers);
   }
 
   async switchFilter(_filter) {
