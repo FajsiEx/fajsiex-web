@@ -1,0 +1,11 @@
+@keyframes page-header-trans {
+    0% {
+        filter: grayscale(1);}
+    100% {
+        filter: grayscale(0);
+    }
+}
+
+.page-header.transition {
+    //animation: .5s page-header-trans ease;
+}

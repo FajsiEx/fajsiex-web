@@ -1,5 +1,10 @@
 <app-header></app-header>
 
+<div class="page-header" [style.background]="pages[currentPage].themeGradient" [class.transition]="pageHeaderTransition">
+    <h1 class="page-title">{{pages[currentPage].title}}</h1>
+    <div class="edge">&nbsp;</div>
+</div>
+
 <router-outlet></router-outlet>
 
 <app-footer></app-footer>
