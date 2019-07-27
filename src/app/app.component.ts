@@ -12,9 +12,13 @@ export class AppComponent {
   pageHeaderTransition = false;
 
   pages = {
-    '': {
+    home: {
       title: 'Home',
       themeGradient: 'linear-gradient(to bottom right, #215aed, #4b36ed, #692be5)'
+    },
+    '': {
+      title: 'News & Changelog',
+      themeGradient: 'linear-gradient(to bottom right, #07f, #038)'
     },
     news: {
       title: 'News & Changelog',

@@ -1,11 +1,10 @@
 <div class="header-background" [style.opacity]="headerBackOpacity"></div>
 <nav (mouseover)="setNavBackOpacity(true)" (mouseout)="setNavBackOpacity(false)">
-  <a [routerLink]="['/']" class="logo">
+  <a [routerLink]="['home']" class="logo">
     <app-logo></app-logo>
   </a>
   <ul class="nav-links">
-    <li class="nav-item"><a [routerLink]="['/']" [class.active]="currentPage==''">Home</a></li>
-    <li class="nav-item"><a [routerLink]="['news']" [class.active]="currentPage=='news'">News & Changelog</a></li>
+    <li class="nav-item"><a [routerLink]="['news']" [class.active]="currentPage=='news' || currentPage==''">News & Changelog</a></li>
     <li class="nav-item"><a [routerLink]="['projects']" [class.active]="currentPage=='projects'">Projects</a></li>
     <li class="nav-item"><a [routerLink]="['about']" [class.active]="currentPage=='about'">About</a></li>
   </ul>
