@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   headerBackOpacity = 0;
   navHovering = false;
 
+  displaySecondaryLinks = false;
+
   constructor(private router: Router, private renderer: Renderer2) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -47,6 +49,12 @@ export class HeaderComponent implements OnInit {
       this.navHovering = false;
       this.scrollHandler();
     }
+  }
+
+  switchSecondaryLinksDisplay() {
+    console.log(this.displaySecondaryLinks);
+    this.displaySecondaryLinks = (this.displaySecondaryLinks) ? false : true;
+    console.log(this.displaySecondaryLinks);
   }
 
   ngOnInit() { }
