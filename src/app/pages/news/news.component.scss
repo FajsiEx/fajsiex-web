@@ -157,6 +157,10 @@
 
   .project-wrapper {
     display: -webkit-inline-box;
+    @media (max-width: 576px) {
+      display: flex;
+      margin: 4px 0;
+    }
   }
 
   .project {
@@ -180,8 +184,6 @@
 
     @media (max-width: 576px) {
       width: calc(100% - 32px);
-      display: flex;
-      margin: 4px 0;
     }
 
     &.high {
