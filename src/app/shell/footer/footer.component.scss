@@ -1,8 +1,32 @@
 footer {
-    text-align: center;
-    height: 50px;
-    padding: 18px 0;
-    width: 100%;
-    position: absolute;
-    opacity: 0.7;
+  text-align: center;
+  height: 50px;
+  padding: 18px 0;
+  width: 100%;
+  position: absolute;
+  opacity: 0.7;
+
+  .bottom-icons {
+    margin-top: 8px;
+    margin-bottom: 32px;
+
+    a.link-angular:hover i {
+      color: #B52E31;
+    }
+    a.link-node:hover i {
+      color: #3C873A;
+    }
+
+    i {
+      font-size: 28px;
+      margin: 0 4px;
+      color: #fff;
+      filter: brightness(0.85);
+      transition: all 0.35s ease;
+    }
+
+    i:hover {
+      filter: brightness(1);
+    }
+  }
 }
