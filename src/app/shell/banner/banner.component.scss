@@ -1,0 +1,17 @@
+.banner {
+    position: fixed;
+    width: calc(100% - 2 * 16px);
+    padding: 16px;
+    background: var(--color-yellow);
+    color: #000;
+    bottom:0;
+    left:0;
+    text-align: center;
+    z-index: 89;
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+
+    &:hover {
+        opacity: 1;
+    }
+}

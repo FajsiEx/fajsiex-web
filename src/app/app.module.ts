@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { LogoComponent } from './shell/svgs/logo/logo.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { StatusComponent } from './pages/status/status.component';
+import { BannerComponent } from './shell/banner/banner.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { StatusComponent } from './pages/status/status.component';
     AboutComponent,
     LogoComponent,
     FooterComponent,
-    StatusComponent
+    StatusComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,
