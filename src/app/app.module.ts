@@ -11,6 +11,7 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { AboutComponent } from './pages/about/about.component';
 import { LogoComponent } from './shell/svgs/logo/logo.component';
 import { FooterComponent } from './shell/footer/footer.component';
+import { StatusComponent } from './pages/status/status.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { FooterComponent } from './shell/footer/footer.component';
     ProjectsComponent,
     AboutComponent,
     LogoComponent,
-    FooterComponent
+    FooterComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

@@ -28,6 +28,10 @@ export class AppComponent {
       title: 'Projects',
       themeGradient: 'linear-gradient(to bottom right, #1a0, #060)'
     },
+    status: {
+      title: 'Status',
+      themeGradient: 'linear-gradient(to bottom right, #a0a, #70a)'
+    },
     about: {
       title: 'About',
       themeGradient: 'linear-gradient(to bottom right, #f80, #a60)'

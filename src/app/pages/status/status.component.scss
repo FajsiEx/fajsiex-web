@@ -1,0 +1,44 @@
+
+.project-title {
+    margin: 0;
+    margin-top: 32px;
+}
+
+.status-wrapper {
+    display: flex;
+    margin-left: 24px;
+
+    .status {
+        padding: 8px 0;
+        margin-left: 8px;
+
+        h1,h2,h3,h4,h5,h6,p{
+            margin:0
+        }
+    }
+}
+
+.border {
+    background: #fff;
+    width: 4px;
+    margin-left: 4px;
+    border-radius: 2px;
+    &.border-red {
+      background: var(--color-red);
+    }
+    &.border-green {
+      background: var(--color-green);
+    }
+    &.border-blue {
+      background: var(--color-blue);
+    }
+    &.border-orange {
+      background: var(--color-orange);
+    }
+    &.border-yellow {
+      background: var(--color-yellow);
+    }
+    &.border-cyan {
+      background: var(--color-cyan);
+    }
+}
