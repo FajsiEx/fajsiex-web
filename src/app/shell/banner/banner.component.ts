@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BannerComponent implements OnInit {
 
-  displayBanner = true;
+  displayBanner =  !(sessionStorage.getItem('displayBanner') === 'dont');
 
   constructor() { }
 
@@ -16,6 +16,7 @@ export class BannerComponent implements OnInit {
 
   dismissBanner() {
     this.displayBanner = false;
+    sessionStorage.setItem('displayBanner', 'dont');
   }
 
 }
