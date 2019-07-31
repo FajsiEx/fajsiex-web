@@ -117,6 +117,8 @@ nav {
     width: 45px;
     float: right;
 
+    animation: 0.5s links-enter ease;
+
     a i {
         font-size: 18px;
     }
