@@ -6,6 +6,28 @@
     }
 }
 
+.page-header-back {
+    transition: background 0.5s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1
+}
+
+.page-header {
+    background: linear-gradient(to bottom right, transparent, rgba(0,0,0,0.5))
+}
+
 .page-header.transition {
     //animation: .5s page-header-trans ease;
+}
+
+.page-content {
+    z-index: 20;
+    background: var(--color-background);
+    position: absolute;
+    width:100%;
+    min-height: 100vh;
 }

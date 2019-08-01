@@ -1,12 +1,16 @@
 <app-header></app-header>
 
-<div class="page-header" [style.background]="pages[currentPage].themeGradient" [class.transition]="pageHeaderTransition">
+<div class="page-header-back" [style.background]="pages[currentPage].themeColor"></div>
+
+<div class="page-header" [class.transition]="pageHeaderTransition">
     <h1 class="page-title">{{pages[currentPage].title}}</h1>
     <div class="edge">&nbsp;</div>
 </div>
 
-<router-outlet></router-outlet>
+<div class="page-content">
+    <router-outlet [@enterAnimation]></router-outlet>
 
-<app-banner></app-banner>
+    <app-banner></app-banner>
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</div>
