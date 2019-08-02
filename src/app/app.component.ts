@@ -21,28 +21,23 @@ export class AppComponent {
     },
     '': {
       title: 'News & Changelog',
-      themeGradient: 'linear-gradient(to bottom right, #07f, #038)',
-      themeColor: '#06a'
+      themeColor: '#09f'
     },
     news: {
       title: 'News & Changelog',
-      themeGradient: 'linear-gradient(to bottom right, #07f, #038)',
-      themeColor: '#06a'
+      themeColor: '#08c'
     },
     projects: {
       title: 'Projects',
-      themeGradient: 'linear-gradient(to bottom right, #1a0, #060)',
-      themeColor: '#0a6'
+      themeColor: '#0c8'
     },
     status: {
       title: 'Status',
-      themeGradient: 'linear-gradient(to bottom right, #a0a, #70a)',
-      themeColor: '#a0a'
+      themeColor: '#c0c'
     },
     about: {
       title: 'About',
-      themeGradient: 'linear-gradient(to bottom right, #f80, #a60)',
-      themeColor: '#a60'
+      themeColor: '#c80'
     },
   };
 
