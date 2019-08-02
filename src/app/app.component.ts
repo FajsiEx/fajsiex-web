@@ -1,6 +1,7 @@
 import { Component, Renderer2 } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { trigger, style, animate, transition } from '@angular/animations';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -45,15 +46,12 @@ export class AppComponent {
     },
   };
 
-  constructor(private router: Router, private renderer: Renderer2) {
+  constructor(private router: Router, private renderer: Renderer2, private titleService: Title) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         console.log(event);
-
-        this.pageHeaderTransition = true;
-        setTimeout(()=>{this.pageHeaderTransition = false;}, 500);
-
         this.currentPage = event.url.slice(1);
+        this.titleService.setTitle('FajsiEx | ' + this.pages[this.currentPage].title);
       }
     });
   }
