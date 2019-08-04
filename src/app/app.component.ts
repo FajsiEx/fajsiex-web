@@ -25,7 +25,7 @@ export class AppComponent {
     },
     news: {
       title: 'News & Changelog',
-      themeColor: '#08c'
+      themeColor: '#09f'
     },
     projects: {
       title: 'Projects',
