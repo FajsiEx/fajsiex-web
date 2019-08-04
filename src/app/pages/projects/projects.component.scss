@@ -29,6 +29,11 @@
   .project-stats {
     display: flex;
 
+    span {
+      display: inline-block;
+      padding-right: 8px;
+    }
+
     .inner {
         margin-left: 16px;
         padding: 8px 0;
