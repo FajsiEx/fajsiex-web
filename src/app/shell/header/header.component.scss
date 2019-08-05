@@ -38,10 +38,11 @@
   opacity: 0;
 
   transition: opacity 0.1s linear;
-
-  &.menuActive {
-    height: 100vh !important;
-    opacity: 1 !important;
+  @media screen and (max-width: 768px) {
+    &.menuActive {
+      height: 100vh !important;
+      opacity: 1 !important;
+    }
   }
 }
 
@@ -76,6 +77,10 @@ nav {
 
   @media screen and (max-width: 768px) {
     flex-direction: column;
+
+    .logo-label {
+      bottom: 11px !important;
+    }
   }
 }
 
@@ -109,6 +114,8 @@ nav {
   animation: 0.5s links-enter ease;
 
   @media screen and (max-width: 768px) {
+    display: none;
+
     li {
       width: 100%;
     }
@@ -122,6 +129,10 @@ nav {
       float: none;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    &.menuActive {
+      display: block;
     }
   }
 
@@ -175,28 +186,31 @@ nav {
   }
 }
 
-
 .float-ab {
-    position: fixed;
-    bottom:24px;
-    right: 24px;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
 
-    width: 56px;
-    height: 56px;
+  width: 56px;
+  height: 56px;
 
-    text-align: center;
-    vertical-align: middle;
-    background: var(--color-blue);
+  text-align: center;
+  vertical-align: middle;
+  background: var(--color-blue);
 
-    border-radius: calc(56px / 2);
+  border-radius: calc(56px / 2);
 
-    z-index: 256;
+  z-index: 256;
 
-    &:hover {
-        animation: 0.5s touch-bright ease;
-    }
+  &:hover {
+    animation: 0.5s touch-bright ease;
+  }
 
-    i {
-        margin-top: 19px;
-    }
+  i {
+    margin-top: 19px;
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }

@@ -4,7 +4,7 @@
     <app-logo></app-logo>
     <i class="logo-label">beta</i>
   </a>
-  <ul class="nav-links" *ngIf="showMenuMobile">
+  <ul class="nav-links" [class.menuActive]="showMenuMobile">
     <div class="primary-links links-container">
       <li class="nav-item"><a [routerLink]="['news']" [class.active]="currentPage=='news' || currentPage==''">News &
           Changelog</a></li>
