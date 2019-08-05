@@ -27,5 +27,6 @@
 </nav>
 
 <div class="float-ab mobile-fab" (click)="showMenuMobile = !showMenuMobile">
-  <i class="fas fa-chevron-down"></i>
+  <i class="fas fa-bars" *ngIf="!showMenuMobile"></i>
+  <i class="fas fa-times" *ngIf="showMenuMobile"></i>
 </div>
