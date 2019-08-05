@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   headerBackOpacity = 0;
   navHovering = false;
 
+  showMenuMobile = false;
+
   displaySecondaryLinks = false;
 
   constructor(private router: Router, private renderer: Renderer2) {

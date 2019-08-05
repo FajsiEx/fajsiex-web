@@ -38,6 +38,11 @@
   opacity: 0;
 
   transition: opacity 0.1s linear;
+
+  &.menuActive {
+    height: 100vh !important;
+    opacity: 1 !important;
+  }
 }
 
 nav {
@@ -171,7 +176,7 @@ nav {
 }
 
 
-.fab {
+.float-ab {
     position: fixed;
     bottom:24px;
     right: 24px;

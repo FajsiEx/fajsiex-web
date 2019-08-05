@@ -1,10 +1,10 @@
-<div class="header-background" [style.opacity]="headerBackOpacity"></div>
+<div class="header-background" [style.opacity]="headerBackOpacity" [class.menuActive]="showMenuMobile"></div>
 <nav (mouseover)="setNavBackOpacity(true)" (mouseout)="setNavBackOpacity(false)">
   <a [routerLink]="['home']" class="logo">
     <app-logo></app-logo>
     <i class="logo-label">beta</i>
   </a>
-  <ul class="nav-links">
+  <ul class="nav-links" *ngIf="showMenuMobile">
     <div class="primary-links links-container">
       <li class="nav-item"><a [routerLink]="['news']" [class.active]="currentPage=='news' || currentPage==''">News &
           Changelog</a></li>
@@ -26,6 +26,6 @@
 
 </nav>
 
-<div class="fab mobile-fab">
+<div class="float-ab mobile-fab" (click)="showMenuMobile = !showMenuMobile">
   <i class="fas fa-chevron-down"></i>
 </div>
