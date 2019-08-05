@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./status.component.scss']
 })
 export class StatusComponent implements OnInit {
+  servers = [
+    {
+      name: 'Wanilla',
+      status: 'All systems running.'
+    },
+    {
+      name: 'Tea-bot Re:Write',
+      status: 'All systems running.'
+    },
+  ];
 
   constructor() { }
 

@@ -1,19 +1,14 @@
 <div class="container">
-    <h1 class="project-title">Wanilla</h1>
-    <div class="status-wrapper">
-        <div class="border border-green"></div>
-        <div class="status">
-            <h2>Everything is operational</h2>
-            <p>No recent issues</p>
-        </div>
-    </div>
-
-    <h1 class="project-title">Tea-bot</h1>
-    <div class="status-wrapper">
-        <div class="border border-yellow"></div>
-        <div class="status">
-            <h2>Partial outage</h2>
-            <p>Current issue: API outage due to memory overflow.</p>
+    <div class="server" *ngFor="let server of servers">
+        <h1 class="project-title">{{server.name}}</h1>
+        <div class="status-wrapper">
+            <div class="border border-green"></div>
+            <div class="status">
+                <h2>{{server.status}}</h2>
+                <div *ngIf="server.recentIssue">
+                    Placeholder for recent issue :)
+                </div>
+            </div>
         </div>
     </div>
 </div>
