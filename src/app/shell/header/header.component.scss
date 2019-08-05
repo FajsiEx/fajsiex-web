@@ -10,6 +10,18 @@
   }
 }
 
+@keyframes touch-bright {
+  0% {
+    filter: brightness(1);
+  }
+  15% {
+    filter: brightness(1.5);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
 .header-background {
   background: linear-gradient(to bottom, #000, transparent);
 
@@ -156,4 +168,30 @@ nav {
   a:hover {
     padding: 17px 15px !important;
   }
+}
+
+
+.fab {
+    position: fixed;
+    bottom:24px;
+    right: 24px;
+
+    width: 56px;
+    height: 56px;
+
+    text-align: center;
+    vertical-align: middle;
+    background: var(--color-blue);
+
+    border-radius: calc(56px / 2);
+
+    z-index: 256;
+
+    &:hover {
+        animation: 0.5s touch-bright ease;
+    }
+
+    i {
+        margin-top: 19px;
+    }
 }
