@@ -187,13 +187,13 @@
       width: calc(100% - 32px);
     }
 
-    &.high {
-      box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
-      filter: brightness(1.15);
-    }
     &:hover {
       box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
       filter: brightness(1.05);
+    }
+    &.high {
+      box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
+      filter: brightness(1.15);
     }
 
     .border {
@@ -212,14 +212,14 @@
     &[project-id="teabotre"] .border {
       background: var(--color-project-teabotre);
     }
-
+    
+    &:hover .border {
+      filter: grayscale(0.6);
+    }
     &.high .border {
       filter: none;
     }
 
-    &:hover .border {
-      filter: grayscale(0.6);
-    }
   }
 
   .project .build {
@@ -243,13 +243,13 @@
       cursor: pointer;
       transition: all 0.3s ease;
 
-      &.high {
-        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
-        filter: brightness(1.15);
-      }
       &:hover {
         box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
         filter: brightness(1.05);
+      }
+      &.high {
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
+        filter: brightness(1.15);
       }
     }
   }
