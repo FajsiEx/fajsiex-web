@@ -30,6 +30,7 @@ export class NewsComponent implements OnInit {
   fetchError = false;
 
   filter: any = false; // Filter for the posts
+  typeFilter: any = false; // Filter for the type of events (all=false, news, changes, issues, ...)
 
   constructor(public wanilla: WanillaService) { }
 
@@ -72,10 +73,19 @@ export class NewsComponent implements OnInit {
     await this.fetchTimeline();
   }
 
+  async switchTypeFilter(_filter) {
+    if (this.typeFilter == _filter) { return false; }
+    if (!this.events) { return false; }
+
+    this.typeFilter = _filter;
+    this.events = false;
+    await this.fetchTimeline();
+  }
+
   async fetchTimeline() {
     console.log(this.filter);
     try {
-      this.events = this.formatTimeline(await this.wanilla.getTimeline(this.filter));
+      this.events = this.formatTimeline(await this.wanilla.getTimeline(this.filter, this.typeFilter));
     } catch (e) {
       this.fetchError = true;
       console.error(e);
