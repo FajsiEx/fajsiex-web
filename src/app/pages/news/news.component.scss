@@ -250,6 +250,21 @@
       &.high {
         box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
         filter: brightness(1.15);
+
+        border: 1.5px solid transparent;
+
+        &.type-everything {
+          border-color: var(--color-white);
+        }
+        &.type-news {
+          border-color: var(--color-green);
+        }
+        &.type-changelogs {
+          border-color: var(--color-blue);
+        }
+        &.type-issues {
+          border-color: var(--color-red);
+        }
       }
     }
   }

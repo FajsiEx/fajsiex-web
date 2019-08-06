@@ -33,10 +33,10 @@
 			</div>
 
 			<div class="type-row">
-				<div (click)="switchTypeFilter(false)" [class.high]="!typeFilter" class="type-tab high">All</div>
-				<div (click)="switchTypeFilter('news')" [class.high]="typeFilter == 'news'" class="type-tab">News</div>
-				<div (click)="switchTypeFilter('changelogs')" [class.high]="typeFilter == 'changelogs'" class="type-tab">Changelogs</div>
-				<div (click)="switchTypeFilter('issues')" [class.high]="typeFilter == 'issues'" class="type-tab">Issues</div>
+				<div (click)="switchTypeFilter(false)" [class.high]="!typeFilter" class="type-tab type-everything">All</div>
+				<div (click)="switchTypeFilter('news')" [class.high]="typeFilter == 'news'" class="type-tab type-news">News</div>
+				<div (click)="switchTypeFilter('changelogs')" [class.high]="typeFilter == 'changelogs'" class="type-tab type-changelogs">Changelogs</div>
+				<div (click)="switchTypeFilter('issues')" [class.high]="typeFilter == 'issues'" class="type-tab type-issues">Issues</div>
 			</div>
 		</div>
 
