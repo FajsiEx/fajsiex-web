@@ -114,9 +114,22 @@
 .loader {
   text-align: center;
   width: 100%;
-  margin-top: 24px;
+  margin-top: 48px;
   img {
     width: 48px;
+  }
+}
+
+.nothing-found-msg {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 48px;
+
+  i {
+    font-size: 86px;
+    display: block;
+    opacity: 0.6;
+    margin-bottom: 24px;
   }
 }
 
