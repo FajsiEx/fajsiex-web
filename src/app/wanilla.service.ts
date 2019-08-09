@@ -11,8 +11,9 @@ export class WanillaService {
 
   async getTimeline(project, type) {
     if (!project) { project = 'all'; }
+    if (!type) { type = 'all'; }
 
-    const response = await fetch(this.API_URL + 'timeline/' + project);
+    const response = await fetch(`${this.API_URL}timeline/${project}/${type}`);
     return await response.json();
   }
 

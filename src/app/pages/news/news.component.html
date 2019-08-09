@@ -34,9 +34,9 @@
 
 			<div class="type-row">
 				<div (click)="switchTypeFilter(false)" [class.high]="!typeFilter" class="type-tab type-everything">All</div>
-				<div (click)="switchTypeFilter('news')" [class.high]="typeFilter == 'news'" class="type-tab type-news">News</div>
-				<div (click)="switchTypeFilter('changelogs')" [class.high]="typeFilter == 'changelogs'" class="type-tab type-changelogs">Changelogs</div>
-				<div (click)="switchTypeFilter('issues')" [class.high]="typeFilter == 'issues'" class="type-tab type-issues">Issues</div>
+				<div (click)="switchTypeFilter('post')" [class.high]="typeFilter == 'post'" class="type-tab type-news">News</div>
+				<div (click)="switchTypeFilter('release')" [class.high]="typeFilter == 'release'" class="type-tab type-changelogs">Changelogs</div>
+				<div (click)="switchTypeFilter('issue')" [class.high]="typeFilter == 'issue'" class="type-tab type-issues">Issues</div>
 			</div>
 		</div>
 
@@ -51,6 +51,10 @@
 				ad-blocker enabled, try to disable it and reload the page. Trust me, there are no ads or trackers here,
 				only
 				important API requests.</p>
+		</div>
+
+		<div class="nothingFound" *ngIf="events && events.length == 0">
+			Nothing found. Yet...
 		</div>
 
 		<div class="events" *ngIf="events">
