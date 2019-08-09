@@ -1,45 +1,58 @@
+.servers {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
 
-.project-title {
-    margin: 0;
-    margin-top: 32px;
-}
+  .server {
+    background: var(--color-background-l1);
+    padding: 16px;
+    border-radius: var(--border-radius-default);
+    width: 100%;
+    margin: 8px;
+    transition: var(--transition-default);
+    cursor: pointer;
 
-.status-wrapper {
-    display: flex;
-    margin-left: 3px;
-    margin-top: 4px;
+    &:hover {
+      box-shadow: var(--shadow-l1);
+    }
+
+    .server-name {
+      margin: 0 !important;
+      margin-top: 32px;
+      text-align: center;
+    }
 
     .status {
-        padding: 8px 0;
-        margin-left: 8px;
-
-        h1,h2,h3,h4,h5,h6,p{
-            margin:0
-        }
+      text-align: center;
+      
+      .green {
+        color: var(--color-green);
+      }
     }
+  }
 }
 
 .border {
-    background: #fff;
-    width: 4px;
-    margin-left: 4px;
-    border-radius: 2px;
-    &.border-red {
-      background: var(--color-red);
-    }
-    &.border-green {
-      background: var(--color-green);
-    }
-    &.border-blue {
-      background: var(--color-blue);
-    }
-    &.border-orange {
-      background: var(--color-orange);
-    }
-    &.border-yellow {
-      background: var(--color-yellow);
-    }
-    &.border-cyan {
-      background: var(--color-cyan);
-    }
+  background: #fff;
+  width: 4px;
+  margin-left: 4px;
+  border-radius: 2px;
+  &.border-red {
+    background: var(--color-red);
+  }
+  &.border-green {
+    background: var(--color-green);
+  }
+  &.border-blue {
+    background: var(--color-blue);
+  }
+  &.border-orange {
+    background: var(--color-orange);
+  }
+  &.border-yellow {
+    background: var(--color-yellow);
+  }
+  &.border-cyan {
+    background: var(--color-cyan);
+  }
 }

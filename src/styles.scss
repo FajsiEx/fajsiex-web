@@ -21,6 +21,7 @@ $text-color: #eee;
 
 :root {
     --color-background: #161622;
+    --color-background-l1: #223;
 
     --color-white: #fff;
     --color-green: #2c0;
@@ -33,6 +34,13 @@ $text-color: #eee;
     --color-project-website: linear-gradient(to bottom, #0af, #05a);
     --color-project-wanilla: linear-gradient(to bottom, #0cc, #cc0);
     --color-project-teabotre: linear-gradient(to bottom, #08f, #f0f);
+
+    --border-radius-default: 6px;
+
+    --shadow-l1: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
+    --shadow-l2: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
+
+    --transition-default: all 0.35s ease;
 }
 
 body {

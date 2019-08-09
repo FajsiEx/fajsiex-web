@@ -1,13 +1,11 @@
 <div class="container">
-    <div class="server" *ngFor="let server of servers">
-        <h1 class="project-title">{{server.name}}</h1>
-        <div class="status-wrapper">
-            <div class="border border-green"></div>
+
+    <div class="servers">
+        <div class="server" *ngFor="let server of servers">
+            <h1 class="server-name">{{server.name}}</h1>
             <div class="status">
-                <h2>{{server.status}}</h2>
-                <div *ngIf="server.recentIssue">
-                    Placeholder for recent issue :)
-                </div>
+                <span class="green">Online</span>
+                
             </div>
         </div>
     </div>
