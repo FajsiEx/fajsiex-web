@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 export class WanillaService {
   constructor() { }
 
-  API_URL = 'http://localhost:3211/api/'; // localhost testing url
-  //API_URL = 'https://wanilla.eu-gb.mybluemix.net/api/';
+  //API_URL = 'http://localhost:3211/api/'; // localhost testing url
+  API_URL = 'https://wanilla.eu-gb.mybluemix.net/api/';
 
   async getTimeline(project, type) {
     if (!project) { project = 'all'; }
