@@ -93,22 +93,6 @@
     display: -webkit-inline-box;
     margin-top: 4px;
   }
-
-  .added .border {
-    background: var(--color-green);
-  }
-  .updated .border {
-    background: var(--color-blue);
-  }
-  .fixed .border {
-    background: var(--color-orange);
-  }
-  .removed .border {
-    background: var(--color-red);
-  }
-  .code .border {
-    background: var(--color-cyan);
-  }
 }
 
 .loader {
@@ -326,18 +310,23 @@
 
   &.border-red {
     background: var(--color-red);
+    box-shadow: 0px 0px 14px 0px var(--color-red);
   }
   &.border-green {
     background: var(--color-green);
+    box-shadow: 0px 0px 14px 0px var(--color-green);
   }
   &.border-blue {
     background: var(--color-blue);
+    box-shadow: 0px 0px 14px 0px var(--color-blue);
   }
   &.border-orange {
     background: var(--color-orange);
+    box-shadow: 0px 0px 14px 0px var(--color-orange);
   }
   &.border-cyan {
     background: var(--color-cyan);
+    box-shadow: 0px 0px 14px 0px var(--color-cyan);
   }
 }
 .sub-text {
