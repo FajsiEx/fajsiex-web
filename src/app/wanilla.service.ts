@@ -6,20 +6,20 @@ import { Injectable } from '@angular/core';
 export class WanillaService {
   constructor() { }
 
-  //API_URL = 'http://localhost:3211/api/'; // localhost testing url
-  API_URL = 'https://wanilla.eu-gb.mybluemix.net/api/';
+  API_URL = 'http://localhost:3211/api/'; // localhost testing url
+  //API_URL = 'https://wanilla.eu-gb.mybluemix.net/api/';
 
   async getTimeline(project, type) {
     if (!project) { project = 'all'; }
 
-    let response = await fetch(this.API_URL + 'timeline/' + project);
+    const response = await fetch(this.API_URL + 'timeline/' + project);
     return await response.json();
   }
 
   async getProjectBuildNumbers(project) {
     if (!project) { project = 'all'; }
 
-    let response = await fetch(this.API_URL + 'build_numbers/' + project);
+    const response = await fetch(this.API_URL + 'build_numbers/' + project);
     return await response.json();
   }
 }
