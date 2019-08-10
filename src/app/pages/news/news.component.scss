@@ -156,9 +156,12 @@
     background: #08f;
 
     margin: 4px;
-    padding: 3px;
+    
     border-radius: 6px;
+    padding: -6px;
 
+    transition: all .5s ease;
+    
     &[project-id="website"] {
       background: var(--color-project-website);
     }
@@ -167,6 +170,10 @@
     }
     &[project-id="teabotre"] {
       background: var(--color-project-teabotre);
+    }
+
+    &.high {
+      padding: 3px;
     }
 
     @media (max-width: 576px) {
