@@ -19,8 +19,8 @@
 					<div class="project"
 						[ngClass]="{active: filter==project.id, high: filter==project.id || !filter}"
 						(click)="switchFilter(project.id)" [attr.project-id]="project.id">
-						<div class="border"></div>
-						<div>
+
+						<div class="project-inner">
 							<div class="filter-name">
 								<a>{{project.name}}</a>
 							</div>
