@@ -21,7 +21,7 @@ export class HeaderComponent implements OnInit {
       if (event instanceof NavigationStart) {
         console.log(event);
 
-        this.currentPage = event.url.slice(1);
+        this.currentPage = event.url.split('/')[1];
       }
     });
 
