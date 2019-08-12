@@ -153,8 +153,11 @@ nav {
     display: inline-block;
 
     padding: 10px 15px;
-    &.has-image {
+    &.osu {
       padding: 3px !important;
+    }
+    &.anilist {
+      padding: 9px !important;
     }
 
     cursor: pointer;
@@ -165,9 +168,13 @@ nav {
 
   a:hover {
     padding: 10px 20px;
-    &.has-image {
+    &.osu {
       padding: 3px !important;
       padding-top: 8px !important;
+    }
+    &.anilist {
+      padding: 9px !important;
+      padding-top: 14px !important;
     }
 
     &.dont-hover-pad {
