@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WanillaService } from 'src/app/wanilla.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -32,7 +33,14 @@ export class NewsComponent implements OnInit {
   filter: any = false; // Filter for the posts
   typeFilter: any = false; // Filter for the type of events (all=false, news, changes, issues, ...)
 
-  constructor(public wanilla: WanillaService) { }
+  constructor(public wanilla: WanillaService, private route: ActivatedRoute) {
+    if (this.route.snapshot.params.project) {
+      this.filter = this.route.snapshot.params.project;
+    }
+    if (this.route.snapshot.params.type) {
+      this.typeFilter = this.route.snapshot.params.type;
+    }
+  }
 
   async ngOnInit() {
     await this.fetchProjects();
