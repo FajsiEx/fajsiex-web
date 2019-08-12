@@ -5,7 +5,7 @@
 				<div class="filter-name"><a>All</a></div>
 			</div> -->
 
-			<a *ngIf="filter" (click)="switchFilter(false)" class="reset-filter-link">
+			<a *ngIf="filter" (click)="switchFilter(false)" [routerLink]="['/news/all/all']" class="reset-filter-link">
 				<i class="fas fa-chevron-left"></i>
 				&nbsp;
 				Show news and changelogs for all projects
@@ -18,7 +18,7 @@
 				<div class="project-wrapper" *ngFor="let project of projects">
 					<div class="project"
 						[ngClass]="{active: filter==project.id, high: filter==project.id || !filter}"
-						(click)="switchFilter(project.id)" [attr.project-id]="project.id">
+						(click)="switchFilter(project.id)" [routerLink]="['/news/' + project.id + '/' + (typeFilter || 'all')]" [attr.project-id]="project.id">
 
 						<div class="project-inner">
 							<div class="filter-name">
@@ -33,10 +33,10 @@
 			</div>
 
 			<div class="type-row">
-				<div (click)="switchTypeFilter(false)" [class.high]="!typeFilter" class="type-tab type-everything">All</div>
-				<div (click)="switchTypeFilter('post')" [class.high]="typeFilter == 'post'" class="type-tab type-news">News</div>
-				<div (click)="switchTypeFilter('release')" [class.high]="typeFilter == 'release'" class="type-tab type-changelogs">Changelogs</div>
-				<div (click)="switchTypeFilter('issue')" [class.high]="typeFilter == 'issue'" class="type-tab type-issues">Issues</div>
+				<div (click)="switchTypeFilter(false)" [routerLink]="['/news/' + (filter || 'all') + '/all']" [class.high]="!typeFilter" class="type-tab type-everything">All</div>
+				<div (click)="switchTypeFilter('post')" [routerLink]="['/news/' + (filter || 'all') + '/post']" [class.high]="typeFilter == 'post'" class="type-tab type-news">News</div>
+				<div (click)="switchTypeFilter('release')" [routerLink]="['/news/' + (filter || 'all') + '/release']" [class.high]="typeFilter == 'release'" class="type-tab type-changelogs">Changelogs</div>
+				<div (click)="switchTypeFilter('issue')" [routerLink]="['/news/' + (filter || 'all') + '/issue']" [class.high]="typeFilter == 'issue'" class="type-tab type-issues">Issues</div>
 			</div>
 		</div>
 

@@ -46,7 +46,7 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         console.log(event);
-        this.currentPage = event.url.slice(1);
+        this.currentPage = event.url.split('/')[1];
         this.titleService.setTitle('FajsiEx | ' + this.pages[this.currentPage].title);
       }
     });

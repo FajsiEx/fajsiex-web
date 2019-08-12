@@ -36,9 +36,11 @@ export class NewsComponent implements OnInit {
   constructor(public wanilla: WanillaService, private route: ActivatedRoute) {
     if (this.route.snapshot.params.project) {
       this.filter = this.route.snapshot.params.project;
+      if (this.filter === 'all') { this.filter = false; }
     }
     if (this.route.snapshot.params.type) {
       this.typeFilter = this.route.snapshot.params.type;
+      if (this.typeFilter === 'all') { this.typeFilter = false; }
     }
   }
 

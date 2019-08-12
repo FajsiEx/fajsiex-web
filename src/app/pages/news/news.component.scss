@@ -118,11 +118,12 @@
   }
 
   .reset-filter-link {
-    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
     transition: all 0.35s ease;
 
     &:hover {
-      color: #f88;
+      color: #aaa;
     }
     i {
       transition: margin-right 0.35s ease;
