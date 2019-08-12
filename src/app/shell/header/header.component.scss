@@ -64,6 +64,12 @@ nav {
 
   z-index: 128;
 
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+
   a {
     text-decoration: none;
     color: white;
@@ -145,12 +151,24 @@ nav {
 
   a {
     display: inline-block;
+
     padding: 10px 15px;
+    &.has-image {
+      padding: 3px !important;
+    }
+
     cursor: pointer;
+    img {
+      width: 100%;
+    }
   }
 
   a:hover {
     padding: 10px 20px;
+    &.has-image {
+      padding: 3px !important;
+      padding-top: 8px !important;
+    }
 
     &.dont-hover-pad {
       padding: 10px 15px !important;
