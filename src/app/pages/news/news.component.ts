@@ -64,8 +64,8 @@ export class NewsComponent implements OnInit {
         id: project.id,
         name: this.projectNames[project.id],
         buildNumbers: {
-          alpha: project.alpha,
-          beta: project.beta,
+          alpha: (project.alpha) ? project.alpha.split(' ')[0] : false,
+          beta: (project.beta) ? project.beta.split(' ')[0] : false,
           stable: (project.stable) ? project.stable : 'No stable version',
         }
       });
