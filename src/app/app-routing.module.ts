@@ -8,7 +8,7 @@ import { StatusComponent } from './pages/status/status.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'news', pathMatch: 'full'},
+  {path: '', redirectTo: 'news/all/all', pathMatch: 'full'},
 
   {path: 'news', component: NewsComponent},
   {path: 'news/:project', component: NewsComponent},
