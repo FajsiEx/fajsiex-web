@@ -80,6 +80,24 @@ body {
   margin-left: auto;
 }
 
+.color-red {
+  color: var(--color-red);
+}
+.color-green {
+  color: var(--color-green);
+}
+.color-blue {
+  color: var(--color-blue);
+}
+.color-yellow {
+  color: var(--color-yellow);
+}
+.color-orange {
+  color: var(--color-orange);
+}
+.color-cyan {
+  color: var(--color-cyan);
+}
 
 
 @media (min-width: 768px) {

@@ -24,9 +24,9 @@
 							<div class="filter-name">
 								<a>{{project.name}}</a>
 							</div>
-							<span class="build">{{project.buildNumbers.stable}}</span><br>
-							<span class="build" *ngIf="project.buildNumbers.beta">{{project.buildNumbers.beta}} beta</span>
-							<span class="build" *ngIf="project.buildNumbers.alpha">{{project.buildNumbers.alpha}} alpha</span>
+							<span class="build"><b>{{project.buildNumbers.stable}}</b></span><br>
+							<span class="build color-yellow" *ngIf="project.buildNumbers.beta"><b>{{project.buildNumbers.beta}}</b> beta</span>
+							<span class="build color-orange" *ngIf="project.buildNumbers.alpha"><b>{{project.buildNumbers.alpha}}</b> alpha</span>
 						</div>
 					</div>
 				</div>
