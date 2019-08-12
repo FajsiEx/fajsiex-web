@@ -17,12 +17,12 @@
 }
 
 .page-header {
-    background: linear-gradient(to bottom right, transparent, rgba(0,0,0,0.5));
+    background: linear-gradient(to bottom right, rgba(0,0,0, calc(0.5 * var(--global-darkness))), rgba(0,0,0, calc(0.5 + (0.25 * var(--global-darkness)))));
     //background: linear-gradient(to bottom right,  rgba(0,0,0,0.5),rgba(0,0,0,0.8));
     padding-top: calc(12vh + 76px);
   
     .edge {
-      background:#161622;
+      background: var(--color-background);
       clip-path: polygon(0% 0%, 100% calc(100% - 3px), 100% 100%, 0% 100%);
       margin-top: 14vh;
       z-index: -50;

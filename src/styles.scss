@@ -20,8 +20,17 @@ $text-color: #eee;
 }
 
 :root {
-    --color-background: #161622;
-    --color-background-l1: #223;
+    --color-background: rgb(
+      calc((1 - var(--global-darkness)) * 22),
+      calc((1 - var(--global-darkness)) * 22),
+      calc((1 - var(--global-darkness)) * 34)
+    );
+    --color-background-l1: rgb(
+      calc((1 - var(--global-darkness) * .5) * 34),
+      calc((1 - var(--global-darkness) * .5) * 34),
+      calc((1 - var(--global-darkness) * .5) * 51)
+    );
+
     --color-background-l2: #282838;
 
     --color-white: #fff;
@@ -43,6 +52,8 @@ $text-color: #eee;
     --filter-hover: brightness(1.1);
 
     --transition-default: all 0.35s ease;
+
+    --global-darkness: 0; // Multiplier for how dark should the theme be (0 - 1)
 }
 
 body {

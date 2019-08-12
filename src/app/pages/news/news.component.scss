@@ -186,7 +186,7 @@
 
       vertical-align: top;
 
-      background: #223;
+      background: var(--color-background-l1);
 
       border-radius: 6px;
 
@@ -231,7 +231,7 @@
     .type-tab {
       display: inline-block;
       padding: 6px 12px;
-      background: #223;
+      background: var(--color-background-l1);
       border-radius: 15.5px;
       min-width: 48px;
       margin: 0 4px;
