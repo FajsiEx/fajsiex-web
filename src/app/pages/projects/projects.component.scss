@@ -9,57 +9,77 @@
   width: 100%;
 }
 
-.column {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 50%;
-  @media screen and (max-width: 720px) {
-    flex-basis: 100%;
-  }
-  flex: 1;
-}
-
 .project {
-  background: #223;
-  filter: brightness(1.05);
-  border-radius: 6px;
+  background: var(--color-background-l1);
+
   margin: 8px;
-  padding: 16px;
+  border-radius: 8px;
 
-  .project-stats {
+  flex-basis: calc(33.33% - 16px);
+  width: 100%;
+
+  .image {
+    img {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+
+  .inner {
+    padding: 16px;
+
     display: flex;
+    flex-direction: column;
+    height: 280px;
 
-    span {
-      display: inline-block;
-      padding-right: 8px;
+    div {
+      width: 100%;
     }
 
-    .inner {
-        margin-left: 16px;
-        padding: 8px 0;
+    .inner-buttons {
+      margin-top: auto;
     }
 
-    .border {
-      background: #fff;
-      width: 4px;
-      margin-left: 4px;
-      border-radius: 2px;
+    .project-name {
+      text-align: center;
+      margin-top: 0;
+    }
 
-      &.border-red {
-        background: var(--color-red);
+    a {
+      display: block;
+      width: calc(100% - (2 * 8px));
+      padding: 12px 8px;
+      margin-top: 12px;
+
+      border-radius: 8px;
+
+      background: var(--color-background-l2);
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+
+      transition: var(--transition-default);
+
+      &:hover {
+        filter: var(--filter-hover);
       }
-      &.border-green {
-        background: var(--color-green);
+
+      &.link-github {
+        background: rgb(36, 41, 46);
       }
-      &.border-blue {
-        background: var(--color-blue);
+      &.link-changelog {
+        background: #08f;
       }
-      &.border-orange {
-        background: var(--color-orange);
-      }
-      &.border-cyan {
-        background: var(--color-cyan);
+      &.link-docs {
+        background: #0c8;
       }
     }
+  }
+
+  @media screen and (max-width: 992px) {
+    flex-basis: calc(50% - 16px);
+  }
+  @media screen and (max-width: 768px) {
+    flex-basis: 100%;
   }
 }
