@@ -1,5 +1,6 @@
 .timeline {
   padding-top: 20px;
+
   .events {
     animation: 0.5s float-up ease-in-out;
   }
@@ -13,22 +14,8 @@
   font-weight: 100;
   margin-bottom: 0;
 
-  .before-project {
-    font-weight: bold;
-    color: #08f;
-  }
-
   .release-build {
-    color: #08f;
     font-weight: bold;
-  }
-
-  .alpha {
-    color: #f80;
-  }
-
-  .beta {
-    color: #cc0;
   }
 
   .issue {

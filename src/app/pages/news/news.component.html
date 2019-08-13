@@ -16,27 +16,34 @@
 
 			<div class="project-row">
 				<div class="project-wrapper" *ngFor="let project of projects">
-					<div class="project"
-						[ngClass]="{active: filter==project.id, high: filter==project.id || !filter}"
-						(click)="switchFilter(project.id)" [routerLink]="['/news/' + project.id + '/' + (typeFilter || 'all')]" [attr.project-id]="project.id">
+					<div class="project" [ngClass]="{active: filter==project.id, high: filter==project.id || !filter}"
+						(click)="switchFilter(project.id)"
+						[routerLink]="['/news/' + project.id + '/' + (typeFilter || 'all')]"
+						[attr.project-id]="project.id">
 
 						<div class="project-inner">
 							<div class="filter-name">
 								<a>{{project.name}}</a>
 							</div>
 							<span class="build"><b>{{project.buildNumbers.stable}}</b></span><br>
-							<span class="build color-yellow" *ngIf="project.buildNumbers.beta"><b>{{project.buildNumbers.beta}}</b> beta</span>
-							<span class="build color-orange" *ngIf="project.buildNumbers.alpha"><b>{{project.buildNumbers.alpha}}</b> alpha</span>
+							<span class="build color-yellow"
+								*ngIf="project.buildNumbers.beta"><b>{{project.buildNumbers.beta}}</b> beta</span>
+							<span class="build color-orange"
+								*ngIf="project.buildNumbers.alpha"><b>{{project.buildNumbers.alpha}}</b> alpha</span>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="type-row">
-				<div (click)="switchTypeFilter(false)" [routerLink]="['/news/' + (filter || 'all') + '/all']" [class.high]="!typeFilter" class="type-tab type-everything">All</div>
-				<div (click)="switchTypeFilter('post')" [routerLink]="['/news/' + (filter || 'all') + '/post']" [class.high]="typeFilter == 'post'" class="type-tab type-news">News</div>
-				<div (click)="switchTypeFilter('release')" [routerLink]="['/news/' + (filter || 'all') + '/release']" [class.high]="typeFilter == 'release'" class="type-tab type-changelogs">Changelogs</div>
-				<div (click)="switchTypeFilter('issue')" [routerLink]="['/news/' + (filter || 'all') + '/issue']" [class.high]="typeFilter == 'issue'" class="type-tab type-issues">Issues</div>
+				<div (click)="switchTypeFilter(false)" [routerLink]="['/news/' + (filter || 'all') + '/all']"
+					[class.high]="!typeFilter" class="type-tab type-everything">All</div>
+				<div (click)="switchTypeFilter('post')" [routerLink]="['/news/' + (filter || 'all') + '/post']"
+					[class.high]="typeFilter == 'post'" class="type-tab type-news">News</div>
+				<div (click)="switchTypeFilter('release')" [routerLink]="['/news/' + (filter || 'all') + '/release']"
+					[class.high]="typeFilter == 'release'" class="type-tab type-changelogs">Changelogs</div>
+				<div (click)="switchTypeFilter('issue')" [routerLink]="['/news/' + (filter || 'all') + '/issue']"
+					[class.high]="typeFilter == 'issue'" class="type-tab type-issues">Issues</div>
 			</div>
 		</div>
 
@@ -85,8 +92,14 @@
 					<h3 class="project-title">
 						{{event.project}}
 						<span class="release-build"
-							[ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">{{event.build}}
-							{{event.tag}}</span>
+							[ngClass]="{
+								'color-orange': event.tag=='alpha',
+								'color-yellow': event.tag=='beta',
+								'color-blue': (event.tag != 'alpha') && (event.tag != 'beta')}
+						">
+							{{event.build}}
+							{{event.tag}}
+						</span>
 					</h3>
 
 					<p class="release-desc" *ngIf="event.description">{{event.description}}</p>
