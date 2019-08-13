@@ -63,6 +63,10 @@ body {
   margin:0;
 }
 
+:focus {
+  outline: none;
+}
+
 .page-title {
   font-size: 48px;
   text-align: center;
