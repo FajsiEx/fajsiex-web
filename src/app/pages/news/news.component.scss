@@ -183,6 +183,10 @@
 
     @media (max-width: 576px) {
       width: calc(100% - 16px);
+
+      &:not(.high) {
+        margin-left: 7px;
+      }
     }
 
     .project-inner {
