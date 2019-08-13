@@ -103,6 +103,9 @@ body {
   color: var(--color-cyan);
 }
 
+.bold {
+  font-weight: bold;
+}
 
 @media (min-width: 768px) {
   .container {

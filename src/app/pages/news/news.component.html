@@ -71,7 +71,7 @@
 					<h3 class="project-title">
 						{{event.project}}
 
-						<span class="after-project" [ngClass]="{
+						<span class="after-project bold" [ngClass]="{
 								'color-red': !event.resolved,
 								'color-green': event.resolved
 						}">
@@ -96,7 +96,7 @@
 				<div class="release" *ngIf="event.type=='release'">
 					<h3 class="project-title">
 						{{event.project}}
-						<span class="release-build" [ngClass]="{
+						<span class="after-project bold" [ngClass]="{
 								'color-orange': event.tag=='alpha',
 								'color-yellow': event.tag=='beta',
 								'color-blue': (event.tag != 'alpha') && (event.tag != 'beta')}
