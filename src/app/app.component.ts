@@ -1,5 +1,5 @@
 import { Component, Renderer2 } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { trigger, style, animate, transition } from '@angular/animations';
 import { Title } from '@angular/platform-browser';
 import { ThemeService } from './theme.service';
@@ -86,7 +86,7 @@ export class AppComponent {
         this.currentThemeColor = this.currentSubPage.themeColor || this.currentPage.themeColor || '#333';
       }
 
-      if (event instanceof NavigationStart) {
+      if (event instanceof NavigationEnd) {
         window.scrollTo(0, 0);
       }
     });
