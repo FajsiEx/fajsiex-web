@@ -11,7 +11,15 @@ import { ThemeService } from './theme.service';
 })
 export class AppComponent {
   title = 'fajsiex-web';
-  currentPage = '';
+
+  currentPageName: string;
+  currentPage: any;
+
+  currentSubPageName: string;
+  currentSubPage: any;
+
+  currentThemeColor = "#223";
+
   pageHeaderTransition = false;
 
   pages = {
@@ -30,7 +38,13 @@ export class AppComponent {
     },
     projects: {
       title: 'Projects',
-      themeColor: '#0c8'
+      themeColor: '#0c8',
+      subPages: {
+        'teabotre': {
+          title: 'Tea-bot Re:Write',
+          themeColor: '#80f',
+        }
+      }
     },
     status: {
       title: 'Status',
@@ -46,13 +60,35 @@ export class AppComponent {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         console.log(event);
-        this.currentPage = event.url.split('/')[1];
-        this.titleService.setTitle('FajsiEx | ' + this.pages[this.currentPage].title);
+        this.currentPageName = event.url.split('/')[1];
+        this.currentSubPageName = event.url.split('/')[2];
+
+        this.currentPage = this.pages[this.currentPageName];
+
+
+        if (this.currentPage.subPages) {
+          if (this.currentPage.subPages[this.currentSubPageName]) {
+            this.currentSubPage = this.currentPage.subPages[this.currentSubPageName];
+          } else {
+            this.currentSubPage = false;
+          }
+        } else {
+          this.currentSubPage = false;
+        }
+
+        if (this.currentSubPage) {
+          this.titleService.setTitle('FajsiEx | ' + this.currentSubPage.title);
+        } else {
+          this.titleService.setTitle('FajsiEx | ' + this.currentPage.title);
+          this.currentSubPage = false;
+        }
+
+        this.currentThemeColor = this.currentSubPage.themeColor || this.currentPage.themeColor || '#333';
       }
     });
 
     this.changeDarknessBasedOnTime(new Date());
-    setInterval(()=>{
+    setInterval(() => {
       this.changeDarknessBasedOnTime(new Date());
     }, 60 * 1000);
   }
@@ -67,7 +103,7 @@ export class AppComponent {
     */
 
 
-    
+
 
     const hours = date.getHours();
     const minutes = date.getMinutes();
@@ -88,7 +124,7 @@ export class AppComponent {
       if (dayMinutes < 9 * 60) {
         const darknessMp = 1 - ((dayMinutes - 6 * 60) / (3 * 60));
         this.themeService.setDarkness(darknessMp);
-      }else{
+      } else {
         const darknessMp = (dayMinutes - 19 * 60) / (3 * 60);
         this.themeService.setDarkness(darknessMp);
       }

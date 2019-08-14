@@ -1,9 +1,9 @@
 <app-header></app-header>
 
-<div class="page-header-back" [style.background]="pages[currentPage].themeColor"></div>
+<div class="page-header-back" [style.background]="currentThemeColor"></div>
 
 <div class="page-header" [class.transition]="pageHeaderTransition">
-    <h1 class="page-title">{{pages[currentPage].title}}</h1>
+    <h1 class="page-title">{{currentPage.title}}</h1>
     <div class="edge">&nbsp;</div>
 </div>
 
