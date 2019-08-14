@@ -3,7 +3,7 @@
     <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently
         accessible in the stable version of the bot (provided you have the correct rights).</p>
     <div class="section" *ngFor="let commandCategory of commands">
-        <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}}</h2>
+        <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}} <span class="command-count">{{commandCategory.commands.length}}</span></h2>
         <mat-accordion>
             <mat-expansion-panel *ngFor="let command of commandCategory.commands" [ngClass]="{
                     'background-orange': (command.rights) ? command.rights.devOnly : false,
