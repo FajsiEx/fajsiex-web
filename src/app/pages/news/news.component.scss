@@ -228,13 +228,11 @@
       border: 1.5px solid transparent;
 
       &:hover {
-        box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
-        filter: brightness(1.05);
+        filter: var(--filter-hover);
       }
       
       &.high {
-        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
-        filter: brightness(1.15);
+        filter: var(--filter-active);
 
         &.type-everything {
           border-color: var(--color-white);
