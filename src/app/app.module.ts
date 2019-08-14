@@ -12,6 +12,7 @@ import { LogoComponent } from './shell/svgs/logo/logo.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { StatusComponent } from './pages/status/status.component';
 import { BannerComponent } from './shell/banner/banner.component';
+import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BannerComponent } from './shell/banner/banner.component';
     NewsComponent,
     ProjectsComponent,
     StatusComponent,
-    AboutComponent
+    AboutComponent,
+    TeabotreComponent
   ],
   imports: [
     BrowserModule,
