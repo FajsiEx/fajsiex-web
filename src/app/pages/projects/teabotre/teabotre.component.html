@@ -1,5 +1,6 @@
 <div class="container">
     <h1>Commands</h1>
+    <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently accessible in the stable version of the bot (provided you have the correct rights).</p>
     <div class="section" *ngFor="let commandCategory of commands">
         <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}}</h2>
         <mat-accordion>
@@ -17,8 +18,35 @@
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                Do shit
-                Do more shit
+                <div class="aliases">
+                    <b>Accessible via:</b>
+                    <span class="alias" *ngFor="let alias of command.keywords">
+                        <br>
+                        <code>!{{commandCategory.categoryName}}:{{alias}}</code>
+                    </span>
+                </div>
+                
+                <div class="usages" *ngIf="command.usage">
+                    <br>
+                    
+                    <b>Usage:</b>
+                    <span class="usage" *ngFor="let usage of command.usage">
+                        <br>
+                        <code>!{{commandCategory.categoryName}}:{{command.keywords[0]}} {{usage}}</code>
+                    </span>
+                </div>
+
+                <div class="examples" *ngIf="command.examples">
+                    <br>
+
+                    <b>Examples:</b>
+                    <span class="example" *ngFor="let example of command.examples">
+                        <br>
+                        <code>!{{commandCategory.categoryName}}:{{command.keywords[0]}} {{example}}</code>
+                    </span>
+                </div>
+
+
             </mat-expansion-panel>
         </mat-accordion>
     </div>
