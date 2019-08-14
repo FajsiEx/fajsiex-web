@@ -80,6 +80,11 @@ body {
 .mat-expansion-panel {
   background: var(--color-background-l1);
 
+  &:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+  }
+
   @media (max-width: 768px) {
     .mat-expansion-panel-header {
       padding: 8px 24px;
