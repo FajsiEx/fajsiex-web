@@ -3,7 +3,9 @@
 <div class="page-header-back" [style.background]="currentThemeColor"></div>
 
 <div class="page-header" [class.transition]="pageHeaderTransition">
-    <h1 class="page-title">{{currentTitle}}</h1>
+    <div class="page-title-wrapper">
+        <h1 class="page-title">{{currentTitle}}</h1>
+    </div>
     <div class="edge">&nbsp;</div>
 </div>
 
