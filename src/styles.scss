@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Ubuntu&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One|Montserrat|Ubuntu&display=swap");
+@import "~@angular/material/prebuilt-themes/purple-green.css";
 
 $background-color: #161622;
 $text-color: #eee;
@@ -20,48 +21,48 @@ $text-color: #eee;
 }
 
 :root {
-    --color-background: rgb(
-      calc((1 - var(--global-darkness)) * 22),
-      calc((1 - var(--global-darkness)) * 22),
-      calc((1 - var(--global-darkness)) * 34)
-    );
-    --color-background-l1: rgb(
-      calc((1 - var(--global-darkness) * .5) * 34),
-      calc((1 - var(--global-darkness) * .5) * 34),
-      calc((1 - var(--global-darkness) * .5) * 51)
-    );
+  --color-background: rgb(
+    calc((1 - var(--global-darkness)) * 22),
+    calc((1 - var(--global-darkness)) * 22),
+    calc((1 - var(--global-darkness)) * 34)
+  );
+  --color-background-l1: rgb(
+    calc((1 - var(--global-darkness) * 0.5) * 34),
+    calc((1 - var(--global-darkness) * 0.5) * 34),
+    calc((1 - var(--global-darkness) * 0.5) * 51)
+  );
 
-    --color-background-l2: #282838;
+  --color-background-l2: #282838;
 
-    --color-white: #fff;
-    --color-green: #2c0;
-    --color-cyan: #0cf;
-    --color-blue: #08f;
-    --color-yellow: #cc0;
-    --color-orange: #f80;
-    --color-red: #f22;
+  --color-white: #fff;
+  --color-green: #2c0;
+  --color-cyan: #0cf;
+  --color-blue: #08f;
+  --color-yellow: #cc0;
+  --color-orange: #f80;
+  --color-red: #f22;
 
-    --color-project-website: linear-gradient(to bottom right, #0af, #05a);
-    --color-project-wanilla: linear-gradient(to bottom right, #0cc, #cc0);
-    --color-project-teabotre: linear-gradient(to top right, #08f, #f0f);
+  --color-project-website: linear-gradient(to bottom right, #0af, #05a);
+  --color-project-wanilla: linear-gradient(to bottom right, #0cc, #cc0);
+  --color-project-teabotre: linear-gradient(to top right, #08f, #f0f);
 
-    --border-radius-default: 6px;
+  --border-radius-default: 6px;
 
-    //--shadow-l1: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
+  //--shadow-l1: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
 
-    --filter-hover: brightness(1.1);
-    --filter-active: brightness(1.2);
+  --filter-hover: brightness(1.1);
+  --filter-active: brightness(1.2);
 
-    --transition-default: all 0.35s ease;
+  --transition-default: all 0.35s ease;
 
-    --global-darkness: 0; // Multiplier for how dark should the theme be (0 - 1)
+  --global-darkness: 0; // Multiplier for how dark should the theme be (0 - 1)
 }
 
 body {
   background: $background-color;
   color: $text-color;
-  font-family: 'Montserrat', Arial;
-  margin:0;
+  font-family: "Montserrat", Arial;
+  margin: 0;
 }
 
 :focus {
