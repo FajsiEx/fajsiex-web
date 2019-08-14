@@ -5,7 +5,7 @@
             <mat-expansion-panel *ngFor="let command of commandCategory.commands">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        !{{command.keywords[0]}}
+                        !{{commandCategory.categoryName}}:{{command.keywords[0]}}
                     </mat-panel-title>
                     <mat-panel-description>
                         {{command.desc}}
