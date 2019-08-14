@@ -70,7 +70,23 @@ body {
 }
 
 .mat-expansion-panel {
-  background: var(--color-background-l2);
+  background: var(--color-background-l1);
+
+  @media (max-width: 768px) {
+    .mat-expansion-panel-header {
+      padding: 8px 24px;
+    }
+
+    .mat-content {
+      flex-direction: column;
+    }
+  }
+
+  .mat-expansion-panel-header-title {
+    display: block;
+    width: 128px;
+    flex-grow: 0;
+  }
 }
 
 .page-title {
