@@ -18,7 +18,8 @@ export class AppComponent {
   currentSubPageName: string;
   currentSubPage: any;
 
-  currentThemeColor = "#223";
+  currentTitle = 'Page not found';
+  currentThemeColor = '#223';
 
   pageHeaderTransition = false;
 
@@ -83,6 +84,7 @@ export class AppComponent {
           this.currentSubPage = false;
         }
 
+        this.currentTitle = this.currentSubPage.title || this.currentPage.title || 'Page Not Found';
         this.currentThemeColor = this.currentSubPage.themeColor || this.currentPage.themeColor || '#333';
       }
 
