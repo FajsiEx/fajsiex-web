@@ -1,11 +1,11 @@
 <div class="container">
     <h1>Commands</h1>
-    <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently accessible in the stable version of the bot (provided you have the correct rights).</p>
+    <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently
+        accessible in the stable version of the bot (provided you have the correct rights).</p>
     <div class="section" *ngFor="let commandCategory of commands">
         <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}}</h2>
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let command of commandCategory.commands"
-                [ngClass]="{
+            <mat-expansion-panel *ngFor="let command of commandCategory.commands" [ngClass]="{
                     'background-orange': (command.rights) ? command.rights.devOnly : false,
                     'background-blue': (command.rights) ? command.rights.adminOnly : false
                 }">
@@ -25,10 +25,10 @@
                         <code>!{{commandCategory.categoryName}}:{{alias}}</code>
                     </span>
                 </div>
-                
+
                 <div class="usages" *ngIf="command.usage">
                     <br>
-                    
+
                     <b>Usage:</b>
                     <span class="usage" *ngFor="let usage of command.usage">
                         <br>
@@ -44,6 +44,24 @@
                         <br>
                         <code>!{{commandCategory.categoryName}}:{{command.keywords[0]}} {{example}}</code>
                     </span>
+                </div>
+
+                <div class="banner dev-only-warning" *ngIf="(command.rights) ? command.rights.devOnly : false">
+                    <div class="banner-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="banner-text">
+                        Only developers of Tea-bot can use this. Information about this command has been provided for
+                        transparency.
+                    </div>
+                </div>
+                <div class="banner admin-only-warning" *ngIf="(command.rights) ? command.rights.adminOnly : false">
+                    <div class="banner-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="banner-text">
+                        This command can be used only by members with "Administrator" or "Manage server" permissions. If they work in DMs, they can be used there too.
+                    </div>
                 </div>
 
 

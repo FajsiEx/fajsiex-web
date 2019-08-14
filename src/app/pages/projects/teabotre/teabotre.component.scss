@@ -1,0 +1,22 @@
+.banner {
+
+  
+    width: calc(100% - 2 * 16px);
+    padding: 16px;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+
+    background: var(--color-background-l1);
+  
+    display: flex;
+  
+    .banner-icon {
+        padding-right: 16px;
+        i {
+            font-size: 32px;
+            vertical-align: middle;
+        }
+    }
+  }
+  
