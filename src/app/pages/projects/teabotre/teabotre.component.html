@@ -1,45 +1,19 @@
 <div class="container">
-    <div class="section">
-        <h1 class="section-title">Moderation commands</h1>
+    <div class="section" *ngFor="let commandCategory of commands">
+        <h1 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}}</h1>
         <mat-accordion>
-            <mat-expansion-panel>
+            <mat-expansion-panel *ngFor="let command of commandCategory.commands">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
-                        !mute
+                        !{{command.keywords[0]}}
                     </mat-panel-title>
                     <mat-panel-description>
-                        Mutes people
+                        {{command.desc}}
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
-                <p>Usage: <code>!mute @mention, @mention</code></p>
-                <p>Example: <code>!mute @FajsiEx#6101, @Phantom#4091</code></p>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        !mute
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Mutes people
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-
-                <p>Usage: <code>!mute @mention, @mention</code></p>
-                <p>Example: <code>!mute @FajsiEx#6101, @Phantom#4091</code></p>
-            </mat-expansion-panel>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        !mute
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Mutes people
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
-
-                <p>Usage: <code>!mute @mention, @mention</code></p>
-                <p>Example: <code>!mute @FajsiEx#6101, @Phantom#4091</code></p>
+                Do shit
+                Do more shit
             </mat-expansion-panel>
         </mat-accordion>
     </div>

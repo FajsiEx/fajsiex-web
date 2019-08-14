@@ -8,6 +8,8 @@ export class WanillaService {
 
   //API_URL = 'http://localhost:3211/api/'; // localhost testing url
   API_URL = 'https://wanilla.eu-gb.mybluemix.net/api/';
+  TEABOT_API_URL = 'http://localhost:3210/api/';
+  //TEABOT_API_URL = 'https:///api/';
 
   async getTimeline(project, type) {
     if (!project) { project = 'all'; }
@@ -21,6 +23,11 @@ export class WanillaService {
     if (!project) { project = 'all'; }
 
     const response = await fetch(this.API_URL + 'build_numbers/' + project);
+    return await response.json();
+  }
+
+  async getCommands() {
+    const response = await fetch(this.TEABOT_API_URL + 'commands/');
     return await response.json();
   }
 }
