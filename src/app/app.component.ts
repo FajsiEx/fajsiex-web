@@ -85,6 +85,10 @@ export class AppComponent {
 
         this.currentThemeColor = this.currentSubPage.themeColor || this.currentPage.themeColor || '#333';
       }
+
+      if (event instanceof NavigationStart) {
+        window.scrollTo(0, 0);
+      }
     });
 
     this.changeDarknessBasedOnTime(new Date());
