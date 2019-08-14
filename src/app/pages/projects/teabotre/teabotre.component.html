@@ -145,4 +145,20 @@
             </div>
         </div>
     </div>
+
+    <div class="section qr-type-random">
+        <h2 class="section-title">Insertables <span class="command-count">{{qrs.insertable.length}}</span></h2>
+        <p>A rare breed of QRs where you can write something on the source picture by using the command. For example: <code>!nya something that will be written on the sign</code></p>
+        <div class="row">
+            <div class="col qr-block" *ngFor="let qr of qrs.insertable">
+                <div class="image-wrapper" [style.background]="'url(' + qr.data.src + ')'"></div>
+                <div class="inner">
+                    <h2>!{{qr.keywords[0]}}</h2>
+                    <span *ngFor="let alias of qr.keywords; let first = first">
+                        <code *ngIf="!first">!{{alias}}<br></code>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
