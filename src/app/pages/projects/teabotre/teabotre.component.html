@@ -1,8 +1,13 @@
 <div class="container">
+    <h1>Commands</h1>
     <div class="section" *ngFor="let commandCategory of commands">
-        <h1 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}}</h1>
+        <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}}</h2>
         <mat-accordion>
-            <mat-expansion-panel *ngFor="let command of commandCategory.commands">
+            <mat-expansion-panel *ngFor="let command of commandCategory.commands"
+                [ngClass]="{
+                    'background-orange': (command.rights) ? command.rights.devOnly : false,
+                    'background-blue': (command.rights) ? command.rights.adminOnly : false
+                }">
                 <mat-expansion-panel-header>
                     <mat-panel-title>
                         !{{commandCategory.categoryName}}:{{command.keywords[0]}}

@@ -42,6 +42,14 @@ $text-color: #eee;
   --color-orange: #f80;
   --color-red: #f22;
 
+  --color-background-white: #fff;
+  --color-background-green: #2c0;
+  --color-background-cyan: #0cf;
+  --color-background-blue: #048;
+  --color-background-yellow: #cc0;
+  --color-background-orange: #840;
+  --color-background-red: #f22;
+
   --color-project-website: linear-gradient(to bottom right, #0af, #05a);
   --color-project-wanilla: linear-gradient(to bottom right, #0cc, #cc0);
   --color-project-teabotre: linear-gradient(to top right, #08f, #f0f);
@@ -132,13 +140,13 @@ body {
   background: var(--color-green);
 }
 .background-blue {
-  background: var(--color-blue);
+  background: var(--color-background-blue);
 }
 .background-yellow {
   background: var(--color-yellow);
 }
 .background-orange {
-  background: var(--color-orange);
+  background: var(--color-background-orange);
 }
 .background-cyan {
   background: var(--color-cyan);
