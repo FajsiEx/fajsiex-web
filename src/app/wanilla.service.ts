@@ -8,9 +8,10 @@ export class WanillaService {
 
   //API_URL = 'http://localhost:3211/api/'; // localhost testing url
   API_URL = 'https://wanilla.eu-gb.mybluemix.net/api/';
-
-  //TEABOT_API_URL = 'http://localhost:3210/api/';
-  TEABOT_API_URL = 'https://tea-bot.eu-gb.mybluemix.net/api/';
+  
+  TEABOT_API_URL = (localStorage.getItem('useLocalTeaBotApi') === 'yes') ?
+    'http://localhost:3210/api/' :
+    'https://tea-bot.eu-gb.mybluemix.net/api/';
 
   async getTimeline(project, type) {
     if (!project) { project = 'all'; }
