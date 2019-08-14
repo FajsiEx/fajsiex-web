@@ -73,7 +73,7 @@
     <h1>Quick responses</h1>
 
     <div class="section qr-type-plain">
-        <h2 class="section-title">Plain</h2>
+        <h2 class="section-title">Plain <span class="command-count">{{qrs.plain.length}}</span></h2>
         <mat-accordion>
             <mat-expansion-panel *ngFor="let qr of qrs.plain">
                 <mat-expansion-panel-header>
@@ -94,5 +94,55 @@
                 </div>
             </mat-expansion-panel>
         </mat-accordion>
+    </div>
+
+    <div class="section qr-type-random">
+        <h2 class="section-title">Random <span class="command-count">{{qrs.random.length}}</span></h2>
+        <mat-accordion>
+            <mat-expansion-panel *ngFor="let qr of qrs.random">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        !{{qr.keywords[0]}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{qr.data.length}} responses
+                    </mat-panel-description>
+                </mat-expansion-panel-header>
+
+                <div class="aliases">
+                    <b>Accessible via:</b>
+                    <span class="alias" *ngFor="let alias of qr.keywords">
+                        <br>
+                        <code>!{{alias}}</code>
+                    </span>
+                </div>
+
+                <br>
+
+                <div class="responses">
+                    <b>Can respond with:</b>
+                    <ul>
+                        <li class="response" *ngFor="let response of qr.data">
+                            <code>{{response}}</code>
+                        </li>
+                    </ul>
+                </div>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="section qr-type-random">
+        <h2 class="section-title">Images <span class="command-count">{{qrs.file.length}}</span></h2>
+        <div class="row">
+            <div class="col qr-block" *ngFor="let qr of qrs.file">
+                <div class="image-wrapper" [style.background]="'url(' + qr.data + ')'"></div>
+                <div class="inner">
+                    <h2>!{{qr.keywords[0]}}</h2>
+                    <span *ngFor="let alias of qr.keywords; let first = first">
+                        <code *ngIf="!first">!{{alias}}<br></code>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

@@ -54,7 +54,7 @@ $text-color: #eee;
   --color-project-wanilla: linear-gradient(to bottom right, #0cc, #cc0);
   --color-project-teabotre: linear-gradient(to top right, #08f, #f0f);
 
-  --border-radius-default: 6px;
+  --border-radius-default: 8px;
 
   //--shadow-l1: 2px 2px 6px 0px rgba(0, 0, 0, 0.75);
 
@@ -186,6 +186,27 @@ body {
   &.border-cyan {
     background: var(--color-cyan);
     box-shadow: 0px 0px 14px 0px var(--color-cyan);
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.col {
+  margin: 8px;
+
+  flex-basis: calc(33.33% - 16px);
+  width: 100%;
+
+  @media screen and (max-width: 992px) {
+    flex-basis: calc(50% - 16px);
+  }
+  @media screen and (max-width: 768px) {
+    flex-basis: 100%;
   }
 }
 
