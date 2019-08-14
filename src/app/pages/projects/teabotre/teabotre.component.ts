@@ -8,7 +8,7 @@ import { WanillaService } from 'src/app/wanilla.service';
 })
 export class TeabotreComponent implements OnInit {
   commands = [];
-  qrs = [];
+  qrs = {plain: [], random: [], file: [], insertable: []};
 
   constructor(private wanilla: WanillaService) { }
 
@@ -22,7 +22,14 @@ export class TeabotreComponent implements OnInit {
     console.log(data);
 
     this.commands = data.data.commands;
-    this.qrs = data.data.qrs;
+
+    for (const type of Object.keys(this.qrs)) {
+      this.qrs[type] = data.data.qrs.filter((qr)=> {
+        return qr.type === type;
+      });
+    }
+
+    console.log(this.qrs);
   }
 
 }
