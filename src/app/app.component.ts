@@ -42,7 +42,7 @@ export class AppComponent {
       subPages: {
         'teabotre': {
           title: 'Tea-bot Re:Write',
-          themeColor: '#80f',
+          themeColor: '#0c8',
         }
       }
     },
