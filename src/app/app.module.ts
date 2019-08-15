@@ -16,6 +16,7 @@ import { FooterComponent } from './shell/footer/footer.component';
 import { StatusComponent } from './pages/status/status.component';
 import { BannerComponent } from './shell/banner/banner.component';
 import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component'
     ProjectsComponent,
     StatusComponent,
     AboutComponent,
-    TeabotreComponent
+    TeabotreComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -3,9 +3,7 @@
     <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently
         accessible in the stable version of the bot (provided you have the correct rights).</p>
 
-    <div class="loader" *ngIf="!commands">
-		<img src="/assets/loader.svg">
-	</div>
+    <app-loader *ngIf="!commands"></app-loader>
 
     <div class="commands" *ngIf="commands">
         <div class="section" *ngFor="let commandCategory of commands">

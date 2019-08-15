@@ -48,9 +48,8 @@
 		</div>
 
 
-		<div class="loader" *ngIf="!events && !fetchError">
-			<img src="/assets/loader.svg">
-		</div>
+		<app-loader *ngIf="!events && !fetchError"></app-loader>
+
 		<div class="errorMessage" *ngIf="fetchError">
 			<h4>An error occurred while fetching the timeline</h4>
 			<p>This could be due to outage of the API server or due to your browser blocking the requests. If you have
