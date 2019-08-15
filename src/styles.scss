@@ -80,9 +80,9 @@ body {
 .mat-expansion-panel {
   background: var(--color-background-l1);
 
-  &:not([class*=mat-elevation-z]) {
+  &:not([class*="mat-elevation-z"]) {
     box-shadow: none;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
   }
 
   @media (max-width: 768px) {
@@ -99,6 +99,12 @@ body {
     display: block;
     width: 140px;
     flex-grow: 0;
+  }
+}
+
+@media (hover: none) {
+  .mat-expansion-panel:not(.mat-expanded):not([aria-disabled="true"]) .mat-expansion-panel-header:hover {
+    background: initial;
   }
 }
 
