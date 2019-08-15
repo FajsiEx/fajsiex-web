@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { FooterComponent } from './shell/footer/footer.component';
 import { StatusComponent } from './pages/status/status.component';
 import { BannerComponent } from './shell/banner/banner.component';
 import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component';
+
 
 @NgModule({
   declarations: [
@@ -38,8 +40,9 @@ import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component'
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
-    MatExpansionModule
+
+    MatExpansionModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

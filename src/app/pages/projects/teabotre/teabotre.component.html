@@ -3,7 +3,8 @@
     <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently
         accessible in the stable version of the bot (provided you have the correct rights).</p>
     <div class="section" *ngFor="let commandCategory of commands">
-        <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}} <span class="command-count">{{commandCategory.commands.length}}</span></h2>
+        <h2 class="section-title">{{commandCategory.displayName || commandCategory.categoryName}} <span
+                class="command-count">{{commandCategory.commands.length}}</span></h2>
         <mat-accordion>
             <mat-expansion-panel *ngFor="let command of commandCategory.commands" [ngClass]="{
                     'background-orange': (command.rights) ? command.rights.devOnly : false,
@@ -16,8 +17,11 @@
                     <mat-panel-description>
                         <div class="desc-icons">
                             <span *ngIf="command.requirements">
-                                <i class="fas fa-users" *ngIf="command.requirements.channelType == 'text'"></i>
-                                <i class="fas fa-database" *ngIf="command.requirements.readyDatabase"></i>
+                                <i class="fas fa-users" *ngIf="command.requirements.channelType == 'text'"
+                                    matTooltip="This command can be used in servers only (no DMs)"
+                                    matTooltipClass="tooltip"></i>
+                                <i class="fas fa-database" *ngIf="command.requirements.readyDatabase"
+                                    matTooltip="Doesn't work during database outages" matTooltipClass="tooltip"></i>
                             </span>
                         </div>
 
@@ -157,7 +161,8 @@
 
     <div class="section qr-type-random">
         <h2 class="section-title">Insertables <span class="command-count">{{qrs.insertable.length}}</span></h2>
-        <p>A rare breed of QRs where you can write something on the source picture by using the command. For example: <code>!nya something that will be written on the sign</code></p>
+        <p>A rare breed of QRs where you can write something on the source picture by using the command. For example:
+            <code>!nya something that will be written on the sign</code></p>
         <div class="row">
             <div class="col qr-block" *ngFor="let qr of qrs.insertable">
                 <div class="image-wrapper" [style.background]="'url(' + qr.data.src + ')'"></div>
