@@ -6,11 +6,11 @@
   </a>
   <ul class="nav-links" [class.menuActive]="showMenuMobile">
     <div class="primary-links links-container">
-      <li class="nav-item"><a [routerLink]="['news/all/all']" [class.active]="currentPage=='news' || currentPage==''">News &
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['news/all/all']" [class.active]="currentPage=='news' || currentPage==''">News &
           Changelog</a></li>
-      <li class="nav-item"><a [routerLink]="['projects']" [class.active]="currentPage=='projects'">Projects</a></li>
-      <li class="nav-item"><a [routerLink]="['status']" [class.active]="currentPage=='status'">Status</a></li>
-      <li class="nav-item"><a [routerLink]="['about']" [class.active]="currentPage=='about'">About</a></li>
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['projects']" [class.active]="currentPage=='projects'">Projects</a></li>
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['status']" [class.active]="currentPage=='status'">Status</a></li>
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['about']" [class.active]="currentPage=='about'">About</a></li>
 
       <li class="nav-item"><a class="dont-hover-pad" (click)="switchSecondaryLinksDisplay()"
           [class.rotate-180deg]="displaySecondaryLinks"><i class="fas fa-chevron-down"></i></a></li>
