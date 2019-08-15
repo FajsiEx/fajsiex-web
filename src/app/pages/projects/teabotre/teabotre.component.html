@@ -14,7 +14,16 @@
                         !{{commandCategory.categoryName}}:{{command.keywords[0]}}
                     </mat-panel-title>
                     <mat-panel-description>
-                        {{command.desc}}
+                        <div class="desc-icons">
+                            <span *ngIf="command.requirements">
+                                <i class="fas fa-users" *ngIf="command.requirements.channelType == 'text'"></i>
+                                <i class="fas fa-database" *ngIf="command.requirements.readyDatabase"></i>
+                            </span>
+                        </div>
+
+                        <div style="display:inline-block">
+                            {{command.desc}}
+                        </div>
                     </mat-panel-description>
                 </mat-expansion-panel-header>
 
