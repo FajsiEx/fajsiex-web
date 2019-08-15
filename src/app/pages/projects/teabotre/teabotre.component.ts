@@ -7,7 +7,7 @@ import { WanillaService } from 'src/app/wanilla.service';
   styleUrls: ['./teabotre.component.scss']
 })
 export class TeabotreComponent implements OnInit {
-  commands = [];
+  commands: any;
   qrs = {plain: [], random: [], file: [], insertable: []};
 
   constructor(private wanilla: WanillaService) { }

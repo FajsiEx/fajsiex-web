@@ -109,8 +109,18 @@ body {
 }
 
 .tooltip {
-  font-size: 14px;
+  font-size: 12px;
   background: var(--color-background-l2);
+  padding: 12px;
+}
+
+.loader {
+  text-align: center;
+  width: 100%;
+  margin-top: 48px;
+  img {
+    width: 48px;
+  }
 }
 
 .page-title {
