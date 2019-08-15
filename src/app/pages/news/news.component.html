@@ -50,14 +50,7 @@
 
 		<app-loader *ngIf="!events && !fetchError"></app-loader>
 
-		<div class="errorMessage" *ngIf="fetchError">
-			<h4>An error occurred while fetching the timeline</h4>
-			<p>This could be due to outage of the API server or due to your browser blocking the requests. If you have
-				an
-				ad-blocker enabled, try to disable it and reload the page. Trust me, there are no ads or trackers here,
-				only
-				important API requests.</p>
-		</div>
+		<app-fetch-error *ngIf="fetchError"></app-fetch-error>
 
 		<div class="nothing-found-msg" *ngIf="events && events.length == 0">
 			<i class="fas fa-question"></i>

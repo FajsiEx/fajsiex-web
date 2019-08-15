@@ -17,6 +17,7 @@ import { StatusComponent } from './pages/status/status.component';
 import { BannerComponent } from './shell/banner/banner.component';
 import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { FetchErrorComponent } from './components/fetch-error/fetch-error.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     StatusComponent,
     AboutComponent,
     TeabotreComponent,
-    LoaderComponent
+    LoaderComponent,
+    FetchErrorComponent
   ],
   imports: [
     BrowserModule,
