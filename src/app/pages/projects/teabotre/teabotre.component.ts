@@ -9,6 +9,7 @@ import { WanillaService } from 'src/app/wanilla.service';
 export class TeabotreComponent implements OnInit {
   commands: any;
   qrs = {plain: [], random: [], file: [], insertable: []};
+  fetchError = false;
 
   constructor(private wanilla: WanillaService) { }
 
@@ -17,7 +18,13 @@ export class TeabotreComponent implements OnInit {
   }
 
   async fetchCommands() {
-    const data = await this.wanilla.getCommands();
+    let data;
+    
+    try {
+      data = await this.wanilla.getCommands();
+    } catch (e) {
+      this.fetchError = true;
+    }
 
     console.log(data);
 

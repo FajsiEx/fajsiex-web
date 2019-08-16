@@ -3,7 +3,8 @@
     <p>These commands are pulled directly from the Tea-bot's API - meaning all the commands listed bellow are currently
         accessible in the stable version of the bot (provided you have the correct rights).</p>
 
-    <app-loader *ngIf="!commands"></app-loader>
+    <app-loader *ngIf="!commands && !fetchError"></app-loader>
+    <app-fetch-error *ngIf="fetchError"></app-fetch-error>
 
     <div class="commands" *ngIf="commands">
         <div class="section" *ngFor="let commandCategory of commands">
