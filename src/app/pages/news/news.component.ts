@@ -12,7 +12,9 @@ export class NewsComponent implements OnInit {
   projectNames = {
     website: 'Website',
     wanilla: 'Wanilla',
-    teabotre: 'Tea-bot Re:Write'
+    teabotre: 'Tea-bot Re:Write',
+    ama: 'AmA',
+    noter: 'Noter'
   };
 
   projects = [
