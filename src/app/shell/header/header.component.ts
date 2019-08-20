@@ -16,6 +16,8 @@ export class HeaderComponent implements OnInit {
 
   displaySecondaryLinks = false;
 
+  label = "";
+
   constructor(private router: Router, private renderer: Renderer2) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
@@ -26,6 +28,11 @@ export class HeaderComponent implements OnInit {
     });
 
     this.renderer.listen('window', 'scroll', () => { this.scrollHandler(); });
+
+    const url = window.location.href;
+
+    if (url.indexOf('https://beta') === 0 || url.indexOf('http://beta') === 0) { this.label = 'beta'; }
+    if (url.indexOf('https://localhost') === 0 || url.indexOf('http://localhost') === 0) { this.label = 'local'; }
   }
 
   scrollHandler() {

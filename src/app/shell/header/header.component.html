@@ -2,7 +2,10 @@
 <nav (mouseover)="setNavBackOpacity(true)" (mouseout)="setNavBackOpacity(false)">
   <a class="logo">
     <app-logo></app-logo>
-    <i class="logo-label">beta</i>
+    <i class="logo-label" [ngClass]="{
+      'color-yellow': label == 'beta',
+      'color-orange': label == 'local'
+    }">{{label}}</i>
   </a>
   <ul class="nav-links" [class.menuActive]="showMenuMobile">
     <div class="primary-links links-container">
