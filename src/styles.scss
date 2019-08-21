@@ -42,11 +42,11 @@ $text-color: #eee;
   --color-orange: #f80;
   --color-red: #f22;
 
-  --color-background-white: #fff;
-  --color-background-green: #2c0;
-  --color-background-cyan: #0cf;
+  --color-background-white: #888;
+  --color-background-green: #160;
+  --color-background-cyan: #068;
   --color-background-blue: #048;
-  --color-background-yellow: #cc0;
+  --color-background-yellow: #660;
   --color-background-orange: #840;
   --color-background-red: #811;
 
@@ -193,6 +193,10 @@ body {
     background: var(--color-blue);
     box-shadow: 0px 0px 14px 0px var(--color-blue);
   }
+  &.border-yellow {
+    background: var(--color-yellow);
+    box-shadow: 0px 0px 14px 0px var(--color-yellow);
+  }
   &.border-orange {
     background: var(--color-orange);
     box-shadow: 0px 0px 14px 0px var(--color-orange);
@@ -200,6 +204,44 @@ body {
   &.border-cyan {
     background: var(--color-cyan);
     box-shadow: 0px 0px 14px 0px var(--color-cyan);
+  }
+}
+
+.tags {
+  text-align: center;
+}
+.tag {
+  padding: 4px 12px;
+  background: #888;
+  border: 1px solid #fff;
+  border-radius: calc(29px / 2);
+  display: inline-block;
+  width: auto !important;
+  margin: 0 4px;
+
+  &.tag-red {
+    background: var(--color-background-red);
+    border: 1px solid var(--color-red);
+  }
+  &.tag-green {
+    background: var(--color-background-green);
+    border: 1px solid var(--color-green);
+  }
+  &.tag-blue {
+    background: var(--color-background-blue);
+    border: 1px solid var(--color-blue);
+  }
+  &.tag-yellow {
+    background: var(--color-background-yellow);
+    border: 1px solid var(--color-yellow);
+  }
+  &.tag-orange {
+    background: var(--color-background-orange);
+    border: 1px solid var(--color-orange);
+  }
+  &.tag-cyan {
+    background: var(--color-background-cyan);
+    border: 1px solid var(--color-cyan);
   }
 }
 
