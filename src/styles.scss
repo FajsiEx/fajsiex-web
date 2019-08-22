@@ -213,7 +213,7 @@ body {
 .tag {
   padding: 4px 12px;
   background: #888;
-  border: 1px solid #fff;
+  border: 2px solid #fff;
   border-radius: calc(29px / 2);
   display: inline-block;
   width: auto !important;
@@ -221,27 +221,27 @@ body {
 
   &.tag-red {
     background: var(--color-background-red);
-    border: 1px solid var(--color-red);
+    border: 2px solid var(--color-red);
   }
   &.tag-green {
     background: var(--color-background-green);
-    border: 1px solid var(--color-green);
+    border: 2px solid var(--color-green);
   }
   &.tag-blue {
     background: var(--color-background-blue);
-    border: 1px solid var(--color-blue);
+    border: 2px solid var(--color-blue);
   }
   &.tag-yellow {
     background: var(--color-background-yellow);
-    border: 1px solid var(--color-yellow);
+    border: 2px solid var(--color-yellow);
   }
   &.tag-orange {
     background: var(--color-background-orange);
-    border: 1px solid var(--color-orange);
+    border: 2px solid var(--color-orange);
   }
   &.tag-cyan {
     background: var(--color-background-cyan);
-    border: 1px solid var(--color-cyan);
+    border: 2px solid var(--color-cyan);
   }
 }
 
