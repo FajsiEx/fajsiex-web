@@ -100,6 +100,8 @@ export class AppComponent {
       }
     });
 
+    this.renderer.listen('window', 'scroll', () => { this.scrollHandler(); });
+
     this.changeDarknessBasedOnTime(new Date());
     setInterval(() => {
       this.changeDarknessBasedOnTime(new Date());
@@ -142,5 +144,19 @@ export class AppComponent {
         this.themeService.setDarkness(darknessMp);
       }
     }
+  }
+
+  scrollHandler() {
+    const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
+
+    let offsetMultiplier: number;
+
+    if (scrollHeight > 485) {
+      offsetMultiplier = 1;
+    } else {
+      offsetMultiplier = scrollHeight / 485;
+    }
+
+    document.documentElement.style.setProperty('--scroll-offset-multiplier', offsetMultiplier.toString());
   }
 }

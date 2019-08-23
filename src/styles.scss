@@ -66,6 +66,7 @@ $text-color: #eee;
   --transition-default: all 0.35s ease;
 
   --global-darkness: 0; // Multiplier for how dark should the theme be (0 - 1)
+  --scroll-offset-multiplier: 0;
 }
 
 body {
