@@ -13,13 +13,18 @@
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1
+    z-index: -1;
+    filter: brightness(calc(1 - var(--scroll-offset-multiplier)));
 }
 
 .page-header {
     background: linear-gradient(to bottom right, rgba(0,0,0, calc(0.5 * var(--global-darkness))), rgba(0,0,0, calc(0.5 + (0.25 * var(--global-darkness)))));
     //background: linear-gradient(to bottom right,  rgba(0,0,0,0.5),rgba(0,0,0,0.8));
     padding-top: calc(12vh + 76px);
+
+    .page-title {
+        opacity: calc(1 - var(--scroll-offset-multiplier) * 2);
+    }
   
     .edge {
       background: var(--color-background);

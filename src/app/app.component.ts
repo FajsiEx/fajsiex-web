@@ -151,11 +151,13 @@ export class AppComponent {
 
     let offsetMultiplier: number;
 
-    if (scrollHeight > 420) {
+    if (scrollHeight > 380) {
       offsetMultiplier = 1;
     } else {
-      offsetMultiplier = scrollHeight / 420;
+      offsetMultiplier = scrollHeight / 380;
     }
+
+    if (offsetMultiplier > 1) { offsetMultiplier = 1; }
 
     document.documentElement.style.setProperty('--scroll-offset-multiplier', offsetMultiplier.toString());
   }
