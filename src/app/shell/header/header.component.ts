@@ -40,13 +40,11 @@ export class HeaderComponent implements OnInit {
 
     const scrollHeight = document.documentElement.scrollTop || document.body.scrollTop;
 
-    if (scrollHeight > 150) {
+    if (scrollHeight > 420) {
       this.headerBackOpacity = 1;
     } else {
-      this.headerBackOpacity = scrollHeight / 150;
+      this.headerBackOpacity = scrollHeight / 420;
     }
-
-    console.log(this.headerBackOpacity);
   }
 
   setNavBackOpacity(opaque) {
