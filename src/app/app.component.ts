@@ -27,19 +27,23 @@ export class AppComponent {
     home: {
       title: 'Home',
       themeGradient: 'linear-gradient(to bottom right, #215aed, #4b36ed, #692be5)',
-      themeColor: '#4b36ed'
+      themeColor: '#4b36ed',
+      iconKey: 'news'
     },
     '': {
       title: 'News & Changelog',
-      themeColor: '#09f'
+      themeColor: '#09f',
+      iconKey: 'news'
     },
     news: {
       title: 'News & Changelog',
-      themeColor: '#09f'
+      themeColor: '#09f',
+      iconKey: 'news'
     },
     projects: {
       title: 'Projects',
       themeColor: '#0c8',
+      iconKey: 'projects',
       subPages: {
         'teabotre': {
           title: 'Tea-bot Re:Write',
@@ -49,11 +53,13 @@ export class AppComponent {
     },
     status: {
       title: 'Status',
-      themeColor: '#c0c'
+      themeColor: '#c0c',
+      iconKey: 'status'
     },
     about: {
       title: 'About',
-      themeColor: '#c80'
+      themeColor: '#c80',
+      iconKey: 'about'
     },
   };
 
@@ -66,6 +72,7 @@ export class AppComponent {
 
         this.currentPage = this.pages[this.currentPageName];
 
+        document.getElementById('favicon-meta').setAttribute('href', `/assets/images/logo/${this.currentPage.iconKey}.png`);
 
         if (this.currentPage.subPages) {
           if (this.currentPage.subPages[this.currentSubPageName]) {
