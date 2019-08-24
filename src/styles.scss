@@ -210,6 +210,12 @@ body {
 
 .tags {
   text-align: center;
+
+  div {
+    //font-family: 'Fredoka One';
+    display: inline-block;
+    font-weight: bold;
+  }
 }
 .tag {
   padding: 4px 12px;
