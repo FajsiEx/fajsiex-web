@@ -67,6 +67,11 @@ $text-color: #eee;
 
   --global-darkness: 0; // Multiplier for how dark should the theme be (0 - 1)
   --scroll-offset-multiplier: 0;
+
+  --edge-height-max: 86px;
+  --edge-height-3: var(--edge-height-max);
+  --edge-height-2: 64px;
+  --edge-height-1: 48px;
 }
 
 body {

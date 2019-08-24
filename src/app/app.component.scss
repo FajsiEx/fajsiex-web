@@ -48,14 +48,38 @@
 }
 
 .page-content {
-	margin-top: 50vh;
-
+  margin-top: 50vh;
+  
+  .edges {
+    height:70px;
+  }
   .edge {
+    position: absolute;
+    margin-bottom:0;
+    left:0;
+    width: 100%;
+    transform: translateY(2px);
+  }
+
+  .edge-1 {
     background: var(--color-background);
     clip-path: polygon(0% 0%, 100% calc(38px - (38px * var(--scroll-offset-multiplier))), 100% 100%, 0% 100%);
     z-index: 30;
-    transform: translateY(2px);
-    height: 48px;
+    height: var(--edge-height-1);
+    margin-top: calc(var(--edge-height-max) - var(--edge-height-1));
+  }
+  .edge-2 {
+    background: var(--color-background-l1);
+    clip-path: polygon(0% 56px, 100% calc(56px * var(--scroll-offset-multiplier) / 4), 100% 100%, 0% 100%);
+    z-index: 25;
+    height: var(--edge-height-2);
+    margin-top: calc(var(--edge-height-max) - var(--edge-height-2));
+  }
+  .edge-3 {
+    background: var(--color-background-l2);
+    clip-path: polygon(0% calc(76px * var(--scroll-offset-multiplier) / 3), 100% 76px, 100% 100%, 0% 100%);
+    z-index: 20;
+    height: var(--edge-height-3);
   }
 
   .inner {
