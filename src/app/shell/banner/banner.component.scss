@@ -21,7 +21,7 @@
   background: var(--color-background-l1);
   border: 3px solid var(--color-yellow);
 
-  transition: opacity 0.5s ease;
+  transition: var(--transition-default);
 
   display: flex;
 
@@ -30,7 +30,7 @@
 	animation: 0.5s banner-entry-anim ease;
 
   &:hover {
-    opacity: 1;
+    filter: var(--filter-hover);
   }
 
   .banner-icon {
