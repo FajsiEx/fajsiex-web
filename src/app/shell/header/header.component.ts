@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
     if (this.navHovering) { this.setNavBackOpacity(true); return; }
 
     const pageContentElement: HTMLElement = document.querySelector('.page-content');
-    const scrollHeightOffset = (document.documentElement.scrollTop || document.body.scrollTop) - pageContentElement.offsetTop + 20;
+    const scrollHeightOffset = (document.documentElement.scrollTop || document.body.scrollTop) - pageContentElement.offsetTop;
 
     if (scrollHeightOffset > 0) {
       this.headerBackOpacity = 1;
