@@ -45,7 +45,7 @@ export class AppComponent {
       themeColor: '#0c8',
       iconKey: 'projects',
       subPages: {
-        'teabotre': {
+        teabotre: {
           title: 'Tea-bot Re:Write',
           themeColor: '#0c8',
         }
@@ -60,6 +60,19 @@ export class AppComponent {
       title: 'About',
       themeColor: '#c80',
       iconKey: 'about'
+    },
+
+    admin: {
+      title: 'Administration Panel',
+      themeColor: '#666',
+      iconKey: 'admin',
+
+      subPages: {
+        timeline: {
+          title: 'Timeline',
+          themeColor: '#448',
+        }
+      }
     },
   };
 

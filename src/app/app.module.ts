@@ -18,6 +18,8 @@ import { BannerComponent } from './shell/banner/banner.component';
 import { TeabotreComponent } from './pages/projects/teabotre/teabotre.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FetchErrorComponent } from './components/fetch-error/fetch-error.component';
+import { AdminComponent } from './pages/admin/admin.component';
+import { AdminTimelineComponent } from './pages/admin/admin-timeline/admin-timeline.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { FetchErrorComponent } from './components/fetch-error/fetch-error.compon
     AboutComponent,
     TeabotreComponent,
     LoaderComponent,
-    FetchErrorComponent
+    FetchErrorComponent,
+    AdminComponent,
+    AdminTimelineComponent
   ],
   imports: [
     BrowserModule,
