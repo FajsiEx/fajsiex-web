@@ -65,6 +65,13 @@
     background: var(--color-background);
     clip-path: polygon(0% 0%, 100% calc(38px - (38px * var(--scroll-offset-multiplier))), 100% 100%, 0% 100%);
     z-index: 30;
+    height: var(--edge-height-max);
+  }
+
+  /* .edge-1 {
+    background: var(--color-background);
+    clip-path: polygon(0% 0%, 100% calc(38px - (38px * var(--scroll-offset-multiplier))), 100% 100%, 0% 100%);
+    z-index: 30;
     height: var(--edge-height-1);
     margin-top: calc(var(--edge-height-max) - var(--edge-height-1));
   }
@@ -80,7 +87,7 @@
     clip-path: polygon(0% calc(76px * var(--scroll-offset-multiplier) / 3), 100% 76px, 100% 100%, 0% 100%);
     z-index: 20;
     height: var(--edge-height-3);
-  }
+  } */
 
   .inner {
     z-index: 20;
