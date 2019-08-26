@@ -29,16 +29,47 @@
 	
 	animation: 0.5s banner-entry-anim ease;
 
-  &:hover {
-    filter: var(--filter-hover);
-  }
-
   .banner-icon {
 		padding-right: 16px;
     i {
       font-size: 32px;
       color: var(--color-yellow);
       vertical-align: middle;
+    }
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 12px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      flex-wrap: wrap;
+    }
+
+    a {
+      display: block;
+
+      background: var(--color-background-l2);
+      color: #fff;
+      text-decoration: none;
+
+      width: calc(100% - (2 * 8px));
+      padding: 12px 8px;
+
+      margin: 0 4px;
+      @media (max-width: 768px) { margin: 4px 0; }
+
+      text-align: center;
+
+      border-radius: var(--border-radius-default);
+      
+      transition: var(--transition-default);
+
+      &:hover {
+        filter: var(--filter-hover);
+      }
     }
   }
 }
