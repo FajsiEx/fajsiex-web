@@ -56,11 +56,6 @@ export class AppComponent {
       themeColor: '#c0c',
       iconKey: 'status'
     },
-    about: {
-      title: 'About',
-      themeColor: '#c80',
-      iconKey: 'about'
-    },
 
     admin: {
       title: 'Administration Panel',

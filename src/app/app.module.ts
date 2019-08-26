@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shell/header/header.component';
 import { NewsComponent } from './pages/news/news.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
-import { AboutComponent } from './pages/about/about.component';
 import { LogoComponent } from './shell/svgs/logo/logo.component';
 import { FooterComponent } from './shell/footer/footer.component';
 import { StatusComponent } from './pages/status/status.component';
@@ -36,7 +35,6 @@ import { AdminTimelineComponent } from './pages/admin/admin-timeline/admin-timel
     NewsComponent,
     ProjectsComponent,
     StatusComponent,
-    AboutComponent,
     TeabotreComponent,
     LoaderComponent,
     FetchErrorComponent,
