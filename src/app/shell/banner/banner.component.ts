@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VersionService } from 'src/app/version.service';
 
 @Component({
   selector: 'app-banner',
@@ -9,7 +10,11 @@ export class BannerComponent implements OnInit {
 
   displayBanner =  !(sessionStorage.getItem('displayBanner') === 'dont');
 
-  constructor() { }
+  constructor(private version: VersionService) {
+    if (version.getWebVersion() !== 'beta') {
+      this.displayBanner = false;
+    }
+  }
 
   ngOnInit() {
   }
