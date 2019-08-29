@@ -36,8 +36,7 @@
   z-index: 127;
 
   opacity: 0;
-
-  transition: opacity 0.1s linear;
+  
   @media screen and (max-width: 768px) {
     &.menuActive {
       height: 100vh !important;
