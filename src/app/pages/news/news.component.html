@@ -25,7 +25,10 @@
 							<div class="filter-name">
 								<a>{{project.name}}<br><span class="project-releases"><b>{{project.releases}}</b> releases</span></a>
 							</div>
-							<span class="build"><b>{{project.buildNumbers.stable}}</b><br></span>
+
+							<span *ngIf="!project.buildNumbers.hasStable" class="build">No stable version<br></span>
+							<span *ngIf="project.buildNumbers.hasStable" class="build color-blue"><b>{{project.buildNumbers.stable}}</b><br></span>
+
 							<span class="build color-yellow"
 								*ngIf="project.buildNumbers.beta"><b>{{project.buildNumbers.beta}}</b> beta<br></span>
 							<span class="build color-orange"

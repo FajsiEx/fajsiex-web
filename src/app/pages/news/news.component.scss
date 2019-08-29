@@ -211,8 +211,9 @@
             filter: grayscale(0.5);
           }
 
-          .build:not(.color-yellow):not(.color-orange) {
-            color: #999;
+          .build:not(.color-blue):not(.color-yellow):not(.color-orange) {
+            color: #fff;
+            opacity: .35;
           }
         }
       }
