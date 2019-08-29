@@ -9,6 +9,8 @@
   </a>
   <ul class="nav-links" [class.menuActive]="showMenuMobile">
     <div class="primary-links links-container">
+      <li *ngIf="webVersion == 'beta'" class="nav-item"><a href="https://fajsiex.ml"><i class="fas fa-chevron-left"></i>&nbsp; Go to stable version</a></li>
+
       <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['news/all/all']" [class.active]="currentPage=='news' || currentPage==''">News &
           Changelog</a></li>
       <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['projects']" [class.active]="currentPage=='projects'">Projects</a></li>

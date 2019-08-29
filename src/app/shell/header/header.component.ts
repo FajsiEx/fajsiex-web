@@ -17,7 +17,8 @@ export class HeaderComponent implements OnInit {
 
   displaySecondaryLinks = false;
 
-  label = "";
+  webVersion: string;
+  label: string;
 
   constructor(private router: Router, private renderer: Renderer2, private version: VersionService) {
     this.router.events.subscribe(event => {
@@ -30,10 +31,10 @@ export class HeaderComponent implements OnInit {
 
     this.renderer.listen('window', 'scroll', () => { this.scrollHandler(); });
 
-    const webVersion = this.version.getWebVersion();
+    this.webVersion = this.version.getWebVersion();
 
-    if (webVersion === 'beta' || webVersion === 'local') {
-      this.label = webVersion;
+    if (this.webVersion === 'beta' || this.webVersion === 'local') {
+      this.label = this.webVersion;
     }
   }
 
