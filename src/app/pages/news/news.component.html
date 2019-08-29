@@ -39,7 +39,7 @@
 				</div>
 			</div>
 
-			<div class="type-row">
+			<div *ngIf="projects.length != 0" class="type-row">
 				<div (click)="switchTypeFilter(false)" [routerLink]="['/news/' + (filter || 'all') + '/all']"
 					[class.high]="!typeFilter" class="type-tab type-everything">All</div>
 				<div (click)="switchTypeFilter('post')" [routerLink]="['/news/' + (filter || 'all') + '/post']"
