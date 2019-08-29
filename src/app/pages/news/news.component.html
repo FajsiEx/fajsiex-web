@@ -23,13 +23,14 @@
 
 						<div class="project-inner">
 							<div class="filter-name">
-								<a>{{project.name}}</a>
+								<a>{{project.name}}<br><span class="project-releases"><b>{{project.releases}}</b> releases</span></a>
 							</div>
-							<span class="build"><b>{{project.buildNumbers.stable}}</b></span><br>
+							<span class="build"><b>{{project.buildNumbers.stable}}</b><br></span>
 							<span class="build color-yellow"
-								*ngIf="project.buildNumbers.beta"><b>{{project.buildNumbers.beta}}</b> beta</span>
+								*ngIf="project.buildNumbers.beta"><b>{{project.buildNumbers.beta}}</b> beta<br></span>
 							<span class="build color-orange"
 								*ngIf="project.buildNumbers.alpha"><b>{{project.buildNumbers.alpha}}</b> alpha</span>
+							
 						</div>
 					</div>
 				</div>

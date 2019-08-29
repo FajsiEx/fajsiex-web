@@ -200,6 +200,10 @@
 
           .filter-name {
             margin-bottom: 8px;
+
+            .project-releases {
+              opacity: .35;
+            }
           }
 
           .build {

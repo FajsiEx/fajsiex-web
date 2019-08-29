@@ -65,6 +65,7 @@ export class NewsComponent implements OnInit {
       this.projects.push({
         id: project.id,
         name: this.projectNames[project.id],
+        releases: project.releases,
         buildNumbers: {
           alpha: (project.alpha) ? project.alpha.split(' ')[0] : false,
           beta: (project.beta) ? project.beta.split(' ')[0] : false,
