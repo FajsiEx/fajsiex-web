@@ -1,11 +1,13 @@
 <div class="container">
 
-    <div class="servers">
-        <div class="server" *ngFor="let server of servers">
+    <div class="row servers">
+        <div class="col server" *ngFor="let server of servers">
             <h1 class="server-name">{{server.name}}</h1>
             <div class="status">
                 <span class="green">Online</span>
                 
+                <chart type="line" [data]="server.dataCPU" [options]="options"></chart>
+                <chart type="line" [data]="server.dataRAM" [options]="options"></chart>
             </div>
         </div>
     </div>

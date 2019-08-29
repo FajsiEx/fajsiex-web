@@ -2,8 +2,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
+
+import { ChartModule } from 'angular2-chartjs';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,7 +51,9 @@ import { AdminTimelineComponent } from './pages/admin/admin-timeline/admin-timel
     BrowserAnimationsModule,
 
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
