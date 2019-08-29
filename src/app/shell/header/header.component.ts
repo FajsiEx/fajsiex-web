@@ -1,5 +1,6 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
+import { VersionService } from 'src/app/version.service';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   label = "";
 
-  constructor(private router: Router, private renderer: Renderer2) {
+  constructor(private router: Router, private renderer: Renderer2, private version: VersionService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         console.log(event);
@@ -29,10 +30,11 @@ export class HeaderComponent implements OnInit {
 
     this.renderer.listen('window', 'scroll', () => { this.scrollHandler(); });
 
-    const url = window.location.href;
+    const webVersion = this.version.getWebVersion();
 
-    if (url.indexOf('https://beta') === 0 || url.indexOf('http://beta') === 0) { this.label = 'beta'; }
-    if (url.indexOf('https://localhost') === 0 || url.indexOf('http://localhost') === 0) { this.label = 'local'; }
+    if (webVersion === 'beta' || webVersion === 'local') {
+      this.label = webVersion;
+    }
   }
 
   scrollHandler() {
