@@ -21,35 +21,7 @@
 
     .status {
       text-align: center;
-      
-      .green {
-        color: var(--color-green);
-      }
+      font-weight: bold;
     }
-  }
-}
-
-.border {
-  background: #fff;
-  width: 4px;
-  margin-left: 4px;
-  border-radius: 2px;
-  &.border-red {
-    background: var(--color-red);
-  }
-  &.border-green {
-    background: var(--color-green);
-  }
-  &.border-blue {
-    background: var(--color-blue);
-  }
-  &.border-orange {
-    background: var(--color-orange);
-  }
-  &.border-yellow {
-    background: var(--color-yellow);
-  }
-  &.border-cyan {
-    background: var(--color-cyan);
   }
 }
