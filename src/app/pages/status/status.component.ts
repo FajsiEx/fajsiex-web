@@ -33,6 +33,18 @@ export class StatusComponent implements OnInit {
           }
         ]
       },
+
+      dataReqs: {
+        labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
+        datasets: [
+          {
+            label: "Requests",
+            data: [17, 35, 25, 12, 55, 34, 14],
+            backgroundColor: ['rgba(0,128,255, .2)'],
+            borderColor: ['rgba(0,128,255, 1)']
+          }
+        ]
+      },
     },
     {
       name: 'Tea-bot Re:Write',
