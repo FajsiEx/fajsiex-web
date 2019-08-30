@@ -9,17 +9,17 @@
                 <div class="row">
                     <div class="col">
                         <h2>CPU</h2>
-                        <chart type="line" [data]="server.dataCPU" [options]="chartOptions"></chart>
+                        <chart type="line" [data]="server.data.cpu" [options]="chartOptions"></chart>
                     </div>
 
                     <div class="col">
                         <h2>RAM</h2>
-                        <chart type="line" [data]="server.dataRAM" [options]="chartOptions"></chart>
+                        <chart type="line" [data]="server.data.ram" [options]="chartOptions"></chart>
                     </div>
 
                     <div class="col">
                         <h2>Requests</h2>
-                        <chart type="line" [data]="server.dataReqs" [options]="chartOptions"></chart>
+                        <chart type="line" [data]="server.data.requests" [options]="chartOptions"></chart>
                     </div>
 
                 </div>

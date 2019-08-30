@@ -10,64 +10,67 @@ export class StatusComponent implements OnInit {
     {
       name: 'Wanilla',
       status: 'All systems running.',
-      dataCPU: {
-        labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
-        datasets: [
-          {
-            label: "CPU",
-            data: [17, 35, 25, 12, 55, 34, 14],
-            backgroundColor: ['rgba(0,255,255, .2)'],
-            borderColor: ['rgba(0,255,255, 1)']
-          }
-        ]
-      },
-
-      dataRAM: {
-        labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
-        datasets: [
-          {
-            label: "RAM",
-            data: [17, 35, 25, 12, 55, 34, 14],
-            backgroundColor: ['rgba(64,0,255, .2)'],
-            borderColor: ['rgba(64,0,255, 1)']
-          }
-        ]
-      },
-
-      dataReqs: {
-        labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
-        datasets: [
-          {
-            label: "Requests",
-            data: [17, 35, 25, 12, 55, 34, 14],
-            backgroundColor: ['rgba(0,128,255, .2)'],
-            borderColor: ['rgba(0,128,255, 1)']
-          }
-        ]
-      },
+      data: {
+        cpu: this.generateChartData('cpu', [17, 35, 25, 12, 55, 34, 14]),
+        ram: this.generateChartData('ram', [42, 35, 25, 69, 55, 34, 14]),
+        requests: this.generateChartData('requests', [17, 35, 25, 100, 55, 34, 14])
+      }
     },
     {
       name: 'Tea-bot Re:Write',
-      status: 'All systems running.'
+      status: 'All systems running.',
+      data: {
+        cpu: this.generateChartData('cpu', [17, 35, 25, 12, 55, 34, 14]),
+        ram: this.generateChartData('ram', [17, 35, 25, 12, 55, 34, 14]),
+        requests: this.generateChartData('requests', [17, 35, 25, 12, 55, 34, 14])
+      }
     },
   ];
 
-  
   chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     scales: {
       yAxes: [{
         ticks: {
-          beginAtZero: true
+          beginAtZero: true,
+          display: false
         }
       }]
-    }
+    },
+    legend: {
+      display: false
+    },
+    tooltips: {
+      enabled: false
+    },
+    showScale: false
   };
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  generateChartData(chartType: string, data: Array<number>) {
+    const chartColor = {
+      cpu: '0,255,255',
+      ram: '64,0,255',
+      requests: '0,128,255'
+    };
+
+    return {
+      labels: ['6h ago', '5h ago', '4h ago', '3h ago', '2h ago', '1h ago', 'Now'],
+      datasets: [
+        {
+          label: chartType,
+          data,
+          backgroundColor: ['rgba(' + chartColor[chartType] + ', .2)'],
+          borderColor: ['rgba(' + chartColor[chartType] + ', 1)'],
+          pointRadius: 0
+        }
+      ]
+    }
   }
 
 }
