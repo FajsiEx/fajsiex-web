@@ -11,9 +11,9 @@ export class StatusComponent implements OnInit {
       name: 'Wanilla',
       status: 'All systems running.',
       data: {
-        cpu: this.generateChartData('cpu', [17, 35, 25, 12, 55, 34, 14]),
-        ram: this.generateChartData('ram', [42, 35, 25, 69, 55, 34, 14]),
-        requests: this.generateChartData('requests', [17, 35, 25, 100, 55, 34, 14])
+        cpu: this.generateChartData('cpu', [69, 42, 88, 1, 11, 22, 39]),
+        ram: this.generateChartData('ram', [42, 35, 25, 65, 55, 34, 14]),
+        requests: this.generateChartData('requests', [17, 35, 25, 95, 55, 34, 14])
       }
     },
     {
@@ -34,7 +34,8 @@ export class StatusComponent implements OnInit {
       yAxes: [{
         ticks: {
           beginAtZero: true,
-          display: false
+          display: false,
+          suggestedMax: 100
         }
       }]
     },
@@ -70,7 +71,7 @@ export class StatusComponent implements OnInit {
           pointRadius: 0
         }
       ]
-    }
+    };
   }
 
 }
