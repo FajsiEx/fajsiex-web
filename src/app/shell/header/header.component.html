@@ -1,0 +1,38 @@
+<div class="header-background" [style.opacity]="headerBackOpacity" [class.menuActive]="showMenuMobile"></div>
+<nav> <!-- (mouseover)="setNavBackOpacity(true)" (mouseout)="setNavBackOpacity(false)" -->
+  <a class="logo">
+    <app-logo></app-logo>
+    <i class="logo-label" [ngClass]="{
+      'color-yellow': label == 'beta',
+      'color-orange': label == 'local'
+    }">{{label}}</i>
+  </a>
+  <ul class="nav-links" [class.menuActive]="showMenuMobile">
+    <div class="primary-links links-container">
+      <li *ngIf="webVersion == 'beta'" class="nav-item"><a href="https://fajsiex.ml"><i class="fas fa-chevron-left"></i>&nbsp; Go to stable version</a></li>
+
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['news/all/all']" [class.active]="currentPage=='news' || currentPage==''">News &
+          Changelog</a></li>
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['projects']" [class.active]="currentPage=='projects'">Projects</a></li>
+      <li class="nav-item" (click)="showMenuMobile = false"><a [routerLink]="['status']" [class.active]="currentPage=='status'">Status</a></li>
+
+      <li class="nav-item"><a class="dont-hover-pad" (click)="switchSecondaryLinksDisplay()"
+          [class.rotate-180deg]="displaySecondaryLinks"><i class="fas fa-chevron-down"></i></a></li>
+    </div>
+
+    <div class="social-links" *ngIf="displaySecondaryLinks">
+      <li class="nav-item link-mail"><a href="mailto:fajsiexofficial@gmail.com"><i class="far fa-envelope"></i></a></li>
+      <li class="nav-item link-twitter"><a href="https://twitter.com/fajsiex"><i class="fab fa-twitter"></i></a></li>
+      <li class="nav-item link-github"><a href="https://github.com/FajsiEx"><i class="fab fa-github"></i></a></li>
+      <li class="nav-item link-anilist"><a href="https://anilist.co/user/FajsiEx" class="has-image anilist"><img src="/assets/images/svgs/al.svg" alt="AniList"></a></li>
+      <li class="nav-item link-osu"><a href="https://osu.ppy.sh/users/12300759" class="has-image osu"><img src="/assets/images/svgs/osu.svg" alt="osu!"></a></li>
+    </div>
+  </ul>
+
+
+</nav>
+
+<div class="float-ab mobile-fab" (click)="showMenuMobile = !showMenuMobile">
+  <i class="fas fa-bars" *ngIf="!showMenuMobile"></i>
+  <i class="fas fa-times" *ngIf="showMenuMobile"></i>
+</div>

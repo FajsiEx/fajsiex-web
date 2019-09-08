@@ -1,0 +1,104 @@
+:root {
+    --color-green: #2c0;
+    --color-cyan: #0cf;
+    --color-blue: #08f;
+    --color-yellow: #cc0;
+    --color-orange: #f80;
+    --color-red: #f22;
+}
+
+body {
+    font-family: 'Montserrat', Arial;
+    font-weight: bold;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+.flow-card {
+    background: #222;
+    border-radius: 8px;
+    box-shadow: 3px 3px 14px -1px rgba(0,0,0,0.75);
+    padding: 16px;
+}
+
+.flow-card .card-subtitle {
+    color: #aaa;
+    text-transform: uppercase;
+    display: block;
+    font-size: 0.8rem
+}
+
+.flow-changelog-release {
+    padding: 16px;
+}
+
+.release-title .release-build {
+    font-weight: bold;
+}
+.release-title .release-build.build-alpha {
+    color: var(--color-orange)
+}
+.release-title .release-build.build-beta {
+    color: var(--color-yellow)
+}
+.release-title .release-build {
+    color: var(--color-blue)
+}
+
+.release-changes .release-change {
+    margin: 4px 0;
+    display: block;
+    word-wrap: break-word;
+}
+
+.release-changes .release-change .change-tag {
+    text-align: center;
+    display: inline-block;
+
+    font-family: 'Ubuntu', 'Montserrat', Arial;
+    
+    width: 48px;
+    height: 24px;
+    border-radius: 12px;
+    padding: 0px 12px;
+    
+    vertical-align: top;
+    
+    font-weight: 600;
+}
+
+.release-changes .release-change .change-tag.tag-added {
+    background: var(--color-green);
+    color: #000000;
+}
+.release-changes .release-change .change-tag.tag-updated {
+    background: var(--color-blue);
+    color: #000;
+}
+.release-changes .release-change .change-tag.tag-fixed {
+    background: var(--color-orange);
+    color: #000;
+}
+.release-changes .release-change .change-tag.tag-removed {
+    background: var(--color-red);
+    color: #000;
+}
+.release-changes .release-change .change-tag.tag-code {
+    background: var(--color-cyan);
+    color: #000;
+}
+
+.release-changes .release-change .change-text {
+    display: inline-block;
+    margin-left: 8px;
+    width: calc(100% - 48px - 8px);
+    line-height: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .release-title .release-tag {
+        display:none;
+    }
+}

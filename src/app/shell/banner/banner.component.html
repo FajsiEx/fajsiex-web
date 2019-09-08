@@ -1,0 +1,13 @@
+<div class="banner" *ngIf="displayBanner">
+    <div class="banner-icon">
+        <i class="fas fa-exclamation-triangle"></i>
+    </div>
+    <div class="banner-text">
+        You are using the <b>beta</b> version of this site! While this version is more updated than the main page, it is
+        still under heavy development. <i>Here be dragons.</i><br>
+        <div class="buttons">
+            <a href="https://fajsiex.ml/">Go to the stable version</a>
+            <a [routerLink]="[]" routerLinkActive="router-link-active"  (click)="dismissBanner()">Continue using the beta version</a>
+        </div>
+    </div>
+</div>

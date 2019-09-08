@@ -1,0 +1,190 @@
+<div class="container">
+	<div class="timeline">
+		<div class="sorter">
+			<!-- <div class="project" [class.active]="!filter" (click)="switchFilter(false)">
+				<div class="filter-name"><a>All</a></div>
+			</div> -->
+
+			<a *ngIf="filter" (click)="switchFilter(false)" [routerLink]="['/news/all/all']" class="reset-filter-link">
+				<i class="fas fa-chevron-left"></i>
+				&nbsp;
+				Show news and changelogs for all projects
+			</a>
+
+			<br>
+			<br>
+
+			<div class="project-row">
+				<div class="project-wrapper" *ngFor="let project of projects">
+					<div class="project" [ngClass]="{active: filter==project.id, high: filter==project.id || !filter}"
+						(click)="switchFilter(project.id)"
+						[routerLink]="['/news/' + project.id + '/' + (typeFilter || 'all')]"
+						[attr.project-id]="project.id">
+
+						<div class="project-inner">
+							<div class="filter-name">
+								<a>{{project.name}}<br><span class="project-releases"><b>{{project.releases}}</b> releases</span></a>
+							</div>
+
+							<span *ngIf="project.buildNumbers.hasStable" class="build color-blue"><b>{{project.buildNumbers.stable}}</b><br></span>
+
+							<span class="build color-yellow"
+								*ngIf="project.buildNumbers.beta && !project.buildNumbers.hasStable"><b>{{project.buildNumbers.beta}}</b> beta<br></span>
+							<span class="build color-orange"
+								*ngIf="project.buildNumbers.alpha && !project.buildNumbers.hasStable && !project.buildNumbers.beta"><b>{{project.buildNumbers.alpha}}</b> alpha</span>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div *ngIf="projects.length != 0" class="type-row">
+				<div (click)="switchTypeFilter(false)" [routerLink]="['/news/' + (filter || 'all') + '/all']"
+					[class.high]="!typeFilter" class="type-tab type-everything">All</div>
+				<div (click)="switchTypeFilter('post')" [routerLink]="['/news/' + (filter || 'all') + '/post']"
+					[class.high]="typeFilter == 'post'" class="type-tab type-news">News</div>
+				<div (click)="switchTypeFilter('release')" [routerLink]="['/news/' + (filter || 'all') + '/release']"
+					[class.high]="typeFilter == 'release'" class="type-tab type-changelogs">Changelogs</div>
+				<div (click)="switchTypeFilter('issue')" [routerLink]="['/news/' + (filter || 'all') + '/issue']"
+					[class.high]="typeFilter == 'issue'" class="type-tab type-issues">Issues</div>
+			</div>
+		</div>
+
+
+		<app-loader *ngIf="!events && !fetchError"></app-loader>
+
+		<app-fetch-error *ngIf="fetchError"></app-fetch-error>
+
+		<div class="nothing-found-msg" *ngIf="events && events.length == 0">
+			<i class="fas fa-question"></i>
+			Nothing found. Yet...
+		</div>
+
+		<div class="events" *ngIf="events">
+			<div class="event" *ngFor="let event of events">
+				<div class="issue" *ngIf="event.type=='issue'">
+					<h3 class="project-title">
+						{{event.project}}
+
+						<span class="after-project bold" [ngClass]="{
+								'color-red': !event.resolved,
+								'color-green': event.resolved
+						}">
+							{{event.title}}
+						</span>
+					</h3>
+
+					<div class="event-body entries">
+						<div class="border" [ngClass]="{'border-red': !event.resolved, 'border-green': event.resolved}">
+						</div>
+						<div>
+							<ul>
+								<li class="entry" *ngFor="let entry of event.entries">
+									{{entry.text}}
+									<span class="sub-text">{{entry.time}}</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="release" *ngIf="event.type=='release'">
+					<h3 class="project-title">
+						{{event.project}}
+						<span class="after-project bold" [ngClass]="{
+								'color-orange': event.tag=='alpha',
+								'color-yellow': event.tag=='beta',
+								'color-blue': (event.tag != 'alpha') && (event.tag != 'beta')}
+						">
+							{{event.build}}
+							{{event.tag}}
+						</span>
+					</h3>
+
+					<p class="release-desc" *ngIf="event.description">{{event.description}}</p>
+
+					<div class="release-changes" [ngClass]="{alpha: event.tag=='alpha', beta: event.tag=='beta'}">
+
+						<div class="changes-group added" *ngIf="event.changes.added && event.changes.added.length">
+							<h3 class="changes-group-title">Added</h3>
+
+							<div class="row">
+								<div class="border border-green"></div>
+								<div>
+									<ul>
+										<li class="release-change" *ngFor="let change of event.changes.added">
+											{{change}}
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="changes-group updated"
+							*ngIf="event.changes.updated && event.changes.updated.length">
+							<h3 class="changes-group-title">Updated</h3>
+
+							<div class="row">
+								<div class="border border-blue"></div>
+								<div>
+									<ul>
+										<li class="release-change" *ngFor="let change of event.changes.updated">
+											{{change}}
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="changes-group fixed" *ngIf="event.changes.fixed && event.changes.fixed.length">
+							<h3 class="changes-group-title">Fixed</h3>
+
+							<div class="row">
+								<div class="border border-orange"></div>
+								<div>
+									<ul>
+										<li class="release-change" *ngFor="let change of event.changes.fixed">
+											{{change}}
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="changes-group removed"
+							*ngIf="event.changes.removed && event.changes.removed.length">
+							<h3 class="changes-group-title">Removed</h3>
+
+							<div class="row">
+								<div class="border border-red"></div>
+								<div>
+									<ul>
+										<li class="release-change" *ngFor="let change of event.changes.removed">
+											{{change}}
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="changes-group code" *ngIf="event.changes.code && event.changes.code.length">
+							<h3 class="changes-group-title">Code changes</h3>
+
+							<div class="row">
+								<div class="border border-cyan"></div>
+								<div>
+									<ul>
+										<li class="release-change" *ngFor="let change of event.changes.code">
+											{{change}}
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

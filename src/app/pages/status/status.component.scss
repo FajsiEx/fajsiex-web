@@ -1,0 +1,27 @@
+.servers {
+  margin-top: 12px;
+
+  .server {
+    background: var(--color-background-l1);
+    padding: 16px;
+    border-radius: var(--border-radius-default);
+    width: 100%;
+    margin: 8px;
+    transition: var(--transition-default);
+
+    &:hover {
+      box-shadow: var(--shadow-l1);
+    }
+
+    .server-name {
+      margin: 0 !important;
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .status {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="page-header-back" [style.background]="currentThemeColor"></div>
+
+<div class="page-header" [class.transition]="pageHeaderTransition">
+    <div class="page-title-wrapper">
+        <h1 class="page-title">{{currentTitle}}</h1>
+    </div>
+</div>
+
+<div class="page-content">
+    <div class="edges">
+        <!-- <div class="edge edge-3">&nbsp;</div>
+        <div class="edge edge-2">&nbsp;</div> -->
+        <div class="edge edge-1">&nbsp;</div>
+    </div>
+
+    <div class="inner">
+        <router-outlet></router-outlet>
+
+        <app-banner></app-banner>
+
+        <app-footer></app-footer>
+    </div>
+</div>

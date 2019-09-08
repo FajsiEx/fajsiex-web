@@ -1,0 +1,99 @@
+@keyframes page-header-trans {
+  0% {
+    filter: grayscale(1);
+  }
+  100% {
+    filter: grayscale(0);
+  }
+}
+
+.page-header-back {
+  transition: background 0.5s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  //filter: brightness(calc(1 - var(--scroll-offset-multiplier)));
+}
+
+.page-header {
+	position: fixed;
+	
+	width: 100%;
+	height: 55vh;
+	
+	top: 0;
+	left:0;
+
+  background: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, calc(0.5 * var(--global-darkness))),
+    rgba(0, 0, 0, calc(0.5 + (0.25 * var(--global-darkness))))
+  );
+  //background: linear-gradient(to bottom right,  rgba(0,0,0,0.5),rgba(0,0,0,0.8));
+  padding-top: calc(12vh + 76px);
+
+  .page-title {
+    @media screen and (max-width: 768px) {
+      font-size: 32px;
+    }
+    //opacity: calc(1 - var(--scroll-offset-multiplier) * 2);
+  }
+}
+
+.page-header.transition {
+  //animation: .5s page-header-trans ease;
+}
+
+.page-content {
+  margin-top: 40vh;
+  
+  .edges {
+    height:70px;
+  }
+  .edge {
+    position: absolute;
+    margin-bottom:0;
+    left:0;
+    width: 100%;
+    transform: translateY(2px);
+  }
+
+  .edge-1 {
+    background: var(--color-background);
+    clip-path: polygon(0% 0%, 100% calc(38px - (38px * var(--scroll-offset-multiplier))), 100% 100%, 0% 100%);
+    z-index: 30;
+    height: var(--edge-height-max);
+  }
+
+  /* .edge-1 {
+    background: var(--color-background);
+    clip-path: polygon(0% 0%, 100% calc(38px - (38px * var(--scroll-offset-multiplier))), 100% 100%, 0% 100%);
+    z-index: 30;
+    height: var(--edge-height-1);
+    margin-top: calc(var(--edge-height-max) - var(--edge-height-1));
+  }
+  .edge-2 {
+    background: var(--color-background-l1);
+    clip-path: polygon(0% 56px, 100% calc(56px * var(--scroll-offset-multiplier) / 4), 100% 100%, 0% 100%);
+    z-index: 25;
+    height: var(--edge-height-2);
+    margin-top: calc(var(--edge-height-max) - var(--edge-height-2));
+  }
+  .edge-3 {
+    background: var(--color-background-l2);
+    clip-path: polygon(0% calc(76px * var(--scroll-offset-multiplier) / 3), 100% 76px, 100% 100%, 0% 100%);
+    z-index: 20;
+    height: var(--edge-height-3);
+  } */
+
+  .inner {
+    z-index: 20;
+    background: var(--color-background);
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+  }
+}

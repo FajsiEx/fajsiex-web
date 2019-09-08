@@ -1,0 +1,11 @@
+.fetch-error {
+    border: 3px solid var(--color-red);
+    background: var(--color-background-red);
+    padding: 24px;
+    margin: 12px 0;
+    border-radius: var(--border-radius-default);
+
+    h2,p {
+        margin:0;
+    }
+}
