@@ -4,6 +4,7 @@
   .events {
     animation: 0.5s float-up ease-in-out;
   }
+
   .event {
     margin-top: 64px;
 
@@ -33,6 +34,32 @@
   font-weight: 100;
   margin-bottom: 0;
 
+  .project-name {
+    &[project-id="website"] {
+      background: var(--color-project-website);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &[project-id="wanilla"] {
+      background: var(--color-project-wanilla);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &[project-id="teabotre"] {
+      background: var(--color-project-teabotre);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &[project-id="ama"] {
+      background: var(--color-project-ama);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
   @media (max-width: 992px) {
     text-align: center;
   }
@@ -40,6 +67,7 @@
 
 .release-desc {
   margin-left: 24px;
+
   @media (max-width: 768px) {
     margin-left: 0;
   }
@@ -75,6 +103,7 @@
     }
   }
 }
+
 .nothing-found-msg {
   text-align: center;
   font-size: 24px;
@@ -105,9 +134,11 @@
     &:hover {
       color: #aaa;
     }
+
     i {
       transition: margin-right 0.35s ease;
     }
+
     &:hover i {
       margin-right: -6px;
     }
@@ -160,6 +191,7 @@
 
           .project-inner {
             filter: var(--filter-active);
+
             .build {
               filter: grayscale(0);
             }
@@ -169,12 +201,15 @@
         &[project-id="website"] {
           background: var(--color-project-website);
         }
+
         &[project-id="wanilla"] {
           background: var(--color-project-wanilla);
         }
+
         &[project-id="teabotre"] {
           background: var(--color-project-teabotre);
         }
+
         &[project-id="ama"] {
           background: var(--color-project-ama);
         }
@@ -244,12 +279,15 @@
         &.type-everything {
           border-color: var(--color-white);
         }
+
         &.type-news {
           border-color: var(--color-green);
         }
+
         &.type-changelogs {
           border-color: var(--color-blue);
         }
+
         &.type-issues {
           border-color: var(--color-red);
         }
