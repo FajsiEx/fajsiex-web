@@ -64,7 +64,7 @@
 			<div class="event" *ngFor="let event of events">
 				<div class="issue" *ngIf="event.type=='issue'">
 					<h3 class="project-title">
-						<span class="project-name" [attr.project-id]="event.project_id">{{event.project}}</span>
+						<span class="project-name bold" [attr.project-id]="event.project_id">{{event.project}}</span>
 
 						<span class="after-project bold" [ngClass]="{
 								'color-red': !event.resolved,
